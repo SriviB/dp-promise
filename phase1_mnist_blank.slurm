@@ -3,7 +3,7 @@
 #SBATCH -o status/phase1_blank_%j.o
 #SBATCH -e status/phase1_blank_%j.e
 #SBATCH -p gh
-#SBATCH -N 1
+#SBATCH -N 20
 #SBATCH --ntasks-per-node=1
 #SBATCH -t 04:00:00
 #SBATCH -A ASC25102
