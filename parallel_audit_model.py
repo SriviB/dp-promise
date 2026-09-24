@@ -251,6 +251,8 @@ def train_model(model_name, X, y, X_target, y_target, epsilon, delta, max_grad_n
 
     # Phase 1 training loop
     for epoch in range(n_epochs):
+        epoch_loss = 0.0
+        step_count = 0
         for X_batch, y_batch in dataloader:
             X_batch = X_batch.to(device)
             # Unconditional / class-free diffusion training for Phase 1
@@ -260,6 +262,12 @@ def train_model(model_name, X, y, X_target, y_target, epsilon, delta, max_grad_n
             optimizer.zero_grad(set_to_none=True)
             loss.backward()
             optimizer.step()
+            epoch_loss += loss.item()
+            step_count += 1
+
+        if step_count > 0:
+            epoch_loss /= step_count
+        print(f"  [Rank {rank}] Model (Rep {generator.initial_seed()//2 if generator else rep_idx}) | Epoch {epoch+1}/{n_epochs} | Denoising Loss: {epoch_loss:.5f}")
 
     return model, trainer
 
@@ -400,7 +408,8 @@ def main():
         
         # Each rank trains its assigned models
         for rep_idx, rep in enumerate(my_reps):
-            print(f"[Rank {rank}] Training rep {rep_idx+1}/{len(my_reps)} (global rep {rep})")
+            print(f"[Rank {rank}] World: {world.upper()} | Model {rep_idx+1}/{len(my_reps)} (Global Rep {rep})")
+            t0 = time.time()
             
             # Create unique generators for each repetition
             # Use rep (global repetition number) to ensure uniqueness across all GPUs
@@ -459,6 +468,7 @@ def main():
                 # Store locally - no gathering needed
                 outputs[world].append(output.cpu().numpy())
                 losses[world].append(loss)
+                print(f"  [Rank {rank}] World {world.upper()} | Rep {rep} Finished | Canary Score: {loss:.5f} (MSE: {-loss:.5f}) | Time: {time.time() - t0:.2f}s")
 
             if args.store_all_losses:
                 all_losses[world].append(compute_per_sample_losses(model, trainer, curr_X, curr_y, config, device=device))
