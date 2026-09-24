@@ -17,9 +17,15 @@ cd $WORK/dp-promise
 mkdir -p status results/phase1_mnist_blank_400reps
 
 echo "=== Running DP-PROMISE Phase 1 Blank Canary Audit (400 Reps) ==="
-python -c "import torch; print(f'PyTorch: {torch.__version__} | CUDA Available: {torch.cuda.is_available()} | Device: {torch.cuda.get_device_name(0) if torch.cuda.is_available() else \"CPU\"}')"
+python -c 'import torch; print(f"PyTorch: {torch.__version__} | CUDA Available: {torch.cuda.is_available()} | Device: {torch.cuda.get_device_name(0) if torch.cuda.is_available() else \"CPU\"}")'
 
-python parallel_audit_model.py \
+srun --ntasks=$SLURM_NTASKS --nodes=$SLURM_JOB_NUM_NODES bash -c '
+  MASTER_ADDR=$(scontrol show hostnames $SLURM_JOB_NODELIST | head -n 1);
+  MASTER_PORT=29500;
+  torchrun --nnodes=$SLURM_JOB_NUM_NODES --nproc_per_node=1 \
+    --rdzv_backend=c10d \
+    --rdzv_endpoint=${MASTER_ADDR}:${MASTER_PORT} \
+    parallel_audit_model.py \
     --config configs/dp_promise/mnist_28/eps10.0/config.yaml \
     --data_name mnist \
     --model_name unet \
@@ -29,5 +35,6 @@ python parallel_audit_model.py \
     --holdout_audit \
     --store_all_losses \
     --out results/phase1_mnist_blank_400reps
+'
 
 echo "=== Audit Completed ==="
