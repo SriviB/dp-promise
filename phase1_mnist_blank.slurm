@@ -5,7 +5,7 @@
 #SBATCH -p gh
 #SBATCH -N 1
 #SBATCH --ntasks-per-node=1
-#SBATCH -t 00:30:00
+#SBATCH -t 02:00:00
 #SBATCH -A ASC25102
 
 module load cuda/12.4
@@ -14,24 +14,20 @@ eval "$(conda shell.bash hook)"
 conda activate dp_promise
 cd $WORK/dp-promise
 
-mkdir -p status results/test_run_slurm
+mkdir -p status results/phase1_mnist_blank_400reps
 
-echo "=== Running SLURM Sanity Check ==="
+echo "=== Running DP-PROMISE Phase 1 Blank Canary Audit (400 Reps) ==="
 python -c "import torch; print(f'PyTorch: {torch.__version__} | CUDA Available: {torch.cuda.is_available()} | Device: {torch.cuda.get_device_name(0) if torch.cuda.is_available() else \"CPU\"}')"
 
 python parallel_audit_model.py \
     --config configs/dp_promise/mnist_28/eps10.0/config.yaml \
     --data_name mnist \
     --model_name unet \
-    --n_reps 2 \
-    --n_epochs 1 \
-    --n_df 32 \
-    --batch_size 32 \
-    --eval_noise_samples 2 \
+    --n_reps 400 \
     --target_type blank \
     --seed 0 \
     --holdout_audit \
     --store_all_losses \
-    --out results/test_run_slurm
+    --out results/phase1_mnist_blank_400reps
 
-echo "=== Sanity Check Completed ==="
+echo "=== Audit Completed ==="

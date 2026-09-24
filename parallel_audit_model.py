@@ -530,7 +530,7 @@ def main():
                 t_losses = {'in': None, 'out': None}
                 holdout_losses = {'in': None, 'out': None}
 
-                if args.holdout_audit:
+                if args.holdout_audit and n >= 2:
                     # Use random sampling for holdout split to avoid ordering effects
                     np.random.seed(args.seed)  # Use same seed for reproducibility
                     indices = np.random.permutation(n)
@@ -552,7 +552,7 @@ def main():
 
                 max_t, emp_eps_loss, _ = compute_eps_lower_from_mia(mia_scores, mia_labels, args.alpha, args.delta, 'GDP', n_procs=1)
 
-                if args.holdout_audit:
+                if args.holdout_audit and n >= 2 and max_t is not None:
                     emp_eps_loss, _ = compute_eps_lower_from_mia_given_t(np.concatenate(
                         [holdout_losses['in'], holdout_losses['out']]), 
                         np.concatenate([np.ones_like(holdout_losses['in']), np.zeros_like(holdout_losses['out'])]), 
