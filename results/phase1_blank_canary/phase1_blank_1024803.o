@@ -1,0 +1,2051 @@
+=== Running DP-PROMISE Phase 1 Blank Canary Audit (400 Reps) ===
+[Rank 9] Using device: NVIDIA GH200 120GB
+[Rank 10] Using device: NVIDIA GH200 120GB
+[Rank 18] Using device: NVIDIA GH200 120GB
+[Rank 0] Using device: NVIDIA GH200 120GB
+[Rank 17] Using device: NVIDIA GH200 120GB
+[Rank 4] Using device: NVIDIA GH200 120GB
+[Rank 3] Using device: NVIDIA GH200 120GB
+[Rank 14] Using device: NVIDIA GH200 120GB
+[Rank 6] Using device: NVIDIA GH200 120GB
+[Rank 11] Using device: NVIDIA GH200 120GB
+[Rank 16] Using device: NVIDIA GH200 120GB
+[Rank 15] Using device: NVIDIA GH200 120GB
+[Rank 1] Using device: NVIDIA GH200 120GB
+[Rank 7] Using device: NVIDIA GH200 120GB
+[Rank 12] Using device: NVIDIA GH200 120GB
+[Rank 19] Using device: NVIDIA GH200 120GB
+[Rank 2] Using device: NVIDIA GH200 120GB
+[Rank 8] Using device: NVIDIA GH200 120GB
+[Rank 5] Using device: NVIDIA GH200 120GB
+[Rank 13] Using device: NVIDIA GH200 120GB
+Loading data
+[Rank 9] World: IN | Model 1/10 (Global Rep 9)
+[Rank 17] World: IN | Model 1/10 (Global Rep 17)
+[Rank 7] World: IN | Model 1/10 (Global Rep 7)
+[Rank 16] World: IN | Model 1/10 (Global Rep 16)
+[Rank 15] World: IN | Model 1/10 (Global Rep 15)
+[Rank 5] World: IN | Model 1/10 (Global Rep 5)
+[Rank 11] World: IN | Model 1/10 (Global Rep 11)
+[Rank 6] World: IN | Model 1/10 (Global Rep 6)
+[Rank 18] World: IN | Model 1/10 (Global Rep 18)
+[Rank 12] World: IN | Model 1/10 (Global Rep 12)
+[Rank 1] World: IN | Model 1/10 (Global Rep 1)
+[Rank 13] World: IN | Model 1/10 (Global Rep 13)
+[Rank 3] World: IN | Model 1/10 (Global Rep 3)
+[Rank 19] World: IN | Model 1/10 (Global Rep 19)
+[Rank 8] World: IN | Model 1/10 (Global Rep 8)
+[Rank 14] World: IN | Model 1/10 (Global Rep 14)
+[Rank 10] World: IN | Model 1/10 (Global Rep 10)
+[Rank 4] World: IN | Model 1/10 (Global Rep 4)
+Initializing model
+Crafting target data point
+Training models
+Rep distribution: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+[Rank 0] World: IN | Model 1/10 (Global Rep 0)
+[Rank 2] World: IN | Model 1/10 (Global Rep 2)
+  [Rank 11] Model (Rep 11) | Epoch 1/3 | Denoising Loss: 0.01294
+  [Rank 17] Model (Rep 17) | Epoch 1/3 | Denoising Loss: 0.01293
+  [Rank 7] Model (Rep 7) | Epoch 1/3 | Denoising Loss: 0.01322
+  [Rank 13] Model (Rep 13) | Epoch 1/3 | Denoising Loss: 0.01303
+  [Rank 18] Model (Rep 18) | Epoch 1/3 | Denoising Loss: 0.01297
+  [Rank 16] Model (Rep 16) | Epoch 1/3 | Denoising Loss: 0.01294
+  [Rank 4] Model (Rep 4) | Epoch 1/3 | Denoising Loss: 0.01290
+  [Rank 2] Model (Rep 2) | Epoch 1/3 | Denoising Loss: 0.01304
+  [Rank 3] Model (Rep 3) | Epoch 1/3 | Denoising Loss: 0.01302
+  [Rank 19] Model (Rep 19) | Epoch 1/3 | Denoising Loss: 0.01305
+  [Rank 1] Model (Rep 1) | Epoch 1/3 | Denoising Loss: 0.01298
+  [Rank 6] Model (Rep 6) | Epoch 1/3 | Denoising Loss: 0.01298
+  [Rank 10] Model (Rep 10) | Epoch 1/3 | Denoising Loss: 0.01316
+  [Rank 15] Model (Rep 15) | Epoch 1/3 | Denoising Loss: 0.01294
+  [Rank 12] Model (Rep 12) | Epoch 1/3 | Denoising Loss: 0.01314
+  [Rank 0] Model (Rep 0) | Epoch 1/3 | Denoising Loss: 0.01296
+  [Rank 8] Model (Rep 8) | Epoch 1/3 | Denoising Loss: 0.01310
+  [Rank 5] Model (Rep 5) | Epoch 1/3 | Denoising Loss: 0.01306
+  [Rank 9] Model (Rep 9) | Epoch 1/3 | Denoising Loss: 0.01310
+  [Rank 14] Model (Rep 14) | Epoch 1/3 | Denoising Loss: 0.01300
+  [Rank 11] Model (Rep 11) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 7] Model (Rep 7) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 17] Model (Rep 17) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 13] Model (Rep 13) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 18] Model (Rep 18) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 16] Model (Rep 16) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 4] Model (Rep 4) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 3] Model (Rep 3) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 2] Model (Rep 2) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 19] Model (Rep 19) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 1] Model (Rep 1) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 6] Model (Rep 6) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 10] Model (Rep 10) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 15] Model (Rep 15) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 12] Model (Rep 12) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 8] Model (Rep 8) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 5] Model (Rep 5) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 0] Model (Rep 0) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 9] Model (Rep 9) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 14] Model (Rep 14) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 11] Model (Rep 11) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 11] World IN | Rep 11 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 240.61s
+  [Rank 7] Model (Rep 7) | Epoch 3/3 | Denoising Loss: 0.00009
+  [Rank 17] Model (Rep 17) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 13] Model (Rep 13) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 7] World IN | Rep 7 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 244.71s
+  [Rank 17] World IN | Rep 17 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 244.74s
+  [Rank 13] World IN | Rep 13 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 244.65s
+  [Rank 18] Model (Rep 18) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 18] World IN | Rep 18 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 246.30s
+  [Rank 4] Model (Rep 4) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 16] Model (Rep 16) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 4] World IN | Rep 4 Finished | Canary Score: -0.00008 (MSE: 0.00008) | Time: 247.03s
+  [Rank 16] World IN | Rep 16 Finished | Canary Score: -0.00003 (MSE: 0.00003) | Time: 247.73s
+  [Rank 19] Model (Rep 19) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 2] Model (Rep 2) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 3] Model (Rep 3) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 19] World IN | Rep 19 Finished | Canary Score: -0.00009 (MSE: 0.00009) | Time: 249.61s
+  [Rank 2] World IN | Rep 2 Finished | Canary Score: -0.00007 (MSE: 0.00007) | Time: 249.38s
+  [Rank 1] Model (Rep 1) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 3] World IN | Rep 3 Finished | Canary Score: -0.00007 (MSE: 0.00007) | Time: 249.79s
+  [Rank 1] World IN | Rep 1 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 250.29s
+  [Rank 6] Model (Rep 6) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 10] Model (Rep 10) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 6] World IN | Rep 6 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 251.39s
+  [Rank 15] Model (Rep 15) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 10] World IN | Rep 10 Finished | Canary Score: -0.00007 (MSE: 0.00007) | Time: 251.70s
+  [Rank 15] World IN | Rep 15 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 251.98s
+  [Rank 12] Model (Rep 12) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 8] Model (Rep 8) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 12] World IN | Rep 12 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 252.73s
+  [Rank 5] Model (Rep 5) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 8] World IN | Rep 8 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 252.97s
+  [Rank 5] World IN | Rep 5 Finished | Canary Score: -0.00008 (MSE: 0.00008) | Time: 253.41s
+  [Rank 0] Model (Rep 0) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 0] World IN | Rep 0 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 254.80s
+  [Rank 9] Model (Rep 9) | Epoch 3/3 | Denoising Loss: 0.00009
+[Rank 11] World: IN | Model 2/10 (Global Rep 31)
+  [Rank 9] World IN | Rep 9 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 256.29s
+  [Rank 14] Model (Rep 14) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 14] World IN | Rep 14 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 256.88s
+[Rank 7] World: IN | Model 2/10 (Global Rep 27)
+[Rank 17] World: IN | Model 2/10 (Global Rep 37)
+[Rank 13] World: IN | Model 2/10 (Global Rep 33)
+[Rank 18] World: IN | Model 2/10 (Global Rep 38)
+[Rank 4] World: IN | Model 2/10 (Global Rep 24)
+[Rank 16] World: IN | Model 2/10 (Global Rep 36)
+[Rank 3] World: IN | Model 2/10 (Global Rep 23)
+[Rank 19] World: IN | Model 2/10 (Global Rep 39)
+[Rank 2] World: IN | Model 2/10 (Global Rep 22)
+[Rank 1] World: IN | Model 2/10 (Global Rep 21)
+[Rank 6] World: IN | Model 2/10 (Global Rep 26)
+[Rank 10] World: IN | Model 2/10 (Global Rep 30)
+[Rank 15] World: IN | Model 2/10 (Global Rep 35)
+[Rank 12] World: IN | Model 2/10 (Global Rep 32)
+[Rank 5] World: IN | Model 2/10 (Global Rep 25)
+[Rank 8] World: IN | Model 2/10 (Global Rep 28)
+[Rank 0] World: IN | Model 2/10 (Global Rep 20)
+[Rank 9] World: IN | Model 2/10 (Global Rep 29)
+[Rank 14] World: IN | Model 2/10 (Global Rep 34)
+  [Rank 11] Model (Rep 31) | Epoch 1/3 | Denoising Loss: 0.01311
+  [Rank 17] Model (Rep 37) | Epoch 1/3 | Denoising Loss: 0.01304
+  [Rank 7] Model (Rep 27) | Epoch 1/3 | Denoising Loss: 0.01313
+  [Rank 13] Model (Rep 33) | Epoch 1/3 | Denoising Loss: 0.01294
+  [Rank 18] Model (Rep 38) | Epoch 1/3 | Denoising Loss: 0.01302
+  [Rank 16] Model (Rep 36) | Epoch 1/3 | Denoising Loss: 0.01305
+  [Rank 3] Model (Rep 23) | Epoch 1/3 | Denoising Loss: 0.01300
+  [Rank 4] Model (Rep 24) | Epoch 1/3 | Denoising Loss: 0.01290
+  [Rank 2] Model (Rep 22) | Epoch 1/3 | Denoising Loss: 0.01291
+  [Rank 19] Model (Rep 39) | Epoch 1/3 | Denoising Loss: 0.01290
+  [Rank 1] Model (Rep 21) | Epoch 1/3 | Denoising Loss: 0.01293
+  [Rank 6] Model (Rep 26) | Epoch 1/3 | Denoising Loss: 0.01293
+  [Rank 12] Model (Rep 32) | Epoch 1/3 | Denoising Loss: 0.01316
+  [Rank 10] Model (Rep 30) | Epoch 1/3 | Denoising Loss: 0.01294
+  [Rank 5] Model (Rep 25) | Epoch 1/3 | Denoising Loss: 0.01305
+  [Rank 15] Model (Rep 35) | Epoch 1/3 | Denoising Loss: 0.01302
+  [Rank 8] Model (Rep 28) | Epoch 1/3 | Denoising Loss: 0.01294
+  [Rank 9] Model (Rep 29) | Epoch 1/3 | Denoising Loss: 0.01316
+  [Rank 0] Model (Rep 20) | Epoch 1/3 | Denoising Loss: 0.01301
+  [Rank 14] Model (Rep 34) | Epoch 1/3 | Denoising Loss: 0.01298
+  [Rank 11] Model (Rep 31) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 17] Model (Rep 37) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 7] Model (Rep 27) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 13] Model (Rep 33) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 18] Model (Rep 38) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 16] Model (Rep 36) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 3] Model (Rep 23) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 2] Model (Rep 22) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 19] Model (Rep 39) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 1] Model (Rep 21) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 4] Model (Rep 24) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 12] Model (Rep 32) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 6] Model (Rep 26) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 5] Model (Rep 25) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 9] Model (Rep 29) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 10] Model (Rep 30) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 15] Model (Rep 35) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 8] Model (Rep 28) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 0] Model (Rep 20) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 14] Model (Rep 34) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 11] Model (Rep 31) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 11] World IN | Rep 31 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 227.46s
+  [Rank 17] Model (Rep 37) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 17] World IN | Rep 37 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 232.02s
+  [Rank 7] Model (Rep 27) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 7] World IN | Rep 27 Finished | Canary Score: -0.00007 (MSE: 0.00007) | Time: 234.12s
+  [Rank 18] Model (Rep 38) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 13] Model (Rep 33) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 3] Model (Rep 23) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 18] World IN | Rep 38 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 235.13s
+  [Rank 16] Model (Rep 36) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 3] World IN | Rep 23 Finished | Canary Score: -0.00008 (MSE: 0.00008) | Time: 232.02s
+  [Rank 13] World IN | Rep 33 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 236.72s
+  [Rank 16] World IN | Rep 36 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 234.75s
+[Rank 11] World: IN | Model 3/10 (Global Rep 51)
+  [Rank 2] Model (Rep 22) | Epoch 3/3 | Denoising Loss: 0.00009
+  [Rank 2] World IN | Rep 22 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 235.24s
+  [Rank 19] Model (Rep 39) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 12] Model (Rep 32) | Epoch 3/3 | Denoising Loss: 0.00009
+  [Rank 19] World IN | Rep 39 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 237.92s
+  [Rank 12] World IN | Rep 32 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 234.83s
+  [Rank 1] Model (Rep 21) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 1] World IN | Rep 21 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 237.52s
+  [Rank 6] Model (Rep 26) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 6] World IN | Rep 26 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 237.50s
+  [Rank 4] Model (Rep 24) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 4] World IN | Rep 24 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 242.89s
+  [Rank 9] Model (Rep 29) | Epoch 3/3 | Denoising Loss: 0.00008
+[Rank 17] World: IN | Model 3/10 (Global Rep 57)
+  [Rank 5] Model (Rep 25) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 9] World IN | Rep 29 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 235.39s
+  [Rank 5] World IN | Rep 25 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 238.91s
+[Rank 7] World: IN | Model 3/10 (Global Rep 47)
+  [Rank 10] Model (Rep 30) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 8] Model (Rep 28) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 10] World IN | Rep 30 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 242.27s
+  [Rank 8] World IN | Rep 28 Finished | Canary Score: -0.00007 (MSE: 0.00007) | Time: 241.12s
+  [Rank 15] Model (Rep 35) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 15] World IN | Rep 35 Finished | Canary Score: -0.00009 (MSE: 0.00009) | Time: 242.77s
+[Rank 16] World: IN | Model 3/10 (Global Rep 56)
+[Rank 3] World: IN | Model 3/10 (Global Rep 43)
+[Rank 18] World: IN | Model 3/10 (Global Rep 58)
+[Rank 13] World: IN | Model 3/10 (Global Rep 53)
+[Rank 2] World: IN | Model 3/10 (Global Rep 42)
+  [Rank 0] Model (Rep 20) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 0] World IN | Rep 20 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 246.55s
+  [Rank 14] Model (Rep 34) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 14] World IN | Rep 34 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 245.00s
+[Rank 19] World: IN | Model 3/10 (Global Rep 59)
+[Rank 12] World: IN | Model 3/10 (Global Rep 52)
+[Rank 1] World: IN | Model 3/10 (Global Rep 41)
+[Rank 6] World: IN | Model 3/10 (Global Rep 46)
+[Rank 4] World: IN | Model 3/10 (Global Rep 44)
+[Rank 9] World: IN | Model 3/10 (Global Rep 49)
+[Rank 5] World: IN | Model 3/10 (Global Rep 45)
+[Rank 8] World: IN | Model 3/10 (Global Rep 48)
+[Rank 10] World: IN | Model 3/10 (Global Rep 50)
+[Rank 15] World: IN | Model 3/10 (Global Rep 55)
+[Rank 0] World: IN | Model 3/10 (Global Rep 40)
+[Rank 14] World: IN | Model 3/10 (Global Rep 54)
+  [Rank 11] Model (Rep 51) | Epoch 1/3 | Denoising Loss: 0.01302
+  [Rank 17] Model (Rep 57) | Epoch 1/3 | Denoising Loss: 0.01295
+  [Rank 7] Model (Rep 47) | Epoch 1/3 | Denoising Loss: 0.01289
+  [Rank 3] Model (Rep 43) | Epoch 1/3 | Denoising Loss: 0.01301
+  [Rank 13] Model (Rep 53) | Epoch 1/3 | Denoising Loss: 0.01299
+  [Rank 18] Model (Rep 58) | Epoch 1/3 | Denoising Loss: 0.01285
+  [Rank 16] Model (Rep 56) | Epoch 1/3 | Denoising Loss: 0.01304
+  [Rank 2] Model (Rep 42) | Epoch 1/3 | Denoising Loss: 0.01315
+  [Rank 12] Model (Rep 52) | Epoch 1/3 | Denoising Loss: 0.01305
+  [Rank 19] Model (Rep 59) | Epoch 1/3 | Denoising Loss: 0.01298
+  [Rank 1] Model (Rep 41) | Epoch 1/3 | Denoising Loss: 0.01295
+  [Rank 6] Model (Rep 46) | Epoch 1/3 | Denoising Loss: 0.01295
+  [Rank 5] Model (Rep 45) | Epoch 1/3 | Denoising Loss: 0.01301
+  [Rank 4] Model (Rep 44) | Epoch 1/3 | Denoising Loss: 0.01299
+  [Rank 9] Model (Rep 49) | Epoch 1/3 | Denoising Loss: 0.01302
+  [Rank 10] Model (Rep 50) | Epoch 1/3 | Denoising Loss: 0.01287
+  [Rank 8] Model (Rep 48) | Epoch 1/3 | Denoising Loss: 0.01306
+  [Rank 15] Model (Rep 55) | Epoch 1/3 | Denoising Loss: 0.01304
+  [Rank 0] Model (Rep 40) | Epoch 1/3 | Denoising Loss: 0.01298
+  [Rank 14] Model (Rep 54) | Epoch 1/3 | Denoising Loss: 0.01294
+  [Rank 11] Model (Rep 51) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 17] Model (Rep 57) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 7] Model (Rep 47) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 3] Model (Rep 43) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 13] Model (Rep 53) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 18] Model (Rep 58) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 16] Model (Rep 56) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 2] Model (Rep 42) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 12] Model (Rep 52) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 19] Model (Rep 59) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 1] Model (Rep 41) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 5] Model (Rep 45) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 6] Model (Rep 46) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 4] Model (Rep 44) | Epoch 2/3 | Denoising Loss: 0.00010
+  [Rank 9] Model (Rep 49) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 10] Model (Rep 50) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 8] Model (Rep 48) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 15] Model (Rep 55) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 0] Model (Rep 40) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 14] Model (Rep 54) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 11] Model (Rep 51) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 11] World IN | Rep 51 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 230.33s
+  [Rank 17] Model (Rep 57) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 17] World IN | Rep 57 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 230.69s
+  [Rank 7] Model (Rep 47) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 7] World IN | Rep 47 Finished | Canary Score: -0.00010 (MSE: 0.00010) | Time: 234.01s
+  [Rank 3] Model (Rep 43) | Epoch 3/3 | Denoising Loss: 0.00008
+[Rank 11] World: IN | Model 4/10 (Global Rep 71)
+  [Rank 3] World IN | Rep 43 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 232.50s
+  [Rank 13] Model (Rep 53) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 13] World IN | Rep 53 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 233.87s
+  [Rank 18] Model (Rep 58) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 18] World IN | Rep 58 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 235.05s
+  [Rank 16] Model (Rep 56) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 16] World IN | Rep 56 Finished | Canary Score: -0.00008 (MSE: 0.00008) | Time: 237.05s
+[Rank 17] World: IN | Model 4/10 (Global Rep 77)
+  [Rank 12] Model (Rep 52) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 2] Model (Rep 42) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 12] World IN | Rep 52 Finished | Canary Score: -0.00007 (MSE: 0.00007) | Time: 235.28s
+  [Rank 2] World IN | Rep 42 Finished | Canary Score: -0.00008 (MSE: 0.00008) | Time: 238.06s
+  [Rank 5] Model (Rep 45) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 5] World IN | Rep 45 Finished | Canary Score: -0.00007 (MSE: 0.00007) | Time: 232.38s
+  [Rank 19] Model (Rep 59) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 19] World IN | Rep 59 Finished | Canary Score: -0.00010 (MSE: 0.00010) | Time: 237.93s
+  [Rank 1] Model (Rep 41) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 1] World IN | Rep 41 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 237.91s
+  [Rank 6] Model (Rep 46) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 6] World IN | Rep 46 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 237.13s
+[Rank 7] World: IN | Model 4/10 (Global Rep 67)
+  [Rank 4] Model (Rep 44) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 9] Model (Rep 49) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 4] World IN | Rep 44 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 238.35s
+[Rank 3] World: IN | Model 4/10 (Global Rep 63)
+  [Rank 9] World IN | Rep 49 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 237.42s
+[Rank 13] World: IN | Model 4/10 (Global Rep 73)
+[Rank 18] World: IN | Model 4/10 (Global Rep 78)
+  [Rank 10] Model (Rep 50) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 10] World IN | Rep 50 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 238.33s
+[Rank 16] World: IN | Model 4/10 (Global Rep 76)
+  [Rank 8] Model (Rep 48) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 8] World IN | Rep 48 Finished | Canary Score: -0.00009 (MSE: 0.00009) | Time: 241.87s
+  [Rank 15] Model (Rep 55) | Epoch 3/3 | Denoising Loss: 0.00008
+[Rank 12] World: IN | Model 4/10 (Global Rep 72)
+  [Rank 15] World IN | Rep 55 Finished | Canary Score: -0.00008 (MSE: 0.00008) | Time: 242.91s
+[Rank 2] World: IN | Model 4/10 (Global Rep 62)
+[Rank 5] World: IN | Model 4/10 (Global Rep 65)
+[Rank 19] World: IN | Model 4/10 (Global Rep 79)
+[Rank 1] World: IN | Model 4/10 (Global Rep 61)
+[Rank 6] World: IN | Model 4/10 (Global Rep 66)
+[Rank 9] World: IN | Model 4/10 (Global Rep 69)
+[Rank 4] World: IN | Model 4/10 (Global Rep 64)
+  [Rank 14] Model (Rep 54) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 0] Model (Rep 40) | Epoch 3/3 | Denoising Loss: 0.00008
+[Rank 10] World: IN | Model 4/10 (Global Rep 70)
+  [Rank 14] World IN | Rep 54 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 246.73s
+  [Rank 0] World IN | Rep 40 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 247.50s
+[Rank 8] World: IN | Model 4/10 (Global Rep 68)
+[Rank 15] World: IN | Model 4/10 (Global Rep 75)
+[Rank 0] World: IN | Model 4/10 (Global Rep 60)
+[Rank 14] World: IN | Model 4/10 (Global Rep 74)
+  [Rank 11] Model (Rep 71) | Epoch 1/3 | Denoising Loss: 0.01300
+  [Rank 17] Model (Rep 77) | Epoch 1/3 | Denoising Loss: 0.01296
+  [Rank 7] Model (Rep 67) | Epoch 1/3 | Denoising Loss: 0.01297
+  [Rank 3] Model (Rep 63) | Epoch 1/3 | Denoising Loss: 0.01314
+  [Rank 13] Model (Rep 73) | Epoch 1/3 | Denoising Loss: 0.01293
+  [Rank 18] Model (Rep 78) | Epoch 1/3 | Denoising Loss: 0.01311
+  [Rank 16] Model (Rep 76) | Epoch 1/3 | Denoising Loss: 0.01304
+  [Rank 12] Model (Rep 72) | Epoch 1/3 | Denoising Loss: 0.01317
+  [Rank 5] Model (Rep 65) | Epoch 1/3 | Denoising Loss: 0.01293
+  [Rank 19] Model (Rep 79) | Epoch 1/3 | Denoising Loss: 0.01297
+  [Rank 2] Model (Rep 62) | Epoch 1/3 | Denoising Loss: 0.01305
+  [Rank 1] Model (Rep 61) | Epoch 1/3 | Denoising Loss: 0.01296
+  [Rank 6] Model (Rep 66) | Epoch 1/3 | Denoising Loss: 0.01303
+  [Rank 9] Model (Rep 69) | Epoch 1/3 | Denoising Loss: 0.01294
+  [Rank 4] Model (Rep 64) | Epoch 1/3 | Denoising Loss: 0.01312
+  [Rank 10] Model (Rep 70) | Epoch 1/3 | Denoising Loss: 0.01313
+  [Rank 8] Model (Rep 68) | Epoch 1/3 | Denoising Loss: 0.01293
+  [Rank 15] Model (Rep 75) | Epoch 1/3 | Denoising Loss: 0.01301
+  [Rank 14] Model (Rep 74) | Epoch 1/3 | Denoising Loss: 0.01301
+  [Rank 0] Model (Rep 60) | Epoch 1/3 | Denoising Loss: 0.01303
+  [Rank 11] Model (Rep 71) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 17] Model (Rep 77) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 7] Model (Rep 67) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 3] Model (Rep 63) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 13] Model (Rep 73) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 18] Model (Rep 78) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 16] Model (Rep 76) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 12] Model (Rep 72) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 19] Model (Rep 79) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 5] Model (Rep 65) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 1] Model (Rep 61) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 6] Model (Rep 66) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 2] Model (Rep 62) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 9] Model (Rep 69) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 4] Model (Rep 64) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 10] Model (Rep 70) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 8] Model (Rep 68) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 15] Model (Rep 75) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 14] Model (Rep 74) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 0] Model (Rep 60) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 11] Model (Rep 71) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 11] World IN | Rep 71 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 227.41s
+  [Rank 17] Model (Rep 77) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 17] World IN | Rep 77 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 233.10s
+[Rank 11] World: IN | Model 5/10 (Global Rep 91)
+  [Rank 7] Model (Rep 67) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 7] World IN | Rep 67 Finished | Canary Score: -0.00009 (MSE: 0.00009) | Time: 233.59s
+  [Rank 3] Model (Rep 63) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 3] World IN | Rep 63 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 232.63s
+  [Rank 18] Model (Rep 78) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 13] Model (Rep 73) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 18] World IN | Rep 78 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 235.11s
+  [Rank 13] World IN | Rep 73 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 235.71s
+[Rank 17] World: IN | Model 5/10 (Global Rep 97)
+  [Rank 16] Model (Rep 76) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 16] World IN | Rep 76 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 237.04s
+  [Rank 12] Model (Rep 72) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 12] World IN | Rep 72 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 235.49s
+  [Rank 19] Model (Rep 79) | Epoch 3/3 | Denoising Loss: 0.00008
+[Rank 7] World: IN | Model 5/10 (Global Rep 87)
+  [Rank 19] World IN | Rep 79 Finished | Canary Score: -0.00011 (MSE: 0.00011) | Time: 235.23s
+[Rank 3] World: IN | Model 5/10 (Global Rep 83)
+  [Rank 5] Model (Rep 65) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 5] World IN | Rep 65 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 238.52s
+  [Rank 6] Model (Rep 66) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 1] Model (Rep 61) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 6] World IN | Rep 66 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 237.20s
+  [Rank 1] World IN | Rep 61 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 238.06s
+  [Rank 9] Model (Rep 69) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 2] Model (Rep 62) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 9] World IN | Rep 69 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 237.39s
+  [Rank 2] World IN | Rep 62 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 243.67s
+[Rank 18] World: IN | Model 5/10 (Global Rep 98)
+[Rank 13] World: IN | Model 5/10 (Global Rep 93)
+  [Rank 4] Model (Rep 64) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 4] World IN | Rep 64 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 240.06s
+[Rank 16] World: IN | Model 5/10 (Global Rep 96)
+  [Rank 10] Model (Rep 70) | Epoch 3/3 | Denoising Loss: 0.00008
+[Rank 12] World: IN | Model 5/10 (Global Rep 92)
+  [Rank 10] World IN | Rep 70 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 240.21s
+  [Rank 8] Model (Rep 68) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 8] World IN | Rep 68 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 239.44s
+[Rank 19] World: IN | Model 5/10 (Global Rep 99)
+[Rank 5] World: IN | Model 5/10 (Global Rep 85)
+[Rank 6] World: IN | Model 5/10 (Global Rep 86)
+[Rank 1] World: IN | Model 5/10 (Global Rep 81)
+  [Rank 15] Model (Rep 75) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 15] World IN | Rep 75 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 243.11s
+[Rank 9] World: IN | Model 5/10 (Global Rep 89)
+[Rank 2] World: IN | Model 5/10 (Global Rep 82)
+[Rank 4] World: IN | Model 5/10 (Global Rep 84)
+[Rank 10] World: IN | Model 5/10 (Global Rep 90)
+[Rank 8] World: IN | Model 5/10 (Global Rep 88)
+  [Rank 14] Model (Rep 74) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 14] World IN | Rep 74 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 241.66s
+  [Rank 0] Model (Rep 60) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 0] World IN | Rep 60 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 244.05s
+[Rank 15] World: IN | Model 5/10 (Global Rep 95)
+[Rank 14] World: IN | Model 5/10 (Global Rep 94)
+[Rank 0] World: IN | Model 5/10 (Global Rep 80)
+  [Rank 11] Model (Rep 91) | Epoch 1/3 | Denoising Loss: 0.01302
+  [Rank 17] Model (Rep 97) | Epoch 1/3 | Denoising Loss: 0.01322
+  [Rank 7] Model (Rep 87) | Epoch 1/3 | Denoising Loss: 0.01307
+  [Rank 3] Model (Rep 83) | Epoch 1/3 | Denoising Loss: 0.01306
+  [Rank 13] Model (Rep 93) | Epoch 1/3 | Denoising Loss: 0.01295
+  [Rank 18] Model (Rep 98) | Epoch 1/3 | Denoising Loss: 0.01314
+  [Rank 16] Model (Rep 96) | Epoch 1/3 | Denoising Loss: 0.01296
+  [Rank 12] Model (Rep 92) | Epoch 1/3 | Denoising Loss: 0.01300
+  [Rank 19] Model (Rep 99) | Epoch 1/3 | Denoising Loss: 0.01289
+  [Rank 5] Model (Rep 85) | Epoch 1/3 | Denoising Loss: 0.01296
+  [Rank 6] Model (Rep 86) | Epoch 1/3 | Denoising Loss: 0.01304
+  [Rank 1] Model (Rep 81) | Epoch 1/3 | Denoising Loss: 0.01295
+  [Rank 9] Model (Rep 89) | Epoch 1/3 | Denoising Loss: 0.01292
+  [Rank 2] Model (Rep 82) | Epoch 1/3 | Denoising Loss: 0.01307
+  [Rank 4] Model (Rep 84) | Epoch 1/3 | Denoising Loss: 0.01298
+  [Rank 10] Model (Rep 90) | Epoch 1/3 | Denoising Loss: 0.01305
+  [Rank 8] Model (Rep 88) | Epoch 1/3 | Denoising Loss: 0.01313
+  [Rank 15] Model (Rep 95) | Epoch 1/3 | Denoising Loss: 0.01309
+  [Rank 14] Model (Rep 94) | Epoch 1/3 | Denoising Loss: 0.01303
+  [Rank 0] Model (Rep 80) | Epoch 1/3 | Denoising Loss: 0.01294
+  [Rank 11] Model (Rep 91) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 17] Model (Rep 97) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 7] Model (Rep 87) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 3] Model (Rep 83) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 13] Model (Rep 93) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 18] Model (Rep 98) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 16] Model (Rep 96) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 12] Model (Rep 92) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 19] Model (Rep 99) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 6] Model (Rep 86) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 5] Model (Rep 85) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 1] Model (Rep 81) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 9] Model (Rep 89) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 2] Model (Rep 82) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 4] Model (Rep 84) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 10] Model (Rep 90) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 8] Model (Rep 88) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 15] Model (Rep 95) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 11] Model (Rep 91) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 11] World IN | Rep 91 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 230.40s
+  [Rank 14] Model (Rep 94) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 0] Model (Rep 80) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 17] Model (Rep 97) | Epoch 3/3 | Denoising Loss: 0.00009
+  [Rank 17] World IN | Rep 97 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 229.96s
+[Rank 11] World: IN | Model 6/10 (Global Rep 111)
+  [Rank 3] Model (Rep 83) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 7] Model (Rep 87) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 3] World IN | Rep 83 Finished | Canary Score: -0.00009 (MSE: 0.00009) | Time: 232.98s
+  [Rank 7] World IN | Rep 87 Finished | Canary Score: -0.00009 (MSE: 0.00009) | Time: 234.10s
+  [Rank 13] Model (Rep 93) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 13] World IN | Rep 93 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 231.24s
+[Rank 17] World: IN | Model 6/10 (Global Rep 117)
+  [Rank 18] Model (Rep 98) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 18] World IN | Rep 98 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 235.71s
+  [Rank 16] Model (Rep 96) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 16] World IN | Rep 96 Finished | Canary Score: -0.00008 (MSE: 0.00008) | Time: 237.25s
+  [Rank 12] Model (Rep 92) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 12] World IN | Rep 92 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 235.63s
+[Rank 3] World: IN | Model 6/10 (Global Rep 103)
+[Rank 7] World: IN | Model 6/10 (Global Rep 107)
+  [Rank 19] Model (Rep 99) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 19] World IN | Rep 99 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 237.54s
+[Rank 13] World: IN | Model 6/10 (Global Rep 113)
+  [Rank 6] Model (Rep 86) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 6] World IN | Rep 86 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 237.46s
+  [Rank 1] Model (Rep 81) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 5] Model (Rep 85) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 1] World IN | Rep 81 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 238.25s
+[Rank 18] World: IN | Model 6/10 (Global Rep 118)
+  [Rank 5] World IN | Rep 85 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 239.64s
+  [Rank 9] Model (Rep 89) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 9] World IN | Rep 89 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 238.24s
+  [Rank 4] Model (Rep 84) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 4] World IN | Rep 84 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 236.82s
+  [Rank 2] Model (Rep 82) | Epoch 3/3 | Denoising Loss: 0.00008
+[Rank 16] World: IN | Model 6/10 (Global Rep 116)
+  [Rank 2] World IN | Rep 82 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 240.58s
+  [Rank 10] Model (Rep 90) | Epoch 3/3 | Denoising Loss: 0.00008
+[Rank 12] World: IN | Model 6/10 (Global Rep 112)
+  [Rank 10] World IN | Rep 90 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 234.60s
+[Rank 19] World: IN | Model 6/10 (Global Rep 119)
+  [Rank 8] Model (Rep 88) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 8] World IN | Rep 88 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 239.13s
+[Rank 6] World: IN | Model 6/10 (Global Rep 106)
+[Rank 1] World: IN | Model 6/10 (Global Rep 101)
+[Rank 5] World: IN | Model 6/10 (Global Rep 105)
+[Rank 9] World: IN | Model 6/10 (Global Rep 109)
+[Rank 4] World: IN | Model 6/10 (Global Rep 104)
+[Rank 2] World: IN | Model 6/10 (Global Rep 102)
+[Rank 10] World: IN | Model 6/10 (Global Rep 110)
+  [Rank 15] Model (Rep 95) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 15] World IN | Rep 95 Finished | Canary Score: -0.00007 (MSE: 0.00007) | Time: 244.15s
+[Rank 8] World: IN | Model 6/10 (Global Rep 108)
+  [Rank 14] Model (Rep 94) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 14] World IN | Rep 94 Finished | Canary Score: -0.00010 (MSE: 0.00010) | Time: 246.52s
+  [Rank 0] Model (Rep 80) | Epoch 3/3 | Denoising Loss: 0.00009
+  [Rank 0] World IN | Rep 80 Finished | Canary Score: -0.00008 (MSE: 0.00008) | Time: 245.09s
+[Rank 15] World: IN | Model 6/10 (Global Rep 115)
+  [Rank 11] Model (Rep 111) | Epoch 1/3 | Denoising Loss: 0.01299
+[Rank 14] World: IN | Model 6/10 (Global Rep 114)
+[Rank 0] World: IN | Model 6/10 (Global Rep 100)
+  [Rank 17] Model (Rep 117) | Epoch 1/3 | Denoising Loss: 0.01307
+  [Rank 3] Model (Rep 103) | Epoch 1/3 | Denoising Loss: 0.01293
+  [Rank 7] Model (Rep 107) | Epoch 1/3 | Denoising Loss: 0.01306
+  [Rank 13] Model (Rep 113) | Epoch 1/3 | Denoising Loss: 0.01294
+  [Rank 18] Model (Rep 118) | Epoch 1/3 | Denoising Loss: 0.01328
+  [Rank 16] Model (Rep 116) | Epoch 1/3 | Denoising Loss: 0.01303
+  [Rank 12] Model (Rep 112) | Epoch 1/3 | Denoising Loss: 0.01315
+  [Rank 19] Model (Rep 119) | Epoch 1/3 | Denoising Loss: 0.01295
+  [Rank 6] Model (Rep 106) | Epoch 1/3 | Denoising Loss: 0.01321
+  [Rank 1] Model (Rep 101) | Epoch 1/3 | Denoising Loss: 0.01304
+  [Rank 5] Model (Rep 105) | Epoch 1/3 | Denoising Loss: 0.01290
+  [Rank 4] Model (Rep 104) | Epoch 1/3 | Denoising Loss: 0.01297
+  [Rank 9] Model (Rep 109) | Epoch 1/3 | Denoising Loss: 0.01318
+  [Rank 2] Model (Rep 102) | Epoch 1/3 | Denoising Loss: 0.01308
+  [Rank 10] Model (Rep 110) | Epoch 1/3 | Denoising Loss: 0.01297
+  [Rank 8] Model (Rep 108) | Epoch 1/3 | Denoising Loss: 0.01301
+  [Rank 15] Model (Rep 115) | Epoch 1/3 | Denoising Loss: 0.01297
+  [Rank 11] Model (Rep 111) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 14] Model (Rep 114) | Epoch 1/3 | Denoising Loss: 0.01298
+  [Rank 0] Model (Rep 100) | Epoch 1/3 | Denoising Loss: 0.01306
+  [Rank 17] Model (Rep 117) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 3] Model (Rep 103) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 7] Model (Rep 107) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 13] Model (Rep 113) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 18] Model (Rep 118) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 16] Model (Rep 116) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 12] Model (Rep 112) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 6] Model (Rep 106) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 19] Model (Rep 119) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 1] Model (Rep 101) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 5] Model (Rep 105) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 4] Model (Rep 104) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 2] Model (Rep 102) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 9] Model (Rep 109) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 10] Model (Rep 110) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 8] Model (Rep 108) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 11] Model (Rep 111) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 11] World IN | Rep 111 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 232.28s
+  [Rank 15] Model (Rep 115) | Epoch 2/3 | Denoising Loss: 0.00012
+[Rank 11] World: IN | Model 7/10 (Global Rep 131)
+  [Rank 17] Model (Rep 117) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 17] World IN | Rep 117 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 236.01s
+  [Rank 14] Model (Rep 114) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 0] Model (Rep 100) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 3] Model (Rep 103) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 3] World IN | Rep 103 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 233.24s
+  [Rank 7] Model (Rep 107) | Epoch 3/3 | Denoising Loss: 0.00009
+  [Rank 7] World IN | Rep 107 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 234.32s
+  [Rank 13] Model (Rep 113) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 13] World IN | Rep 113 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 234.61s
+[Rank 17] World: IN | Model 7/10 (Global Rep 137)
+  [Rank 18] Model (Rep 118) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 18] World IN | Rep 118 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 235.85s
+[Rank 3] World: IN | Model 7/10 (Global Rep 123)
+[Rank 7] World: IN | Model 7/10 (Global Rep 127)
+  [Rank 12] Model (Rep 112) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 16] Model (Rep 116) | Epoch 3/3 | Denoising Loss: 0.00009
+  [Rank 12] World IN | Rep 112 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 235.98s
+  [Rank 16] World IN | Rep 116 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 237.23s
+[Rank 13] World: IN | Model 7/10 (Global Rep 133)
+[Rank 18] World: IN | Model 7/10 (Global Rep 138)
+  [Rank 6] Model (Rep 106) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 6] World IN | Rep 106 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 237.75s
+  [Rank 1] Model (Rep 101) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 5] Model (Rep 105) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 1] World IN | Rep 101 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 238.08s
+  [Rank 5] World IN | Rep 105 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 238.14s
+  [Rank 19] Model (Rep 119) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 19] World IN | Rep 119 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 243.59s
+  [Rank 4] Model (Rep 104) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 4] World IN | Rep 104 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 235.28s
+  [Rank 2] Model (Rep 102) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 2] World IN | Rep 102 Finished | Canary Score: -0.00007 (MSE: 0.00007) | Time: 236.25s
+[Rank 12] World: IN | Model 7/10 (Global Rep 132)
+[Rank 16] World: IN | Model 7/10 (Global Rep 136)
+  [Rank 9] Model (Rep 109) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 9] World IN | Rep 109 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 241.07s
+  [Rank 10] Model (Rep 110) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 10] World IN | Rep 110 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 240.30s
+  [Rank 8] Model (Rep 108) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 8] World IN | Rep 108 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 238.89s
+[Rank 6] World: IN | Model 7/10 (Global Rep 126)
+[Rank 5] World: IN | Model 7/10 (Global Rep 125)
+[Rank 1] World: IN | Model 7/10 (Global Rep 121)
+[Rank 19] World: IN | Model 7/10 (Global Rep 139)
+[Rank 4] World: IN | Model 7/10 (Global Rep 124)
+[Rank 2] World: IN | Model 7/10 (Global Rep 122)
+[Rank 9] World: IN | Model 7/10 (Global Rep 129)
+[Rank 10] World: IN | Model 7/10 (Global Rep 130)
+[Rank 8] World: IN | Model 7/10 (Global Rep 128)
+  [Rank 15] Model (Rep 115) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 15] World IN | Rep 115 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 243.36s
+  [Rank 11] Model (Rep 131) | Epoch 1/3 | Denoising Loss: 0.01291
+[Rank 15] World: IN | Model 7/10 (Global Rep 135)
+  [Rank 14] Model (Rep 114) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 14] World IN | Rep 114 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 249.65s
+  [Rank 0] Model (Rep 100) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 0] World IN | Rep 100 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 250.06s
+  [Rank 17] Model (Rep 137) | Epoch 1/3 | Denoising Loss: 0.01292
+  [Rank 3] Model (Rep 123) | Epoch 1/3 | Denoising Loss: 0.01298
+[Rank 14] World: IN | Model 7/10 (Global Rep 134)
+  [Rank 7] Model (Rep 127) | Epoch 1/3 | Denoising Loss: 0.01307
+[Rank 0] World: IN | Model 7/10 (Global Rep 120)
+  [Rank 13] Model (Rep 133) | Epoch 1/3 | Denoising Loss: 0.01288
+  [Rank 18] Model (Rep 138) | Epoch 1/3 | Denoising Loss: 0.01295
+  [Rank 12] Model (Rep 132) | Epoch 1/3 | Denoising Loss: 0.01308
+  [Rank 16] Model (Rep 136) | Epoch 1/3 | Denoising Loss: 0.01290
+  [Rank 5] Model (Rep 125) | Epoch 1/3 | Denoising Loss: 0.01304
+  [Rank 6] Model (Rep 126) | Epoch 1/3 | Denoising Loss: 0.01295
+  [Rank 1] Model (Rep 121) | Epoch 1/3 | Denoising Loss: 0.01329
+  [Rank 4] Model (Rep 124) | Epoch 1/3 | Denoising Loss: 0.01310
+  [Rank 19] Model (Rep 139) | Epoch 1/3 | Denoising Loss: 0.01304
+  [Rank 2] Model (Rep 122) | Epoch 1/3 | Denoising Loss: 0.01304
+  [Rank 9] Model (Rep 129) | Epoch 1/3 | Denoising Loss: 0.01304
+  [Rank 10] Model (Rep 130) | Epoch 1/3 | Denoising Loss: 0.01300
+  [Rank 8] Model (Rep 128) | Epoch 1/3 | Denoising Loss: 0.01293
+  [Rank 11] Model (Rep 131) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 15] Model (Rep 135) | Epoch 1/3 | Denoising Loss: 0.01296
+  [Rank 17] Model (Rep 137) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 3] Model (Rep 123) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 7] Model (Rep 127) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 14] Model (Rep 134) | Epoch 1/3 | Denoising Loss: 0.01309
+  [Rank 0] Model (Rep 120) | Epoch 1/3 | Denoising Loss: 0.01317
+  [Rank 13] Model (Rep 133) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 18] Model (Rep 138) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 12] Model (Rep 132) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 16] Model (Rep 136) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 5] Model (Rep 125) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 4] Model (Rep 124) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 6] Model (Rep 126) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 1] Model (Rep 121) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 19] Model (Rep 139) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 2] Model (Rep 122) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 9] Model (Rep 129) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 10] Model (Rep 130) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 8] Model (Rep 128) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 11] Model (Rep 131) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 11] World IN | Rep 131 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 233.08s
+  [Rank 15] Model (Rep 135) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 17] Model (Rep 137) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 17] World IN | Rep 137 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 230.49s
+[Rank 11] World: IN | Model 8/10 (Global Rep 151)
+  [Rank 3] Model (Rep 123) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 3] World IN | Rep 123 Finished | Canary Score: -0.00007 (MSE: 0.00007) | Time: 233.57s
+  [Rank 7] Model (Rep 127) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 7] World IN | Rep 127 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 234.20s
+[Rank 17] World: IN | Model 8/10 (Global Rep 157)
+  [Rank 14] Model (Rep 134) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 0] Model (Rep 120) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 13] Model (Rep 133) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 13] World IN | Rep 133 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 239.01s
+  [Rank 18] Model (Rep 138) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 18] World IN | Rep 138 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 235.55s
+[Rank 3] World: IN | Model 8/10 (Global Rep 143)
+[Rank 7] World: IN | Model 8/10 (Global Rep 147)
+  [Rank 12] Model (Rep 132) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 12] World IN | Rep 132 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 235.85s
+  [Rank 16] Model (Rep 136) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 16] World IN | Rep 136 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 237.16s
+[Rank 13] World: IN | Model 8/10 (Global Rep 153)
+[Rank 18] World: IN | Model 8/10 (Global Rep 158)
+  [Rank 5] Model (Rep 125) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 5] World IN | Rep 125 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 234.53s
+  [Rank 4] Model (Rep 124) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 4] World IN | Rep 124 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 234.24s
+  [Rank 1] Model (Rep 121) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 6] Model (Rep 126) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 1] World IN | Rep 121 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 237.94s
+  [Rank 6] World IN | Rep 126 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 238.85s
+  [Rank 19] Model (Rep 139) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 19] World IN | Rep 139 Finished | Canary Score: -0.00008 (MSE: 0.00008) | Time: 237.86s
+[Rank 12] World: IN | Model 8/10 (Global Rep 152)
+[Rank 16] World: IN | Model 8/10 (Global Rep 156)
+  [Rank 2] Model (Rep 122) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 2] World IN | Rep 122 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 240.31s
+  [Rank 9] Model (Rep 129) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 9] World IN | Rep 129 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 241.28s
+[Rank 5] World: IN | Model 8/10 (Global Rep 145)
+  [Rank 10] Model (Rep 130) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 10] World IN | Rep 130 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 241.36s
+  [Rank 8] Model (Rep 128) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 8] World IN | Rep 128 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 239.27s
+[Rank 4] World: IN | Model 8/10 (Global Rep 144)
+[Rank 1] World: IN | Model 8/10 (Global Rep 141)
+[Rank 6] World: IN | Model 8/10 (Global Rep 146)
+[Rank 19] World: IN | Model 8/10 (Global Rep 159)
+[Rank 2] World: IN | Model 8/10 (Global Rep 142)
+[Rank 9] World: IN | Model 8/10 (Global Rep 149)
+[Rank 10] World: IN | Model 8/10 (Global Rep 150)
+[Rank 8] World: IN | Model 8/10 (Global Rep 148)
+  [Rank 11] Model (Rep 151) | Epoch 1/3 | Denoising Loss: 0.01328
+  [Rank 15] Model (Rep 135) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 15] World IN | Rep 135 Finished | Canary Score: -0.00007 (MSE: 0.00007) | Time: 241.60s
+  [Rank 17] Model (Rep 157) | Epoch 1/3 | Denoising Loss: 0.01303
+[Rank 15] World: IN | Model 8/10 (Global Rep 155)
+  [Rank 14] Model (Rep 134) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 14] World IN | Rep 134 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 246.05s
+  [Rank 0] Model (Rep 120) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 3] Model (Rep 143) | Epoch 1/3 | Denoising Loss: 0.01301
+  [Rank 0] World IN | Rep 120 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 246.72s
+  [Rank 7] Model (Rep 147) | Epoch 1/3 | Denoising Loss: 0.01307
+  [Rank 13] Model (Rep 153) | Epoch 1/3 | Denoising Loss: 0.01309
+[Rank 14] World: IN | Model 8/10 (Global Rep 154)
+  [Rank 18] Model (Rep 158) | Epoch 1/3 | Denoising Loss: 0.01298
+[Rank 0] World: IN | Model 8/10 (Global Rep 140)
+  [Rank 12] Model (Rep 152) | Epoch 1/3 | Denoising Loss: 0.01315
+  [Rank 16] Model (Rep 156) | Epoch 1/3 | Denoising Loss: 0.01303
+  [Rank 5] Model (Rep 145) | Epoch 1/3 | Denoising Loss: 0.01291
+  [Rank 4] Model (Rep 144) | Epoch 1/3 | Denoising Loss: 0.01303
+  [Rank 6] Model (Rep 146) | Epoch 1/3 | Denoising Loss: 0.01300
+  [Rank 1] Model (Rep 141) | Epoch 1/3 | Denoising Loss: 0.01322
+  [Rank 19] Model (Rep 159) | Epoch 1/3 | Denoising Loss: 0.01306
+  [Rank 2] Model (Rep 142) | Epoch 1/3 | Denoising Loss: 0.01305
+  [Rank 9] Model (Rep 149) | Epoch 1/3 | Denoising Loss: 0.01308
+  [Rank 10] Model (Rep 150) | Epoch 1/3 | Denoising Loss: 0.01299
+  [Rank 11] Model (Rep 151) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 8] Model (Rep 148) | Epoch 1/3 | Denoising Loss: 0.01289
+  [Rank 17] Model (Rep 157) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 15] Model (Rep 155) | Epoch 1/3 | Denoising Loss: 0.01286
+  [Rank 3] Model (Rep 143) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 7] Model (Rep 147) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 13] Model (Rep 153) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 18] Model (Rep 158) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 14] Model (Rep 154) | Epoch 1/3 | Denoising Loss: 0.01302
+  [Rank 0] Model (Rep 140) | Epoch 1/3 | Denoising Loss: 0.01291
+  [Rank 12] Model (Rep 152) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 16] Model (Rep 156) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 5] Model (Rep 145) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 4] Model (Rep 144) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 6] Model (Rep 146) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 1] Model (Rep 141) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 19] Model (Rep 159) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 2] Model (Rep 142) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 11] Model (Rep 151) | Epoch 3/3 | Denoising Loss: 0.00009
+  [Rank 9] Model (Rep 149) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 11] World IN | Rep 151 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 230.15s
+  [Rank 10] Model (Rep 150) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 8] Model (Rep 148) | Epoch 2/3 | Denoising Loss: 0.00011
+[Rank 11] World: IN | Model 9/10 (Global Rep 171)
+  [Rank 17] Model (Rep 157) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 17] World IN | Rep 157 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 234.84s
+  [Rank 15] Model (Rep 155) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 3] Model (Rep 143) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 3] World IN | Rep 143 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 233.22s
+  [Rank 7] Model (Rep 147) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 7] World IN | Rep 147 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 234.13s
+[Rank 17] World: IN | Model 9/10 (Global Rep 177)
+  [Rank 13] Model (Rep 153) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 13] World IN | Rep 153 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 235.01s
+[Rank 3] World: IN | Model 9/10 (Global Rep 163)
+  [Rank 18] Model (Rep 158) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 18] World IN | Rep 158 Finished | Canary Score: -0.00008 (MSE: 0.00008) | Time: 236.27s
+[Rank 7] World: IN | Model 9/10 (Global Rep 167)
+  [Rank 14] Model (Rep 154) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 12] Model (Rep 152) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 12] World IN | Rep 152 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 235.88s
+  [Rank 0] Model (Rep 140) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 16] Model (Rep 156) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 16] World IN | Rep 156 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 237.58s
+[Rank 13] World: IN | Model 9/10 (Global Rep 173)
+[Rank 18] World: IN | Model 9/10 (Global Rep 178)
+  [Rank 4] Model (Rep 144) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 5] Model (Rep 145) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 4] World IN | Rep 144 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 235.98s
+  [Rank 5] World IN | Rep 145 Finished | Canary Score: -0.00010 (MSE: 0.00010) | Time: 238.53s
+  [Rank 6] Model (Rep 146) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 1] Model (Rep 141) | Epoch 3/3 | Denoising Loss: 0.00008
+[Rank 12] World: IN | Model 9/10 (Global Rep 172)
+  [Rank 6] World IN | Rep 146 Finished | Canary Score: -0.00007 (MSE: 0.00007) | Time: 237.48s
+  [Rank 1] World IN | Rep 141 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 237.95s
+  [Rank 19] Model (Rep 159) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 19] World IN | Rep 159 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 238.61s
+[Rank 16] World: IN | Model 9/10 (Global Rep 176)
+  [Rank 2] Model (Rep 142) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 2] World IN | Rep 142 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 237.98s
+[Rank 4] World: IN | Model 9/10 (Global Rep 164)
+[Rank 5] World: IN | Model 9/10 (Global Rep 165)
+  [Rank 9] Model (Rep 149) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 9] World IN | Rep 149 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 240.92s
+  [Rank 10] Model (Rep 150) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 10] World IN | Rep 150 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 238.38s
+  [Rank 8] Model (Rep 148) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 8] World IN | Rep 148 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 239.46s
+[Rank 6] World: IN | Model 9/10 (Global Rep 166)
+[Rank 1] World: IN | Model 9/10 (Global Rep 161)
+[Rank 19] World: IN | Model 9/10 (Global Rep 179)
+[Rank 2] World: IN | Model 9/10 (Global Rep 162)
+  [Rank 11] Model (Rep 171) | Epoch 1/3 | Denoising Loss: 0.01305
+[Rank 9] World: IN | Model 9/10 (Global Rep 169)
+[Rank 10] World: IN | Model 9/10 (Global Rep 170)
+[Rank 8] World: IN | Model 9/10 (Global Rep 168)
+  [Rank 15] Model (Rep 155) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 15] World IN | Rep 155 Finished | Canary Score: -0.00010 (MSE: 0.00010) | Time: 238.04s
+  [Rank 17] Model (Rep 177) | Epoch 1/3 | Denoising Loss: 0.01292
+[Rank 15] World: IN | Model 9/10 (Global Rep 175)
+  [Rank 3] Model (Rep 163) | Epoch 1/3 | Denoising Loss: 0.01304
+  [Rank 7] Model (Rep 167) | Epoch 1/3 | Denoising Loss: 0.01294
+  [Rank 14] Model (Rep 154) | Epoch 3/3 | Denoising Loss: 0.00009
+  [Rank 14] World IN | Rep 154 Finished | Canary Score: -0.00010 (MSE: 0.00010) | Time: 244.18s
+  [Rank 13] Model (Rep 173) | Epoch 1/3 | Denoising Loss: 0.01304
+  [Rank 0] Model (Rep 140) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 0] World IN | Rep 140 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 247.77s
+  [Rank 18] Model (Rep 178) | Epoch 1/3 | Denoising Loss: 0.01292
+  [Rank 12] Model (Rep 172) | Epoch 1/3 | Denoising Loss: 0.01292
+[Rank 14] World: IN | Model 9/10 (Global Rep 174)
+  [Rank 16] Model (Rep 176) | Epoch 1/3 | Denoising Loss: 0.01300
+[Rank 0] World: IN | Model 9/10 (Global Rep 160)
+  [Rank 4] Model (Rep 164) | Epoch 1/3 | Denoising Loss: 0.01309
+  [Rank 5] Model (Rep 165) | Epoch 1/3 | Denoising Loss: 0.01295
+  [Rank 6] Model (Rep 166) | Epoch 1/3 | Denoising Loss: 0.01316
+  [Rank 1] Model (Rep 161) | Epoch 1/3 | Denoising Loss: 0.01303
+  [Rank 19] Model (Rep 179) | Epoch 1/3 | Denoising Loss: 0.01328
+  [Rank 11] Model (Rep 171) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 2] Model (Rep 162) | Epoch 1/3 | Denoising Loss: 0.01298
+  [Rank 10] Model (Rep 170) | Epoch 1/3 | Denoising Loss: 0.01298
+  [Rank 9] Model (Rep 169) | Epoch 1/3 | Denoising Loss: 0.01300
+  [Rank 8] Model (Rep 168) | Epoch 1/3 | Denoising Loss: 0.01298
+  [Rank 17] Model (Rep 177) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 15] Model (Rep 175) | Epoch 1/3 | Denoising Loss: 0.01294
+  [Rank 3] Model (Rep 163) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 7] Model (Rep 167) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 13] Model (Rep 173) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 18] Model (Rep 178) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 12] Model (Rep 172) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 16] Model (Rep 176) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 14] Model (Rep 174) | Epoch 1/3 | Denoising Loss: 0.01319
+  [Rank 4] Model (Rep 164) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 0] Model (Rep 160) | Epoch 1/3 | Denoising Loss: 0.01305
+  [Rank 5] Model (Rep 165) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 6] Model (Rep 166) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 1] Model (Rep 161) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 11] Model (Rep 171) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 11] World IN | Rep 171 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 229.84s
+  [Rank 19] Model (Rep 179) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 2] Model (Rep 162) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 10] Model (Rep 170) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 9] Model (Rep 169) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 8] Model (Rep 168) | Epoch 2/3 | Denoising Loss: 0.00011
+[Rank 11] World: IN | Model 10/10 (Global Rep 191)
+  [Rank 17] Model (Rep 177) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 17] World IN | Rep 177 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 230.99s
+  [Rank 15] Model (Rep 175) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 3] Model (Rep 163) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 3] World IN | Rep 163 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 233.08s
+  [Rank 7] Model (Rep 167) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 7] World IN | Rep 167 Finished | Canary Score: -0.00009 (MSE: 0.00009) | Time: 233.81s
+[Rank 17] World: IN | Model 10/10 (Global Rep 197)
+  [Rank 13] Model (Rep 173) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 13] World IN | Rep 173 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 231.07s
+[Rank 3] World: IN | Model 10/10 (Global Rep 183)
+[Rank 7] World: IN | Model 10/10 (Global Rep 187)
+  [Rank 18] Model (Rep 178) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 18] World IN | Rep 178 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 235.96s
+  [Rank 12] Model (Rep 172) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 12] World IN | Rep 172 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 235.57s
+[Rank 13] World: IN | Model 10/10 (Global Rep 193)
+  [Rank 16] Model (Rep 176) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 16] World IN | Rep 176 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 237.09s
+  [Rank 14] Model (Rep 174) | Epoch 2/3 | Denoising Loss: 0.00011
+[Rank 18] World: IN | Model 10/10 (Global Rep 198)
+  [Rank 4] Model (Rep 164) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 4] World IN | Rep 164 Finished | Canary Score: -0.00008 (MSE: 0.00008) | Time: 235.31s
+  [Rank 5] Model (Rep 165) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 5] World IN | Rep 165 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 237.33s
+[Rank 12] World: IN | Model 10/10 (Global Rep 192)
+  [Rank 0] Model (Rep 160) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 6] Model (Rep 166) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 1] Model (Rep 161) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 6] World IN | Rep 166 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 237.50s
+  [Rank 1] World IN | Rep 161 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 237.60s
+[Rank 16] World: IN | Model 10/10 (Global Rep 196)
+  [Rank 19] Model (Rep 179) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 19] World IN | Rep 179 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 245.19s
+[Rank 4] World: IN | Model 10/10 (Global Rep 184)
+[Rank 5] World: IN | Model 10/10 (Global Rep 185)
+  [Rank 2] Model (Rep 162) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 2] World IN | Rep 162 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 244.23s
+  [Rank 10] Model (Rep 170) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 10] World IN | Rep 170 Finished | Canary Score: -0.00007 (MSE: 0.00007) | Time: 238.09s
+[Rank 6] World: IN | Model 10/10 (Global Rep 186)
+[Rank 1] World: IN | Model 10/10 (Global Rep 181)
+  [Rank 9] Model (Rep 169) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 8] Model (Rep 168) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 9] World IN | Rep 169 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 241.11s
+  [Rank 8] World IN | Rep 168 Finished | Canary Score: -0.00003 (MSE: 0.00003) | Time: 239.27s
+  [Rank 11] Model (Rep 191) | Epoch 1/3 | Denoising Loss: 0.01308
+[Rank 19] World: IN | Model 10/10 (Global Rep 199)
+[Rank 2] World: IN | Model 10/10 (Global Rep 182)
+[Rank 10] World: IN | Model 10/10 (Global Rep 190)
+[Rank 8] World: IN | Model 10/10 (Global Rep 188)
+[Rank 9] World: IN | Model 10/10 (Global Rep 189)
+  [Rank 15] Model (Rep 175) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 15] World IN | Rep 175 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 237.91s
+  [Rank 17] Model (Rep 197) | Epoch 1/3 | Denoising Loss: 0.01311
+  [Rank 3] Model (Rep 183) | Epoch 1/3 | Denoising Loss: 0.01308
+[Rank 15] World: IN | Model 10/10 (Global Rep 195)
+  [Rank 7] Model (Rep 187) | Epoch 1/3 | Denoising Loss: 0.01301
+  [Rank 13] Model (Rep 193) | Epoch 1/3 | Denoising Loss: 0.01293
+  [Rank 18] Model (Rep 198) | Epoch 1/3 | Denoising Loss: 0.01295
+  [Rank 14] Model (Rep 174) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 14] World IN | Rep 174 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 245.72s
+  [Rank 12] Model (Rep 192) | Epoch 1/3 | Denoising Loss: 0.01307
+  [Rank 16] Model (Rep 196) | Epoch 1/3 | Denoising Loss: 0.01294
+  [Rank 0] Model (Rep 160) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 0] World IN | Rep 160 Finished | Canary Score: -0.00009 (MSE: 0.00009) | Time: 249.83s
+[Rank 14] World: IN | Model 10/10 (Global Rep 194)
+  [Rank 4] Model (Rep 184) | Epoch 1/3 | Denoising Loss: 0.01325
+  [Rank 5] Model (Rep 185) | Epoch 1/3 | Denoising Loss: 0.01306
+  [Rank 6] Model (Rep 186) | Epoch 1/3 | Denoising Loss: 0.01296
+  [Rank 11] Model (Rep 191) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 1] Model (Rep 181) | Epoch 1/3 | Denoising Loss: 0.01321
+[Rank 0] World: IN | Model 10/10 (Global Rep 180)
+  [Rank 19] Model (Rep 199) | Epoch 1/3 | Denoising Loss: 0.01305
+  [Rank 2] Model (Rep 182) | Epoch 1/3 | Denoising Loss: 0.01292
+  [Rank 10] Model (Rep 190) | Epoch 1/3 | Denoising Loss: 0.01299
+  [Rank 8] Model (Rep 188) | Epoch 1/3 | Denoising Loss: 0.01310
+  [Rank 9] Model (Rep 189) | Epoch 1/3 | Denoising Loss: 0.01323
+  [Rank 17] Model (Rep 197) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 3] Model (Rep 183) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 7] Model (Rep 187) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 15] Model (Rep 195) | Epoch 1/3 | Denoising Loss: 0.01314
+  [Rank 13] Model (Rep 193) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 18] Model (Rep 198) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 12] Model (Rep 192) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 16] Model (Rep 196) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 4] Model (Rep 184) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 14] Model (Rep 194) | Epoch 1/3 | Denoising Loss: 0.01316
+  [Rank 5] Model (Rep 185) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 11] Model (Rep 191) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 11] World IN | Rep 191 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 232.33s
+  [Rank 6] Model (Rep 186) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 1] Model (Rep 181) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 0] Model (Rep 180) | Epoch 1/3 | Denoising Loss: 0.01305
+  [Rank 19] Model (Rep 199) | Epoch 2/3 | Denoising Loss: 0.00011
+[Rank 11] World: OUT | Model 1/10 (Global Rep 11)
+  [Rank 10] Model (Rep 190) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 2] Model (Rep 182) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 8] Model (Rep 188) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 17] Model (Rep 197) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 17] World IN | Rep 197 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 232.50s
+  [Rank 9] Model (Rep 189) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 3] Model (Rep 183) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 3] World IN | Rep 183 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 233.43s
+  [Rank 7] Model (Rep 187) | Epoch 3/3 | Denoising Loss: 0.00008
+[Rank 17] World: OUT | Model 1/10 (Global Rep 17)
+  [Rank 7] World IN | Rep 187 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 233.76s
+  [Rank 15] Model (Rep 195) | Epoch 2/3 | Denoising Loss: 0.00012
+[Rank 3] World: OUT | Model 1/10 (Global Rep 3)
+  [Rank 13] Model (Rep 193) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 13] World IN | Rep 193 Finished | Canary Score: -0.00007 (MSE: 0.00007) | Time: 235.93s
+[Rank 7] World: OUT | Model 1/10 (Global Rep 7)
+  [Rank 18] Model (Rep 198) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 18] World IN | Rep 198 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 235.88s
+  [Rank 12] Model (Rep 192) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 12] World IN | Rep 192 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 235.93s
+[Rank 13] World: OUT | Model 1/10 (Global Rep 13)
+  [Rank 16] Model (Rep 196) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 16] World IN | Rep 196 Finished | Canary Score: -0.00009 (MSE: 0.00009) | Time: 237.49s
+[Rank 18] World: OUT | Model 1/10 (Global Rep 18)
+[Rank 12] World: OUT | Model 1/10 (Global Rep 12)
+  [Rank 4] Model (Rep 184) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 4] World IN | Rep 184 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 239.82s
+  [Rank 5] Model (Rep 185) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 5] World IN | Rep 185 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 239.95s
+  [Rank 6] Model (Rep 186) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 14] Model (Rep 194) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 6] World IN | Rep 186 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 237.69s
+  [Rank 1] Model (Rep 181) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 1] World IN | Rep 181 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 237.73s
+[Rank 16] World: OUT | Model 1/10 (Global Rep 16)
+  [Rank 0] Model (Rep 180) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 11] Model (Rep 11) | Epoch 1/3 | Denoising Loss: 0.01303
+[Rank 4] World: OUT | Model 1/10 (Global Rep 4)
+[Rank 5] World: OUT | Model 1/10 (Global Rep 5)
+  [Rank 19] Model (Rep 199) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 10] Model (Rep 190) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 19] World IN | Rep 199 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 243.29s
+  [Rank 10] World IN | Rep 190 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 238.00s
+[Rank 6] World: OUT | Model 1/10 (Global Rep 6)
+[Rank 1] World: OUT | Model 1/10 (Global Rep 1)
+  [Rank 2] Model (Rep 182) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 2] World IN | Rep 182 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 240.72s
+  [Rank 8] Model (Rep 188) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 8] World IN | Rep 188 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 239.17s
+  [Rank 9] Model (Rep 189) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 9] World IN | Rep 189 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 241.32s
+  [Rank 17] Model (Rep 17) | Epoch 1/3 | Denoising Loss: 0.01318
+[Rank 10] World: OUT | Model 1/10 (Global Rep 10)
+[Rank 19] World: OUT | Model 1/10 (Global Rep 19)
+[Rank 2] World: OUT | Model 1/10 (Global Rep 2)
+[Rank 8] World: OUT | Model 1/10 (Global Rep 8)
+  [Rank 15] Model (Rep 195) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 15] World IN | Rep 195 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 238.54s
+[Rank 9] World: OUT | Model 1/10 (Global Rep 9)
+  [Rank 3] Model (Rep 3) | Epoch 1/3 | Denoising Loss: 0.01302
+  [Rank 7] Model (Rep 7) | Epoch 1/3 | Denoising Loss: 0.01294
+[Rank 15] World: OUT | Model 1/10 (Global Rep 15)
+  [Rank 13] Model (Rep 13) | Epoch 1/3 | Denoising Loss: 0.01301
+  [Rank 18] Model (Rep 18) | Epoch 1/3 | Denoising Loss: 0.01321
+  [Rank 12] Model (Rep 12) | Epoch 1/3 | Denoising Loss: 0.01289
+  [Rank 16] Model (Rep 16) | Epoch 1/3 | Denoising Loss: 0.01318
+  [Rank 14] Model (Rep 194) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 14] World IN | Rep 194 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 247.26s
+  [Rank 11] Model (Rep 11) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 4] Model (Rep 4) | Epoch 1/3 | Denoising Loss: 0.01289
+  [Rank 0] Model (Rep 180) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 0] World IN | Rep 180 Finished | Canary Score: -0.00007 (MSE: 0.00007) | Time: 245.66s
+  [Rank 5] Model (Rep 5) | Epoch 1/3 | Denoising Loss: 0.01289
+  [Rank 6] Model (Rep 6) | Epoch 1/3 | Denoising Loss: 0.01308
+  [Rank 1] Model (Rep 1) | Epoch 1/3 | Denoising Loss: 0.01292
+[Rank 14] World: OUT | Model 1/10 (Global Rep 14)
+[Rank 0] World: OUT | Model 1/10 (Global Rep 0)
+  [Rank 17] Model (Rep 17) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 10] Model (Rep 10) | Epoch 1/3 | Denoising Loss: 0.01312
+  [Rank 19] Model (Rep 19) | Epoch 1/3 | Denoising Loss: 0.01304
+  [Rank 2] Model (Rep 2) | Epoch 1/3 | Denoising Loss: 0.01296
+  [Rank 8] Model (Rep 8) | Epoch 1/3 | Denoising Loss: 0.01309
+  [Rank 9] Model (Rep 9) | Epoch 1/3 | Denoising Loss: 0.01293
+  [Rank 3] Model (Rep 3) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 7] Model (Rep 7) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 15] Model (Rep 15) | Epoch 1/3 | Denoising Loss: 0.01312
+  [Rank 13] Model (Rep 13) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 18] Model (Rep 18) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 12] Model (Rep 12) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 16] Model (Rep 16) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 11] Model (Rep 11) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 11] World OUT | Rep 11 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 231.19s
+  [Rank 4] Model (Rep 4) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 5] Model (Rep 5) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 6] Model (Rep 6) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 1] Model (Rep 1) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 14] Model (Rep 14) | Epoch 1/3 | Denoising Loss: 0.01315
+[Rank 11] World: OUT | Model 2/10 (Global Rep 31)
+  [Rank 17] Model (Rep 17) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 17] World OUT | Rep 17 Finished | Canary Score: -0.00007 (MSE: 0.00007) | Time: 232.55s
+  [Rank 0] Model (Rep 0) | Epoch 1/3 | Denoising Loss: 0.01294
+  [Rank 9] Model (Rep 9) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 10] Model (Rep 10) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 19] Model (Rep 19) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 8] Model (Rep 8) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 2] Model (Rep 2) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 3] Model (Rep 3) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 3] World OUT | Rep 3 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 233.30s
+[Rank 17] World: OUT | Model 2/10 (Global Rep 37)
+  [Rank 7] Model (Rep 7) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 7] World OUT | Rep 7 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 233.99s
+  [Rank 15] Model (Rep 15) | Epoch 2/3 | Denoising Loss: 0.00011
+[Rank 3] World: OUT | Model 2/10 (Global Rep 23)
+  [Rank 13] Model (Rep 13) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 13] World OUT | Rep 13 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 235.36s
+[Rank 7] World: OUT | Model 2/10 (Global Rep 27)
+  [Rank 18] Model (Rep 18) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 18] World OUT | Rep 18 Finished | Canary Score: -0.00008 (MSE: 0.00008) | Time: 235.69s
+  [Rank 12] Model (Rep 12) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 12] World OUT | Rep 12 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 235.92s
+[Rank 13] World: OUT | Model 2/10 (Global Rep 33)
+  [Rank 16] Model (Rep 16) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 16] World OUT | Rep 16 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 237.31s
+[Rank 18] World: OUT | Model 2/10 (Global Rep 38)
+[Rank 12] World: OUT | Model 2/10 (Global Rep 32)
+  [Rank 4] Model (Rep 4) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 4] World OUT | Rep 4 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 235.70s
+  [Rank 5] Model (Rep 5) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 6] Model (Rep 6) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 5] World OUT | Rep 5 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 239.38s
+  [Rank 6] World OUT | Rep 6 Finished | Canary Score: -0.00007 (MSE: 0.00007) | Time: 237.78s
+  [Rank 1] Model (Rep 1) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 1] World OUT | Rep 1 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 239.01s
+[Rank 16] World: OUT | Model 2/10 (Global Rep 36)
+  [Rank 11] Model (Rep 31) | Epoch 1/3 | Denoising Loss: 0.01288
+  [Rank 14] Model (Rep 14) | Epoch 2/3 | Denoising Loss: 0.00012
+[Rank 4] World: OUT | Model 2/10 (Global Rep 24)
+[Rank 5] World: OUT | Model 2/10 (Global Rep 25)
+[Rank 6] World: OUT | Model 2/10 (Global Rep 26)
+[Rank 1] World: OUT | Model 2/10 (Global Rep 21)
+  [Rank 9] Model (Rep 9) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 9] World OUT | Rep 9 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 234.71s
+  [Rank 8] Model (Rep 8) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 8] World OUT | Rep 8 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 239.27s
+  [Rank 0] Model (Rep 0) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 2] Model (Rep 2) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 19] Model (Rep 19) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 10] Model (Rep 10) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 2] World OUT | Rep 2 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 240.89s
+  [Rank 19] World OUT | Rep 19 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 242.97s
+  [Rank 10] World OUT | Rep 10 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 243.09s
+  [Rank 17] Model (Rep 37) | Epoch 1/3 | Denoising Loss: 0.01289
+[Rank 9] World: OUT | Model 2/10 (Global Rep 29)
+  [Rank 15] Model (Rep 15) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 15] World OUT | Rep 15 Finished | Canary Score: -0.00010 (MSE: 0.00010) | Time: 238.45s
+[Rank 8] World: OUT | Model 2/10 (Global Rep 28)
+[Rank 2] World: OUT | Model 2/10 (Global Rep 22)
+[Rank 19] World: OUT | Model 2/10 (Global Rep 39)
+[Rank 10] World: OUT | Model 2/10 (Global Rep 30)
+  [Rank 3] Model (Rep 23) | Epoch 1/3 | Denoising Loss: 0.01294
+  [Rank 7] Model (Rep 27) | Epoch 1/3 | Denoising Loss: 0.01322
+[Rank 15] World: OUT | Model 2/10 (Global Rep 35)
+  [Rank 13] Model (Rep 33) | Epoch 1/3 | Denoising Loss: 0.01300
+  [Rank 18] Model (Rep 38) | Epoch 1/3 | Denoising Loss: 0.01299
+  [Rank 12] Model (Rep 32) | Epoch 1/3 | Denoising Loss: 0.01303
+  [Rank 11] Model (Rep 31) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 16] Model (Rep 36) | Epoch 1/3 | Denoising Loss: 0.01309
+  [Rank 4] Model (Rep 24) | Epoch 1/3 | Denoising Loss: 0.01301
+  [Rank 14] Model (Rep 14) | Epoch 3/3 | Denoising Loss: 0.00009
+  [Rank 14] World OUT | Rep 14 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 247.12s
+  [Rank 6] Model (Rep 26) | Epoch 1/3 | Denoising Loss: 0.01304
+  [Rank 5] Model (Rep 25) | Epoch 1/3 | Denoising Loss: 0.01293
+  [Rank 1] Model (Rep 21) | Epoch 1/3 | Denoising Loss: 0.01293
+  [Rank 17] Model (Rep 37) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 0] Model (Rep 0) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 0] World OUT | Rep 0 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 249.46s
+[Rank 14] World: OUT | Model 2/10 (Global Rep 34)
+  [Rank 9] Model (Rep 29) | Epoch 1/3 | Denoising Loss: 0.01307
+  [Rank 2] Model (Rep 22) | Epoch 1/3 | Denoising Loss: 0.01311
+  [Rank 8] Model (Rep 28) | Epoch 1/3 | Denoising Loss: 0.01294
+  [Rank 3] Model (Rep 23) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 19] Model (Rep 39) | Epoch 1/3 | Denoising Loss: 0.01303
+  [Rank 10] Model (Rep 30) | Epoch 1/3 | Denoising Loss: 0.01300
+[Rank 0] World: OUT | Model 2/10 (Global Rep 20)
+  [Rank 7] Model (Rep 27) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 15] Model (Rep 35) | Epoch 1/3 | Denoising Loss: 0.01303
+  [Rank 13] Model (Rep 33) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 18] Model (Rep 38) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 12] Model (Rep 32) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 11] Model (Rep 31) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 11] World OUT | Rep 31 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 230.50s
+  [Rank 16] Model (Rep 36) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 4] Model (Rep 24) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 6] Model (Rep 26) | Epoch 2/3 | Denoising Loss: 0.00011
+[Rank 11] World: OUT | Model 3/10 (Global Rep 51)
+  [Rank 1] Model (Rep 21) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 5] Model (Rep 25) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 17] Model (Rep 37) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 17] World OUT | Rep 37 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 231.71s
+  [Rank 14] Model (Rep 34) | Epoch 1/3 | Denoising Loss: 0.01292
+  [Rank 9] Model (Rep 29) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 2] Model (Rep 22) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 3] Model (Rep 23) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 3] World OUT | Rep 23 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 233.30s
+[Rank 17] World: OUT | Model 3/10 (Global Rep 57)
+  [Rank 8] Model (Rep 28) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 7] Model (Rep 27) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 19] Model (Rep 39) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 7] World OUT | Rep 27 Finished | Canary Score: -0.00009 (MSE: 0.00009) | Time: 233.94s
+  [Rank 10] Model (Rep 30) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 0] Model (Rep 20) | Epoch 1/3 | Denoising Loss: 0.01294
+[Rank 3] World: OUT | Model 3/10 (Global Rep 43)
+  [Rank 15] Model (Rep 35) | Epoch 2/3 | Denoising Loss: 0.00011
+[Rank 7] World: OUT | Model 3/10 (Global Rep 47)
+  [Rank 13] Model (Rep 33) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 13] World OUT | Rep 33 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 235.59s
+  [Rank 18] Model (Rep 38) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 18] World OUT | Rep 38 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 235.82s
+  [Rank 12] Model (Rep 32) | Epoch 3/3 | Denoising Loss: 0.00009
+  [Rank 12] World OUT | Rep 32 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 236.71s
+[Rank 13] World: OUT | Model 3/10 (Global Rep 53)
+[Rank 18] World: OUT | Model 3/10 (Global Rep 58)
+  [Rank 16] Model (Rep 36) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 16] World OUT | Rep 36 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 237.47s
+[Rank 12] World: OUT | Model 3/10 (Global Rep 52)
+  [Rank 11] Model (Rep 51) | Epoch 1/3 | Denoising Loss: 0.01291
+  [Rank 4] Model (Rep 24) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 4] World OUT | Rep 24 Finished | Canary Score: -0.00007 (MSE: 0.00007) | Time: 240.59s
+  [Rank 6] Model (Rep 26) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 6] World OUT | Rep 26 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 237.89s
+[Rank 16] World: OUT | Model 3/10 (Global Rep 56)
+  [Rank 1] Model (Rep 21) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 1] World OUT | Rep 21 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 238.98s
+  [Rank 5] Model (Rep 25) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 5] World OUT | Rep 25 Finished | Canary Score: -0.00007 (MSE: 0.00007) | Time: 242.24s
+[Rank 4] World: OUT | Model 3/10 (Global Rep 44)
+[Rank 6] World: OUT | Model 3/10 (Global Rep 46)
+  [Rank 9] Model (Rep 29) | Epoch 3/3 | Denoising Loss: 0.00009
+  [Rank 9] World OUT | Rep 29 Finished | Canary Score: -0.00010 (MSE: 0.00010) | Time: 237.96s
+[Rank 1] World: OUT | Model 3/10 (Global Rep 41)
+  [Rank 14] Model (Rep 34) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 17] Model (Rep 57) | Epoch 1/3 | Denoising Loss: 0.01298
+  [Rank 2] Model (Rep 22) | Epoch 3/3 | Denoising Loss: 0.00009
+  [Rank 2] World OUT | Rep 22 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 235.34s
+[Rank 5] World: OUT | Model 3/10 (Global Rep 45)
+  [Rank 8] Model (Rep 28) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 8] World OUT | Rep 28 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 239.34s
+  [Rank 19] Model (Rep 39) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 19] World OUT | Rep 39 Finished | Canary Score: -0.00007 (MSE: 0.00007) | Time: 242.74s
+  [Rank 10] Model (Rep 30) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 10] World OUT | Rep 30 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 242.95s
+  [Rank 0] Model (Rep 20) | Epoch 2/3 | Denoising Loss: 0.00011
+[Rank 9] World: OUT | Model 3/10 (Global Rep 49)
+  [Rank 3] Model (Rep 43) | Epoch 1/3 | Denoising Loss: 0.01304
+[Rank 2] World: OUT | Model 3/10 (Global Rep 42)
+  [Rank 15] Model (Rep 35) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 15] World OUT | Rep 35 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 238.25s
+[Rank 8] World: OUT | Model 3/10 (Global Rep 48)
+  [Rank 7] Model (Rep 47) | Epoch 1/3 | Denoising Loss: 0.01302
+[Rank 19] World: OUT | Model 3/10 (Global Rep 59)
+[Rank 10] World: OUT | Model 3/10 (Global Rep 50)
+[Rank 15] World: OUT | Model 3/10 (Global Rep 55)
+  [Rank 13] Model (Rep 53) | Epoch 1/3 | Denoising Loss: 0.01288
+  [Rank 18] Model (Rep 58) | Epoch 1/3 | Denoising Loss: 0.01291
+  [Rank 12] Model (Rep 52) | Epoch 1/3 | Denoising Loss: 0.01291
+  [Rank 11] Model (Rep 51) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 16] Model (Rep 56) | Epoch 1/3 | Denoising Loss: 0.01302
+  [Rank 4] Model (Rep 44) | Epoch 1/3 | Denoising Loss: 0.01324
+  [Rank 6] Model (Rep 46) | Epoch 1/3 | Denoising Loss: 0.01319
+  [Rank 17] Model (Rep 57) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 1] Model (Rep 41) | Epoch 1/3 | Denoising Loss: 0.01309
+  [Rank 14] Model (Rep 34) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 5] Model (Rep 45) | Epoch 1/3 | Denoising Loss: 0.01300
+  [Rank 14] World OUT | Rep 34 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 245.83s
+  [Rank 3] Model (Rep 43) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 0] Model (Rep 20) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 0] World OUT | Rep 20 Finished | Canary Score: -0.00008 (MSE: 0.00008) | Time: 244.83s
+  [Rank 9] Model (Rep 49) | Epoch 1/3 | Denoising Loss: 0.01307
+  [Rank 2] Model (Rep 42) | Epoch 1/3 | Denoising Loss: 0.01308
+  [Rank 7] Model (Rep 47) | Epoch 2/3 | Denoising Loss: 0.00011
+[Rank 14] World: OUT | Model 3/10 (Global Rep 54)
+  [Rank 8] Model (Rep 48) | Epoch 1/3 | Denoising Loss: 0.01299
+  [Rank 19] Model (Rep 59) | Epoch 1/3 | Denoising Loss: 0.01339
+  [Rank 10] Model (Rep 50) | Epoch 1/3 | Denoising Loss: 0.01290
+[Rank 0] World: OUT | Model 3/10 (Global Rep 40)
+  [Rank 15] Model (Rep 55) | Epoch 1/3 | Denoising Loss: 0.01314
+  [Rank 13] Model (Rep 53) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 18] Model (Rep 58) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 11] Model (Rep 51) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 11] World OUT | Rep 51 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 228.44s
+  [Rank 12] Model (Rep 52) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 16] Model (Rep 56) | Epoch 2/3 | Denoising Loss: 0.00011
+[Rank 11] World: OUT | Model 4/10 (Global Rep 71)
+  [Rank 4] Model (Rep 44) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 17] Model (Rep 57) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 6] Model (Rep 46) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 17] World OUT | Rep 57 Finished | Canary Score: -0.00007 (MSE: 0.00007) | Time: 232.56s
+  [Rank 1] Model (Rep 41) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 5] Model (Rep 45) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 3] Model (Rep 43) | Epoch 3/3 | Denoising Loss: 0.00008
+[Rank 17] World: OUT | Model 4/10 (Global Rep 77)
+  [Rank 3] World OUT | Rep 43 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 233.16s
+  [Rank 9] Model (Rep 49) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 2] Model (Rep 42) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 7] Model (Rep 47) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 7] World OUT | Rep 47 Finished | Canary Score: -0.00008 (MSE: 0.00008) | Time: 234.06s
+  [Rank 8] Model (Rep 48) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 14] Model (Rep 54) | Epoch 1/3 | Denoising Loss: 0.01318
+  [Rank 10] Model (Rep 50) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 19] Model (Rep 59) | Epoch 2/3 | Denoising Loss: 0.00012
+[Rank 3] World: OUT | Model 4/10 (Global Rep 63)
+[Rank 7] World: OUT | Model 4/10 (Global Rep 67)
+  [Rank 15] Model (Rep 55) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 0] Model (Rep 40) | Epoch 1/3 | Denoising Loss: 0.01310
+  [Rank 13] Model (Rep 53) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 13] World OUT | Rep 53 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 235.61s
+  [Rank 18] Model (Rep 58) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 18] World OUT | Rep 58 Finished | Canary Score: -0.00009 (MSE: 0.00009) | Time: 235.77s
+  [Rank 12] Model (Rep 52) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 12] World OUT | Rep 52 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 237.64s
+[Rank 13] World: OUT | Model 4/10 (Global Rep 73)
+[Rank 18] World: OUT | Model 4/10 (Global Rep 78)
+  [Rank 16] Model (Rep 56) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 16] World OUT | Rep 56 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 237.54s
+  [Rank 11] Model (Rep 71) | Epoch 1/3 | Denoising Loss: 0.01299
+[Rank 12] World: OUT | Model 4/10 (Global Rep 72)
+  [Rank 4] Model (Rep 44) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 4] World OUT | Rep 44 Finished | Canary Score: -0.00007 (MSE: 0.00007) | Time: 237.74s
+  [Rank 6] Model (Rep 46) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 6] World OUT | Rep 46 Finished | Canary Score: -0.00007 (MSE: 0.00007) | Time: 237.85s
+[Rank 16] World: OUT | Model 4/10 (Global Rep 76)
+  [Rank 1] Model (Rep 41) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 1] World OUT | Rep 41 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 237.86s
+  [Rank 5] Model (Rep 45) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 5] World OUT | Rep 45 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 242.77s
+  [Rank 17] Model (Rep 77) | Epoch 1/3 | Denoising Loss: 0.01296
+[Rank 4] World: OUT | Model 4/10 (Global Rep 64)
+[Rank 6] World: OUT | Model 4/10 (Global Rep 66)
+  [Rank 9] Model (Rep 49) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 9] World OUT | Rep 49 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 238.15s
+[Rank 1] World: OUT | Model 4/10 (Global Rep 61)
+  [Rank 2] Model (Rep 42) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 2] World OUT | Rep 42 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 237.93s
+  [Rank 8] Model (Rep 48) | Epoch 3/3 | Denoising Loss: 0.00009
+  [Rank 8] World OUT | Rep 48 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 239.38s
+[Rank 5] World: OUT | Model 4/10 (Global Rep 65)
+  [Rank 14] Model (Rep 54) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 3] Model (Rep 63) | Epoch 1/3 | Denoising Loss: 0.01310
+  [Rank 10] Model (Rep 50) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 10] World OUT | Rep 50 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 240.60s
+  [Rank 19] Model (Rep 59) | Epoch 3/3 | Denoising Loss: 0.00009
+  [Rank 19] World OUT | Rep 59 Finished | Canary Score: -0.00007 (MSE: 0.00007) | Time: 242.45s
+[Rank 9] World: OUT | Model 4/10 (Global Rep 69)
+  [Rank 7] Model (Rep 67) | Epoch 1/3 | Denoising Loss: 0.01298
+[Rank 2] World: OUT | Model 4/10 (Global Rep 62)
+  [Rank 15] Model (Rep 55) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 15] World OUT | Rep 55 Finished | Canary Score: -0.00009 (MSE: 0.00009) | Time: 238.24s
+[Rank 8] World: OUT | Model 4/10 (Global Rep 68)
+  [Rank 0] Model (Rep 40) | Epoch 2/3 | Denoising Loss: 0.00011
+[Rank 10] World: OUT | Model 4/10 (Global Rep 70)
+[Rank 19] World: OUT | Model 4/10 (Global Rep 79)
+[Rank 15] World: OUT | Model 4/10 (Global Rep 75)
+  [Rank 13] Model (Rep 73) | Epoch 1/3 | Denoising Loss: 0.01336
+  [Rank 18] Model (Rep 78) | Epoch 1/3 | Denoising Loss: 0.01318
+  [Rank 11] Model (Rep 71) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 12] Model (Rep 72) | Epoch 1/3 | Denoising Loss: 0.01288
+  [Rank 16] Model (Rep 76) | Epoch 1/3 | Denoising Loss: 0.01299
+  [Rank 17] Model (Rep 77) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 4] Model (Rep 64) | Epoch 1/3 | Denoising Loss: 0.01299
+  [Rank 6] Model (Rep 66) | Epoch 1/3 | Denoising Loss: 0.01298
+  [Rank 1] Model (Rep 61) | Epoch 1/3 | Denoising Loss: 0.01297
+  [Rank 5] Model (Rep 65) | Epoch 1/3 | Denoising Loss: 0.01316
+  [Rank 14] Model (Rep 54) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 3] Model (Rep 63) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 14] World OUT | Rep 54 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 243.06s
+  [Rank 7] Model (Rep 67) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 9] Model (Rep 69) | Epoch 1/3 | Denoising Loss: 0.01301
+  [Rank 2] Model (Rep 62) | Epoch 1/3 | Denoising Loss: 0.01300
+  [Rank 8] Model (Rep 68) | Epoch 1/3 | Denoising Loss: 0.01304
+[Rank 14] World: OUT | Model 4/10 (Global Rep 74)
+  [Rank 0] Model (Rep 40) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 10] Model (Rep 70) | Epoch 1/3 | Denoising Loss: 0.01318
+  [Rank 0] World OUT | Rep 40 Finished | Canary Score: -0.00008 (MSE: 0.00008) | Time: 251.02s
+  [Rank 19] Model (Rep 79) | Epoch 1/3 | Denoising Loss: 0.01301
+  [Rank 13] Model (Rep 73) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 15] Model (Rep 75) | Epoch 1/3 | Denoising Loss: 0.01347
+  [Rank 18] Model (Rep 78) | Epoch 2/3 | Denoising Loss: 0.00012
+[Rank 0] World: OUT | Model 4/10 (Global Rep 60)
+  [Rank 11] Model (Rep 71) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 11] World OUT | Rep 71 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 235.20s
+  [Rank 12] Model (Rep 72) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 16] Model (Rep 76) | Epoch 2/3 | Denoising Loss: 0.00012
+[Rank 11] World: OUT | Model 5/10 (Global Rep 91)
+  [Rank 17] Model (Rep 77) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 17] World OUT | Rep 77 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 232.36s
+  [Rank 6] Model (Rep 66) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 4] Model (Rep 64) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 1] Model (Rep 61) | Epoch 2/3 | Denoising Loss: 0.00011
+[Rank 17] World: OUT | Model 5/10 (Global Rep 97)
+  [Rank 5] Model (Rep 65) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 3] Model (Rep 63) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 3] World OUT | Rep 63 Finished | Canary Score: -0.00008 (MSE: 0.00008) | Time: 233.54s
+  [Rank 7] Model (Rep 67) | Epoch 3/3 | Denoising Loss: 0.00009
+  [Rank 7] World OUT | Rep 67 Finished | Canary Score: -0.00008 (MSE: 0.00008) | Time: 234.02s
+  [Rank 9] Model (Rep 69) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 2] Model (Rep 62) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 8] Model (Rep 68) | Epoch 2/3 | Denoising Loss: 0.00012
+[Rank 3] World: OUT | Model 5/10 (Global Rep 83)
+  [Rank 10] Model (Rep 70) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 14] Model (Rep 74) | Epoch 1/3 | Denoising Loss: 0.01294
+  [Rank 19] Model (Rep 79) | Epoch 2/3 | Denoising Loss: 0.00011
+[Rank 7] World: OUT | Model 5/10 (Global Rep 87)
+  [Rank 13] Model (Rep 73) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 13] World OUT | Rep 73 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 231.72s
+  [Rank 15] Model (Rep 75) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 18] Model (Rep 78) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 18] World OUT | Rep 78 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 236.35s
+  [Rank 0] Model (Rep 60) | Epoch 1/3 | Denoising Loss: 0.01294
+[Rank 13] World: OUT | Model 5/10 (Global Rep 93)
+  [Rank 12] Model (Rep 72) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 12] World OUT | Rep 72 Finished | Canary Score: -0.00008 (MSE: 0.00008) | Time: 238.13s
+[Rank 18] World: OUT | Model 5/10 (Global Rep 98)
+  [Rank 16] Model (Rep 76) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 16] World OUT | Rep 76 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 236.67s
+  [Rank 11] Model (Rep 91) | Epoch 1/3 | Denoising Loss: 0.01294
+[Rank 12] World: OUT | Model 5/10 (Global Rep 92)
+  [Rank 6] Model (Rep 66) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 6] World OUT | Rep 66 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 237.91s
+[Rank 16] World: OUT | Model 5/10 (Global Rep 96)
+  [Rank 4] Model (Rep 64) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 4] World OUT | Rep 64 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 241.37s
+  [Rank 1] Model (Rep 61) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 1] World OUT | Rep 61 Finished | Canary Score: -0.00008 (MSE: 0.00008) | Time: 237.83s
+  [Rank 17] Model (Rep 97) | Epoch 1/3 | Denoising Loss: 0.01312
+  [Rank 5] Model (Rep 65) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 5] World OUT | Rep 65 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 238.92s
+[Rank 6] World: OUT | Model 5/10 (Global Rep 86)
+  [Rank 9] Model (Rep 69) | Epoch 3/3 | Denoising Loss: 0.00008
+[Rank 4] World: OUT | Model 5/10 (Global Rep 84)
+[Rank 1] World: OUT | Model 5/10 (Global Rep 81)
+  [Rank 9] World OUT | Rep 69 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 237.92s
+  [Rank 2] Model (Rep 62) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 2] World OUT | Rep 62 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 238.03s
+  [Rank 8] Model (Rep 68) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 3] Model (Rep 83) | Epoch 1/3 | Denoising Loss: 0.01294
+  [Rank 8] World OUT | Rep 68 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 239.19s
+[Rank 5] World: OUT | Model 5/10 (Global Rep 85)
+  [Rank 10] Model (Rep 70) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 7] Model (Rep 87) | Epoch 1/3 | Denoising Loss: 0.01286
+  [Rank 10] World OUT | Rep 70 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 237.32s
+  [Rank 19] Model (Rep 79) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 19] World OUT | Rep 79 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 237.82s
+  [Rank 14] Model (Rep 74) | Epoch 2/3 | Denoising Loss: 0.00011
+[Rank 9] World: OUT | Model 5/10 (Global Rep 89)
+[Rank 2] World: OUT | Model 5/10 (Global Rep 82)
+  [Rank 15] Model (Rep 75) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 15] World OUT | Rep 75 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 238.35s
+[Rank 8] World: OUT | Model 5/10 (Global Rep 88)
+[Rank 10] World: OUT | Model 5/10 (Global Rep 90)
+[Rank 19] World: OUT | Model 5/10 (Global Rep 99)
+  [Rank 13] Model (Rep 93) | Epoch 1/3 | Denoising Loss: 0.01303
+  [Rank 0] Model (Rep 60) | Epoch 2/3 | Denoising Loss: 0.00011
+[Rank 15] World: OUT | Model 5/10 (Global Rep 95)
+  [Rank 18] Model (Rep 98) | Epoch 1/3 | Denoising Loss: 0.01297
+  [Rank 11] Model (Rep 91) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 12] Model (Rep 92) | Epoch 1/3 | Denoising Loss: 0.01315
+  [Rank 16] Model (Rep 96) | Epoch 1/3 | Denoising Loss: 0.01313
+  [Rank 17] Model (Rep 97) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 6] Model (Rep 86) | Epoch 1/3 | Denoising Loss: 0.01294
+  [Rank 1] Model (Rep 81) | Epoch 1/3 | Denoising Loss: 0.01297
+  [Rank 4] Model (Rep 84) | Epoch 1/3 | Denoising Loss: 0.01296
+  [Rank 3] Model (Rep 83) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 5] Model (Rep 85) | Epoch 1/3 | Denoising Loss: 0.01296
+  [Rank 7] Model (Rep 87) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 9] Model (Rep 89) | Epoch 1/3 | Denoising Loss: 0.01303
+  [Rank 2] Model (Rep 82) | Epoch 1/3 | Denoising Loss: 0.01295
+  [Rank 14] Model (Rep 74) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 14] World OUT | Rep 74 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 246.78s
+  [Rank 8] Model (Rep 88) | Epoch 1/3 | Denoising Loss: 0.01306
+  [Rank 10] Model (Rep 90) | Epoch 1/3 | Denoising Loss: 0.01298
+  [Rank 19] Model (Rep 99) | Epoch 1/3 | Denoising Loss: 0.01299
+  [Rank 13] Model (Rep 93) | Epoch 2/3 | Denoising Loss: 0.00012
+[Rank 14] World: OUT | Model 5/10 (Global Rep 94)
+  [Rank 15] Model (Rep 95) | Epoch 1/3 | Denoising Loss: 0.01307
+  [Rank 0] Model (Rep 60) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 0] World OUT | Rep 60 Finished | Canary Score: -0.00007 (MSE: 0.00007) | Time: 245.17s
+  [Rank 18] Model (Rep 98) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 11] Model (Rep 91) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 11] World OUT | Rep 91 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 236.55s
+  [Rank 12] Model (Rep 92) | Epoch 2/3 | Denoising Loss: 0.00011
+[Rank 0] World: OUT | Model 5/10 (Global Rep 80)
+  [Rank 16] Model (Rep 96) | Epoch 2/3 | Denoising Loss: 0.00011
+[Rank 11] World: OUT | Model 6/10 (Global Rep 111)
+  [Rank 17] Model (Rep 97) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 17] World OUT | Rep 97 Finished | Canary Score: -0.00010 (MSE: 0.00010) | Time: 231.92s
+  [Rank 6] Model (Rep 86) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 1] Model (Rep 81) | Epoch 2/3 | Denoising Loss: 0.00011
+[Rank 17] World: OUT | Model 6/10 (Global Rep 117)
+  [Rank 4] Model (Rep 84) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 3] Model (Rep 83) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 3] World OUT | Rep 83 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 233.36s
+  [Rank 5] Model (Rep 85) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 7] Model (Rep 87) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 7] World OUT | Rep 87 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 234.11s
+  [Rank 9] Model (Rep 89) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 2] Model (Rep 82) | Epoch 2/3 | Denoising Loss: 0.00012
+[Rank 3] World: OUT | Model 6/10 (Global Rep 103)
+  [Rank 8] Model (Rep 88) | Epoch 2/3 | Denoising Loss: 0.00011
+[Rank 7] World: OUT | Model 6/10 (Global Rep 107)
+  [Rank 19] Model (Rep 99) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 10] Model (Rep 90) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 13] Model (Rep 93) | Epoch 3/3 | Denoising Loss: 0.00009
+  [Rank 13] World OUT | Rep 93 Finished | Canary Score: -0.00007 (MSE: 0.00007) | Time: 237.87s
+  [Rank 15] Model (Rep 95) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 14] Model (Rep 94) | Epoch 1/3 | Denoising Loss: 0.01290
+  [Rank 18] Model (Rep 98) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 18] World OUT | Rep 98 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 236.05s
+[Rank 13] World: OUT | Model 6/10 (Global Rep 113)
+  [Rank 12] Model (Rep 92) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 12] World OUT | Rep 92 Finished | Canary Score: -0.00008 (MSE: 0.00008) | Time: 238.22s
+[Rank 18] World: OUT | Model 6/10 (Global Rep 118)
+  [Rank 0] Model (Rep 80) | Epoch 1/3 | Denoising Loss: 0.01301
+  [Rank 16] Model (Rep 96) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 16] World OUT | Rep 96 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 235.65s
+  [Rank 11] Model (Rep 111) | Epoch 1/3 | Denoising Loss: 0.01312
+[Rank 12] World: OUT | Model 6/10 (Global Rep 112)
+[Rank 16] World: OUT | Model 6/10 (Global Rep 116)
+  [Rank 6] Model (Rep 86) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 6] World OUT | Rep 86 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 237.70s
+  [Rank 17] Model (Rep 117) | Epoch 1/3 | Denoising Loss: 0.01300
+  [Rank 1] Model (Rep 81) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 1] World OUT | Rep 81 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 237.69s
+  [Rank 4] Model (Rep 84) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 4] World OUT | Rep 84 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 241.05s
+  [Rank 5] Model (Rep 85) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 5] World OUT | Rep 85 Finished | Canary Score: -0.00007 (MSE: 0.00007) | Time: 237.62s
+[Rank 6] World: OUT | Model 6/10 (Global Rep 106)
+  [Rank 9] Model (Rep 89) | Epoch 3/3 | Denoising Loss: 0.00008
+[Rank 1] World: OUT | Model 6/10 (Global Rep 101)
+  [Rank 9] World OUT | Rep 89 Finished | Canary Score: -0.00008 (MSE: 0.00008) | Time: 238.09s
+  [Rank 3] Model (Rep 103) | Epoch 1/3 | Denoising Loss: 0.01293
+[Rank 4] World: OUT | Model 6/10 (Global Rep 104)
+  [Rank 2] Model (Rep 82) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 2] World OUT | Rep 82 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 241.62s
+[Rank 5] World: OUT | Model 6/10 (Global Rep 105)
+  [Rank 8] Model (Rep 88) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 7] Model (Rep 107) | Epoch 1/3 | Denoising Loss: 0.01292
+  [Rank 8] World OUT | Rep 88 Finished | Canary Score: -0.00008 (MSE: 0.00008) | Time: 239.39s
+  [Rank 19] Model (Rep 99) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 19] World OUT | Rep 99 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 238.59s
+  [Rank 10] Model (Rep 90) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 10] World OUT | Rep 90 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 239.74s
+[Rank 9] World: OUT | Model 6/10 (Global Rep 109)
+  [Rank 15] Model (Rep 95) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 15] World OUT | Rep 95 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 237.83s
+[Rank 2] World: OUT | Model 6/10 (Global Rep 102)
+  [Rank 14] Model (Rep 94) | Epoch 2/3 | Denoising Loss: 0.00011
+[Rank 8] World: OUT | Model 6/10 (Global Rep 108)
+[Rank 19] World: OUT | Model 6/10 (Global Rep 119)
+  [Rank 13] Model (Rep 113) | Epoch 1/3 | Denoising Loss: 0.01301
+[Rank 10] World: OUT | Model 6/10 (Global Rep 110)
+[Rank 15] World: OUT | Model 6/10 (Global Rep 115)
+  [Rank 18] Model (Rep 118) | Epoch 1/3 | Denoising Loss: 0.01307
+  [Rank 11] Model (Rep 111) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 0] Model (Rep 80) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 12] Model (Rep 112) | Epoch 1/3 | Denoising Loss: 0.01310
+  [Rank 16] Model (Rep 116) | Epoch 1/3 | Denoising Loss: 0.01312
+  [Rank 17] Model (Rep 117) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 3] Model (Rep 103) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 6] Model (Rep 106) | Epoch 1/3 | Denoising Loss: 0.01289
+  [Rank 1] Model (Rep 101) | Epoch 1/3 | Denoising Loss: 0.01295
+  [Rank 4] Model (Rep 104) | Epoch 1/3 | Denoising Loss: 0.01312
+  [Rank 7] Model (Rep 107) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 5] Model (Rep 105) | Epoch 1/3 | Denoising Loss: 0.01303
+  [Rank 9] Model (Rep 109) | Epoch 1/3 | Denoising Loss: 0.01308
+  [Rank 2] Model (Rep 102) | Epoch 1/3 | Denoising Loss: 0.01305
+  [Rank 14] Model (Rep 94) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 14] World OUT | Rep 94 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 242.80s
+  [Rank 8] Model (Rep 108) | Epoch 1/3 | Denoising Loss: 0.01292
+  [Rank 19] Model (Rep 119) | Epoch 1/3 | Denoising Loss: 0.01304
+  [Rank 13] Model (Rep 113) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 10] Model (Rep 110) | Epoch 1/3 | Denoising Loss: 0.01291
+  [Rank 15] Model (Rep 115) | Epoch 1/3 | Denoising Loss: 0.01330
+  [Rank 18] Model (Rep 118) | Epoch 2/3 | Denoising Loss: 0.00012
+[Rank 14] World: OUT | Model 6/10 (Global Rep 114)
+  [Rank 11] Model (Rep 111) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 11] World OUT | Rep 111 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 236.07s
+  [Rank 0] Model (Rep 80) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 0] World OUT | Rep 80 Finished | Canary Score: -0.00008 (MSE: 0.00008) | Time: 247.83s
+  [Rank 12] Model (Rep 112) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 17] Model (Rep 117) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 17] World OUT | Rep 117 Finished | Canary Score: -0.00007 (MSE: 0.00007) | Time: 230.24s
+  [Rank 16] Model (Rep 116) | Epoch 2/3 | Denoising Loss: 0.00011
+[Rank 11] World: OUT | Model 7/10 (Global Rep 131)
+[Rank 0] World: OUT | Model 6/10 (Global Rep 100)
+[Rank 17] World: OUT | Model 7/10 (Global Rep 137)
+  [Rank 3] Model (Rep 103) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 3] World OUT | Rep 103 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 232.39s
+  [Rank 1] Model (Rep 101) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 6] Model (Rep 106) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 4] Model (Rep 104) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 7] Model (Rep 107) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 7] World OUT | Rep 107 Finished | Canary Score: -0.00009 (MSE: 0.00009) | Time: 234.43s
+  [Rank 5] Model (Rep 105) | Epoch 2/3 | Denoising Loss: 0.00012
+[Rank 3] World: OUT | Model 7/10 (Global Rep 123)
+  [Rank 9] Model (Rep 109) | Epoch 2/3 | Denoising Loss: 0.00012
+[Rank 7] World: OUT | Model 7/10 (Global Rep 127)
+  [Rank 8] Model (Rep 108) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 2] Model (Rep 102) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 19] Model (Rep 119) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 13] Model (Rep 113) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 13] World OUT | Rep 113 Finished | Canary Score: -0.00007 (MSE: 0.00007) | Time: 237.53s
+  [Rank 10] Model (Rep 110) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 15] Model (Rep 115) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 18] Model (Rep 118) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 18] World OUT | Rep 118 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 237.19s
+  [Rank 14] Model (Rep 114) | Epoch 1/3 | Denoising Loss: 0.01304
+[Rank 13] World: OUT | Model 7/10 (Global Rep 133)
+  [Rank 12] Model (Rep 112) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 12] World OUT | Rep 112 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 240.60s
+[Rank 18] World: OUT | Model 7/10 (Global Rep 138)
+  [Rank 16] Model (Rep 116) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 11] Model (Rep 131) | Epoch 1/3 | Denoising Loss: 0.01310
+  [Rank 16] World OUT | Rep 116 Finished | Canary Score: -0.00008 (MSE: 0.00008) | Time: 237.89s
+  [Rank 0] Model (Rep 100) | Epoch 1/3 | Denoising Loss: 0.01303
+  [Rank 17] Model (Rep 137) | Epoch 1/3 | Denoising Loss: 0.01297
+[Rank 12] World: OUT | Model 7/10 (Global Rep 132)
+[Rank 16] World: OUT | Model 7/10 (Global Rep 136)
+  [Rank 4] Model (Rep 104) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 4] World OUT | Rep 104 Finished | Canary Score: -0.00007 (MSE: 0.00007) | Time: 233.88s
+  [Rank 1] Model (Rep 101) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 1] World OUT | Rep 101 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 238.50s
+  [Rank 6] Model (Rep 106) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 6] World OUT | Rep 106 Finished | Canary Score: -0.00003 (MSE: 0.00003) | Time: 243.54s
+  [Rank 5] Model (Rep 105) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 5] World OUT | Rep 105 Finished | Canary Score: -0.00007 (MSE: 0.00007) | Time: 237.69s
+  [Rank 3] Model (Rep 123) | Epoch 1/3 | Denoising Loss: 0.01295
+[Rank 4] World: OUT | Model 7/10 (Global Rep 124)
+  [Rank 9] Model (Rep 109) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 9] World OUT | Rep 109 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 238.15s
+[Rank 1] World: OUT | Model 7/10 (Global Rep 121)
+  [Rank 7] Model (Rep 127) | Epoch 1/3 | Denoising Loss: 0.01317
+[Rank 6] World: OUT | Model 7/10 (Global Rep 126)
+[Rank 5] World: OUT | Model 7/10 (Global Rep 125)
+  [Rank 8] Model (Rep 108) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 8] World OUT | Rep 108 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 239.79s
+  [Rank 2] Model (Rep 102) | Epoch 3/3 | Denoising Loss: 0.00009
+  [Rank 2] World OUT | Rep 102 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 243.74s
+  [Rank 19] Model (Rep 119) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 19] World OUT | Rep 119 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 237.04s
+[Rank 9] World: OUT | Model 7/10 (Global Rep 129)
+  [Rank 10] Model (Rep 110) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 10] World OUT | Rep 110 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 239.56s
+  [Rank 15] Model (Rep 115) | Epoch 3/3 | Denoising Loss: 0.00009
+  [Rank 15] World OUT | Rep 115 Finished | Canary Score: -0.00008 (MSE: 0.00008) | Time: 239.92s
+[Rank 8] World: OUT | Model 7/10 (Global Rep 128)
+  [Rank 14] Model (Rep 114) | Epoch 2/3 | Denoising Loss: 0.00011
+[Rank 2] World: OUT | Model 7/10 (Global Rep 122)
+[Rank 19] World: OUT | Model 7/10 (Global Rep 139)
+  [Rank 13] Model (Rep 133) | Epoch 1/3 | Denoising Loss: 0.01309
+[Rank 10] World: OUT | Model 7/10 (Global Rep 130)
+[Rank 15] World: OUT | Model 7/10 (Global Rep 135)
+  [Rank 18] Model (Rep 138) | Epoch 1/3 | Denoising Loss: 0.01304
+  [Rank 11] Model (Rep 131) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 17] Model (Rep 137) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 0] Model (Rep 100) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 12] Model (Rep 132) | Epoch 1/3 | Denoising Loss: 0.01294
+  [Rank 16] Model (Rep 136) | Epoch 1/3 | Denoising Loss: 0.01309
+  [Rank 3] Model (Rep 123) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 4] Model (Rep 124) | Epoch 1/3 | Denoising Loss: 0.01294
+  [Rank 1] Model (Rep 121) | Epoch 1/3 | Denoising Loss: 0.01288
+  [Rank 7] Model (Rep 127) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 5] Model (Rep 125) | Epoch 1/3 | Denoising Loss: 0.01297
+  [Rank 6] Model (Rep 126) | Epoch 1/3 | Denoising Loss: 0.01291
+  [Rank 9] Model (Rep 129) | Epoch 1/3 | Denoising Loss: 0.01291
+  [Rank 8] Model (Rep 128) | Epoch 1/3 | Denoising Loss: 0.01297
+  [Rank 14] Model (Rep 114) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 2] Model (Rep 122) | Epoch 1/3 | Denoising Loss: 0.01295
+  [Rank 14] World OUT | Rep 114 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 241.94s
+  [Rank 19] Model (Rep 139) | Epoch 1/3 | Denoising Loss: 0.01311
+  [Rank 13] Model (Rep 133) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 10] Model (Rep 130) | Epoch 1/3 | Denoising Loss: 0.01312
+  [Rank 15] Model (Rep 135) | Epoch 1/3 | Denoising Loss: 0.01303
+  [Rank 18] Model (Rep 138) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 11] Model (Rep 131) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 11] World OUT | Rep 131 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 233.70s
+[Rank 14] World: OUT | Model 7/10 (Global Rep 134)
+  [Rank 17] Model (Rep 137) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 17] World OUT | Rep 137 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 232.52s
+  [Rank 0] Model (Rep 100) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 0] World OUT | Rep 100 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 245.34s
+[Rank 11] World: OUT | Model 8/10 (Global Rep 151)
+  [Rank 16] Model (Rep 136) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 12] Model (Rep 132) | Epoch 2/3 | Denoising Loss: 0.00011
+[Rank 17] World: OUT | Model 8/10 (Global Rep 157)
+  [Rank 3] Model (Rep 123) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 3] World OUT | Rep 123 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 231.07s
+[Rank 0] World: OUT | Model 7/10 (Global Rep 120)
+  [Rank 4] Model (Rep 124) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 7] Model (Rep 127) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 7] World OUT | Rep 127 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 231.31s
+  [Rank 1] Model (Rep 121) | Epoch 2/3 | Denoising Loss: 0.00012
+[Rank 3] World: OUT | Model 8/10 (Global Rep 143)
+  [Rank 5] Model (Rep 125) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 6] Model (Rep 126) | Epoch 2/3 | Denoising Loss: 0.00012
+[Rank 7] World: OUT | Model 8/10 (Global Rep 147)
+  [Rank 9] Model (Rep 129) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 2] Model (Rep 122) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 8] Model (Rep 128) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 19] Model (Rep 139) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 13] Model (Rep 133) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 13] World OUT | Rep 133 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 240.31s
+  [Rank 10] Model (Rep 130) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 18] Model (Rep 138) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 18] World OUT | Rep 138 Finished | Canary Score: -0.00008 (MSE: 0.00008) | Time: 236.77s
+  [Rank 15] Model (Rep 135) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 14] Model (Rep 134) | Epoch 1/3 | Denoising Loss: 0.01319
+[Rank 13] World: OUT | Model 8/10 (Global Rep 153)
+[Rank 18] World: OUT | Model 8/10 (Global Rep 158)
+  [Rank 11] Model (Rep 151) | Epoch 1/3 | Denoising Loss: 0.01295
+  [Rank 16] Model (Rep 136) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 16] World OUT | Rep 136 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 238.87s
+  [Rank 12] Model (Rep 132) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 12] World OUT | Rep 132 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 243.92s
+  [Rank 17] Model (Rep 157) | Epoch 1/3 | Denoising Loss: 0.01285
+  [Rank 0] Model (Rep 120) | Epoch 1/3 | Denoising Loss: 0.01308
+  [Rank 4] Model (Rep 124) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 4] World OUT | Rep 124 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 232.17s
+[Rank 16] World: OUT | Model 8/10 (Global Rep 156)
+  [Rank 1] Model (Rep 121) | Epoch 3/3 | Denoising Loss: 0.00008
+[Rank 12] World: OUT | Model 8/10 (Global Rep 152)
+  [Rank 1] World OUT | Rep 121 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 235.72s
+  [Rank 3] Model (Rep 143) | Epoch 1/3 | Denoising Loss: 0.01297
+  [Rank 5] Model (Rep 125) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 5] World OUT | Rep 125 Finished | Canary Score: -0.00009 (MSE: 0.00009) | Time: 239.75s
+[Rank 4] World: OUT | Model 8/10 (Global Rep 144)
+  [Rank 6] Model (Rep 126) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 6] World OUT | Rep 126 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 246.19s
+  [Rank 7] Model (Rep 147) | Epoch 1/3 | Denoising Loss: 0.01306
+[Rank 1] World: OUT | Model 8/10 (Global Rep 141)
+  [Rank 9] Model (Rep 129) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 9] World OUT | Rep 129 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 240.13s
+[Rank 5] World: OUT | Model 8/10 (Global Rep 145)
+[Rank 6] World: OUT | Model 8/10 (Global Rep 146)
+  [Rank 2] Model (Rep 122) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 2] World OUT | Rep 122 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 239.72s
+  [Rank 19] Model (Rep 139) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 19] World OUT | Rep 139 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 238.98s
+  [Rank 8] Model (Rep 128) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 8] World OUT | Rep 128 Finished | Canary Score: -0.00009 (MSE: 0.00009) | Time: 245.09s
+[Rank 9] World: OUT | Model 8/10 (Global Rep 149)
+  [Rank 10] Model (Rep 130) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 15] Model (Rep 135) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 10] World OUT | Rep 130 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 244.83s
+  [Rank 15] World OUT | Rep 135 Finished | Canary Score: -0.00007 (MSE: 0.00007) | Time: 240.95s
+[Rank 2] World: OUT | Model 8/10 (Global Rep 142)
+[Rank 19] World: OUT | Model 8/10 (Global Rep 159)
+  [Rank 14] Model (Rep 134) | Epoch 2/3 | Denoising Loss: 0.00011
+[Rank 8] World: OUT | Model 8/10 (Global Rep 148)
+  [Rank 13] Model (Rep 153) | Epoch 1/3 | Denoising Loss: 0.01304
+  [Rank 18] Model (Rep 158) | Epoch 1/3 | Denoising Loss: 0.01302
+  [Rank 11] Model (Rep 151) | Epoch 2/3 | Denoising Loss: 0.00012
+[Rank 15] World: OUT | Model 8/10 (Global Rep 155)
+[Rank 10] World: OUT | Model 8/10 (Global Rep 150)
+  [Rank 17] Model (Rep 157) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 0] Model (Rep 120) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 16] Model (Rep 156) | Epoch 1/3 | Denoising Loss: 0.01291
+  [Rank 12] Model (Rep 152) | Epoch 1/3 | Denoising Loss: 0.01325
+  [Rank 3] Model (Rep 143) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 4] Model (Rep 144) | Epoch 1/3 | Denoising Loss: 0.01329
+  [Rank 7] Model (Rep 147) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 1] Model (Rep 141) | Epoch 1/3 | Denoising Loss: 0.01303
+  [Rank 5] Model (Rep 145) | Epoch 1/3 | Denoising Loss: 0.01305
+  [Rank 6] Model (Rep 146) | Epoch 1/3 | Denoising Loss: 0.01292
+  [Rank 9] Model (Rep 149) | Epoch 1/3 | Denoising Loss: 0.01285
+  [Rank 2] Model (Rep 142) | Epoch 1/3 | Denoising Loss: 0.01300
+  [Rank 19] Model (Rep 159) | Epoch 1/3 | Denoising Loss: 0.01316
+  [Rank 8] Model (Rep 148) | Epoch 1/3 | Denoising Loss: 0.01287
+  [Rank 14] Model (Rep 134) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 14] World OUT | Rep 134 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 244.07s
+  [Rank 13] Model (Rep 153) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 18] Model (Rep 158) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 11] Model (Rep 151) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 11] World OUT | Rep 151 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 237.80s
+  [Rank 15] Model (Rep 155) | Epoch 1/3 | Denoising Loss: 0.01296
+  [Rank 10] Model (Rep 150) | Epoch 1/3 | Denoising Loss: 0.01335
+  [Rank 17] Model (Rep 157) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 17] World OUT | Rep 157 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 231.10s
+[Rank 14] World: OUT | Model 8/10 (Global Rep 154)
+[Rank 11] World: OUT | Model 9/10 (Global Rep 171)
+  [Rank 0] Model (Rep 120) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 0] World OUT | Rep 120 Finished | Canary Score: -0.00011 (MSE: 0.00011) | Time: 240.56s
+[Rank 17] World: OUT | Model 9/10 (Global Rep 177)
+  [Rank 16] Model (Rep 156) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 3] Model (Rep 143) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 3] World OUT | Rep 143 Finished | Canary Score: -0.00007 (MSE: 0.00007) | Time: 231.43s
+  [Rank 12] Model (Rep 152) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 4] Model (Rep 144) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 7] Model (Rep 147) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 7] World OUT | Rep 147 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 233.59s
+[Rank 0] World: OUT | Model 8/10 (Global Rep 140)
+  [Rank 1] Model (Rep 141) | Epoch 2/3 | Denoising Loss: 0.00012
+[Rank 3] World: OUT | Model 9/10 (Global Rep 163)
+[Rank 7] World: OUT | Model 9/10 (Global Rep 167)
+  [Rank 5] Model (Rep 145) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 6] Model (Rep 146) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 9] Model (Rep 149) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 19] Model (Rep 159) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 2] Model (Rep 142) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 8] Model (Rep 148) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 13] Model (Rep 153) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 13] World OUT | Rep 153 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 239.87s
+  [Rank 18] Model (Rep 158) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 18] World OUT | Rep 158 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 236.88s
+  [Rank 15] Model (Rep 155) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 10] Model (Rep 150) | Epoch 2/3 | Denoising Loss: 0.00011
+[Rank 13] World: OUT | Model 9/10 (Global Rep 173)
+[Rank 18] World: OUT | Model 9/10 (Global Rep 178)
+  [Rank 14] Model (Rep 154) | Epoch 1/3 | Denoising Loss: 0.01316
+  [Rank 11] Model (Rep 171) | Epoch 1/3 | Denoising Loss: 0.01312
+  [Rank 17] Model (Rep 177) | Epoch 1/3 | Denoising Loss: 0.01295
+  [Rank 16] Model (Rep 156) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 16] World OUT | Rep 156 Finished | Canary Score: -0.00007 (MSE: 0.00007) | Time: 238.71s
+  [Rank 12] Model (Rep 152) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 12] World OUT | Rep 152 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 243.52s
+  [Rank 4] Model (Rep 144) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 4] World OUT | Rep 144 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 234.07s
+  [Rank 1] Model (Rep 141) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 0] Model (Rep 140) | Epoch 1/3 | Denoising Loss: 0.01290
+[Rank 16] World: OUT | Model 9/10 (Global Rep 176)
+  [Rank 1] World OUT | Rep 141 Finished | Canary Score: -0.00008 (MSE: 0.00008) | Time: 235.82s
+  [Rank 3] Model (Rep 163) | Epoch 1/3 | Denoising Loss: 0.01295
+[Rank 12] World: OUT | Model 9/10 (Global Rep 172)
+[Rank 4] World: OUT | Model 9/10 (Global Rep 164)
+  [Rank 7] Model (Rep 167) | Epoch 1/3 | Denoising Loss: 0.01296
+  [Rank 5] Model (Rep 145) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 5] World OUT | Rep 145 Finished | Canary Score: -0.00008 (MSE: 0.00008) | Time: 241.35s
+[Rank 1] World: OUT | Model 9/10 (Global Rep 161)
+  [Rank 9] Model (Rep 149) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 9] World OUT | Rep 149 Finished | Canary Score: -0.00007 (MSE: 0.00007) | Time: 238.92s
+  [Rank 6] Model (Rep 146) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 6] World OUT | Rep 146 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 245.95s
+[Rank 5] World: OUT | Model 9/10 (Global Rep 165)
+  [Rank 19] Model (Rep 159) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 19] World OUT | Rep 159 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 237.05s
+  [Rank 2] Model (Rep 142) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 2] World OUT | Rep 142 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 240.38s
+  [Rank 8] Model (Rep 148) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 8] World OUT | Rep 148 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 239.40s
+[Rank 9] World: OUT | Model 9/10 (Global Rep 169)
+[Rank 6] World: OUT | Model 9/10 (Global Rep 166)
+  [Rank 15] Model (Rep 155) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 15] World OUT | Rep 155 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 241.17s
+  [Rank 10] Model (Rep 150) | Epoch 3/3 | Denoising Loss: 0.00008
+[Rank 19] World: OUT | Model 9/10 (Global Rep 179)
+  [Rank 10] World OUT | Rep 150 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 242.68s
+[Rank 2] World: OUT | Model 9/10 (Global Rep 162)
+[Rank 8] World: OUT | Model 9/10 (Global Rep 168)
+  [Rank 11] Model (Rep 171) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 18] Model (Rep 178) | Epoch 1/3 | Denoising Loss: 0.01304
+  [Rank 17] Model (Rep 177) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 13] Model (Rep 173) | Epoch 1/3 | Denoising Loss: 0.01309
+  [Rank 14] Model (Rep 154) | Epoch 2/3 | Denoising Loss: 0.00011
+[Rank 15] World: OUT | Model 9/10 (Global Rep 175)
+[Rank 10] World: OUT | Model 9/10 (Global Rep 170)
+  [Rank 3] Model (Rep 163) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 16] Model (Rep 176) | Epoch 1/3 | Denoising Loss: 0.01308
+  [Rank 0] Model (Rep 140) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 4] Model (Rep 164) | Epoch 1/3 | Denoising Loss: 0.01293
+  [Rank 12] Model (Rep 172) | Epoch 1/3 | Denoising Loss: 0.01308
+  [Rank 7] Model (Rep 167) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 1] Model (Rep 161) | Epoch 1/3 | Denoising Loss: 0.01306
+  [Rank 5] Model (Rep 165) | Epoch 1/3 | Denoising Loss: 0.01307
+  [Rank 9] Model (Rep 169) | Epoch 1/3 | Denoising Loss: 0.01299
+  [Rank 6] Model (Rep 166) | Epoch 1/3 | Denoising Loss: 0.01300
+  [Rank 19] Model (Rep 179) | Epoch 1/3 | Denoising Loss: 0.01298
+  [Rank 2] Model (Rep 162) | Epoch 1/3 | Denoising Loss: 0.01309
+  [Rank 8] Model (Rep 168) | Epoch 1/3 | Denoising Loss: 0.01311
+  [Rank 11] Model (Rep 171) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 17] Model (Rep 177) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 11] World OUT | Rep 171 Finished | Canary Score: -0.00007 (MSE: 0.00007) | Time: 234.08s
+  [Rank 17] World OUT | Rep 177 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 230.83s
+  [Rank 18] Model (Rep 178) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 13] Model (Rep 173) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 14] Model (Rep 154) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 14] World OUT | Rep 154 Finished | Canary Score: -0.00010 (MSE: 0.00010) | Time: 244.52s
+  [Rank 15] Model (Rep 175) | Epoch 1/3 | Denoising Loss: 0.01288
+  [Rank 10] Model (Rep 170) | Epoch 1/3 | Denoising Loss: 0.01297
+[Rank 11] World: OUT | Model 10/10 (Global Rep 191)
+[Rank 17] World: OUT | Model 10/10 (Global Rep 197)
+  [Rank 3] Model (Rep 163) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 3] World OUT | Rep 163 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 230.97s
+[Rank 14] World: OUT | Model 9/10 (Global Rep 174)
+  [Rank 16] Model (Rep 176) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 0] Model (Rep 140) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 0] World OUT | Rep 140 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 242.75s
+  [Rank 4] Model (Rep 164) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 7] Model (Rep 167) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 7] World OUT | Rep 167 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 233.97s
+[Rank 3] World: OUT | Model 10/10 (Global Rep 183)
+  [Rank 12] Model (Rep 172) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 1] Model (Rep 161) | Epoch 2/3 | Denoising Loss: 0.00011
+[Rank 0] World: OUT | Model 9/10 (Global Rep 160)
+[Rank 7] World: OUT | Model 10/10 (Global Rep 187)
+  [Rank 5] Model (Rep 165) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 9] Model (Rep 169) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 6] Model (Rep 166) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 19] Model (Rep 179) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 8] Model (Rep 168) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 2] Model (Rep 162) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 18] Model (Rep 178) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 18] World OUT | Rep 178 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 236.98s
+  [Rank 13] Model (Rep 173) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 13] World OUT | Rep 173 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 241.71s
+  [Rank 15] Model (Rep 175) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 10] Model (Rep 170) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 11] Model (Rep 191) | Epoch 1/3 | Denoising Loss: 0.01306
+  [Rank 17] Model (Rep 197) | Epoch 1/3 | Denoising Loss: 0.01304
+[Rank 18] World: OUT | Model 10/10 (Global Rep 198)
+[Rank 13] World: OUT | Model 10/10 (Global Rep 193)
+  [Rank 14] Model (Rep 174) | Epoch 1/3 | Denoising Loss: 0.01292
+  [Rank 16] Model (Rep 176) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 16] World OUT | Rep 176 Finished | Canary Score: -0.00008 (MSE: 0.00008) | Time: 238.69s
+  [Rank 4] Model (Rep 164) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 4] World OUT | Rep 164 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 235.62s
+  [Rank 3] Model (Rep 183) | Epoch 1/3 | Denoising Loss: 0.01309
+  [Rank 1] Model (Rep 161) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 1] World OUT | Rep 161 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 234.79s
+  [Rank 12] Model (Rep 172) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 12] World OUT | Rep 172 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 243.55s
+[Rank 16] World: OUT | Model 10/10 (Global Rep 196)
+  [Rank 0] Model (Rep 160) | Epoch 1/3 | Denoising Loss: 0.01299
+[Rank 4] World: OUT | Model 10/10 (Global Rep 184)
+  [Rank 7] Model (Rep 187) | Epoch 1/3 | Denoising Loss: 0.01315
+[Rank 1] World: OUT | Model 10/10 (Global Rep 181)
+  [Rank 5] Model (Rep 165) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 5] World OUT | Rep 165 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 235.13s
+[Rank 12] World: OUT | Model 10/10 (Global Rep 192)
+  [Rank 9] Model (Rep 169) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 9] World OUT | Rep 169 Finished | Canary Score: -0.00009 (MSE: 0.00009) | Time: 238.38s
+[Rank 5] World: OUT | Model 10/10 (Global Rep 185)
+  [Rank 6] Model (Rep 166) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 6] World OUT | Rep 166 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 245.24s
+  [Rank 19] Model (Rep 179) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 19] World OUT | Rep 179 Finished | Canary Score: -0.00007 (MSE: 0.00007) | Time: 238.54s
+  [Rank 8] Model (Rep 168) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 8] World OUT | Rep 168 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 239.50s
+[Rank 9] World: OUT | Model 10/10 (Global Rep 189)
+  [Rank 2] Model (Rep 162) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 2] World OUT | Rep 162 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 243.37s
+  [Rank 11] Model (Rep 191) | Epoch 2/3 | Denoising Loss: 0.00011
+[Rank 6] World: OUT | Model 10/10 (Global Rep 186)
+  [Rank 17] Model (Rep 197) | Epoch 2/3 | Denoising Loss: 0.00011
+[Rank 19] World: OUT | Model 10/10 (Global Rep 199)
+  [Rank 15] Model (Rep 175) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 15] World OUT | Rep 175 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 241.29s
+  [Rank 10] Model (Rep 170) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 10] World OUT | Rep 170 Finished | Canary Score: -0.00009 (MSE: 0.00009) | Time: 239.92s
+[Rank 8] World: OUT | Model 10/10 (Global Rep 188)
+  [Rank 18] Model (Rep 198) | Epoch 1/3 | Denoising Loss: 0.01302
+[Rank 2] World: OUT | Model 10/10 (Global Rep 182)
+  [Rank 13] Model (Rep 193) | Epoch 1/3 | Denoising Loss: 0.01303
+  [Rank 14] Model (Rep 174) | Epoch 2/3 | Denoising Loss: 0.00012
+[Rank 15] World: OUT | Model 10/10 (Global Rep 195)
+[Rank 10] World: OUT | Model 10/10 (Global Rep 190)
+  [Rank 3] Model (Rep 183) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 16] Model (Rep 196) | Epoch 1/3 | Denoising Loss: 0.01291
+  [Rank 0] Model (Rep 160) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 4] Model (Rep 184) | Epoch 1/3 | Denoising Loss: 0.01294
+  [Rank 7] Model (Rep 187) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 1] Model (Rep 181) | Epoch 1/3 | Denoising Loss: 0.01305
+  [Rank 12] Model (Rep 192) | Epoch 1/3 | Denoising Loss: 0.01315
+  [Rank 5] Model (Rep 185) | Epoch 1/3 | Denoising Loss: 0.01292
+  [Rank 9] Model (Rep 189) | Epoch 1/3 | Denoising Loss: 0.01307
+  [Rank 11] Model (Rep 191) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 11] World OUT | Rep 191 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 230.34s
+  [Rank 17] Model (Rep 197) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 17] World OUT | Rep 197 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 231.07s
+  [Rank 19] Model (Rep 199) | Epoch 1/3 | Denoising Loss: 0.01316
+  [Rank 6] Model (Rep 186) | Epoch 1/3 | Denoising Loss: 0.01301
+  [Rank 18] Model (Rep 198) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 8] Model (Rep 188) | Epoch 1/3 | Denoising Loss: 0.01307
+  [Rank 2] Model (Rep 182) | Epoch 1/3 | Denoising Loss: 0.01305
+  [Rank 13] Model (Rep 193) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 14] Model (Rep 174) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 14] World OUT | Rep 174 Finished | Canary Score: -0.00007 (MSE: 0.00007) | Time: 242.14s
+  [Rank 3] Model (Rep 183) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 3] World OUT | Rep 183 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 230.94s
+  [Rank 15] Model (Rep 195) | Epoch 1/3 | Denoising Loss: 0.01304
+  [Rank 10] Model (Rep 190) | Epoch 1/3 | Denoising Loss: 0.01311
+  [Rank 16] Model (Rep 196) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 4] Model (Rep 184) | Epoch 2/3 | Denoising Loss: 0.00011
+[Rank 14] World: OUT | Model 10/10 (Global Rep 194)
+  [Rank 0] Model (Rep 160) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 0] World OUT | Rep 160 Finished | Canary Score: -0.00010 (MSE: 0.00010) | Time: 238.64s
+  [Rank 7] Model (Rep 187) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 7] World OUT | Rep 187 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 233.77s
+  [Rank 1] Model (Rep 181) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 12] Model (Rep 192) | Epoch 2/3 | Denoising Loss: 0.00011
+[Rank 0] World: OUT | Model 10/10 (Global Rep 180)
+  [Rank 5] Model (Rep 185) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 9] Model (Rep 189) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 19] Model (Rep 199) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 6] Model (Rep 186) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 18] Model (Rep 198) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 18] World OUT | Rep 198 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 236.89s
+  [Rank 2] Model (Rep 182) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 8] Model (Rep 188) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 13] Model (Rep 193) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 13] World OUT | Rep 193 Finished | Canary Score: -0.00007 (MSE: 0.00007) | Time: 235.05s
+  [Rank 15] Model (Rep 195) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 10] Model (Rep 190) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 4] Model (Rep 184) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 4] World OUT | Rep 184 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 230.99s
+  [Rank 16] Model (Rep 196) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 16] World OUT | Rep 196 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 238.69s
+  [Rank 14] Model (Rep 194) | Epoch 1/3 | Denoising Loss: 0.01297
+  [Rank 1] Model (Rep 181) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 1] World OUT | Rep 181 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 233.49s
+  [Rank 12] Model (Rep 192) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 12] World OUT | Rep 192 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 243.67s
+  [Rank 0] Model (Rep 180) | Epoch 1/3 | Denoising Loss: 0.01298
+  [Rank 5] Model (Rep 185) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 5] World OUT | Rep 185 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 238.77s
+  [Rank 9] Model (Rep 189) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 9] World OUT | Rep 189 Finished | Canary Score: -0.00007 (MSE: 0.00007) | Time: 237.52s
+  [Rank 19] Model (Rep 199) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 19] World OUT | Rep 199 Finished | Canary Score: -0.00005 (MSE: 0.00005) | Time: 239.85s
+  [Rank 2] Model (Rep 182) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 2] World OUT | Rep 182 Finished | Canary Score: -0.00010 (MSE: 0.00010) | Time: 234.47s
+  [Rank 6] Model (Rep 186) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 8] Model (Rep 188) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 6] World OUT | Rep 186 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 245.27s
+  [Rank 8] World OUT | Rep 188 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 239.67s
+  [Rank 15] Model (Rep 195) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 15] World OUT | Rep 195 Finished | Canary Score: -0.00003 (MSE: 0.00003) | Time: 241.22s
+  [Rank 10] Model (Rep 190) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 10] World OUT | Rep 190 Finished | Canary Score: -0.00006 (MSE: 0.00006) | Time: 240.80s
+  [Rank 14] Model (Rep 194) | Epoch 2/3 | Denoising Loss: 0.00011
+  [Rank 0] Model (Rep 180) | Epoch 2/3 | Denoising Loss: 0.00012
+  [Rank 14] Model (Rep 194) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 14] World OUT | Rep 194 Finished | Canary Score: -0.00004 (MSE: 0.00004) | Time: 244.62s
+  [Rank 0] Model (Rep 180) | Epoch 3/3 | Denoising Loss: 0.00008
+  [Rank 0] World OUT | Rep 180 Finished | Canary Score: -0.00007 (MSE: 0.00007) | Time: 248.57s
+
+Combining results from all GPUs...
+[Rank 18] Finished!
+[Rank 16] Finished!
+[Rank 8] Finished!
+[Rank 19] Finished!
+[Rank 11] Finished!
+[Rank 10] Finished!
+[Rank 14] Finished!
+[Rank 2] Finished!
+[Rank 12] Finished!
+[Rank 15] Finished!
+[Rank 5] Finished!
+[Rank 6] Finished!
+[Rank 7] Finished!
+[Rank 1] Finished!
+[Rank 9] Finished!
+[Rank 4] Finished!
+[Rank 3] Finished!
+[Rank 17] Finished!
+[Rank 13] Finished!
+Theoretical eps: None
+Empirical eps: 0
+[Rank 0] Finished!
+=== Audit Completed ===

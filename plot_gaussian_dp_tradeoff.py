@@ -35,7 +35,37 @@ def gdp_delta(eps, mu):
     return norm.cdf(-eps / mu + mu / 2) - np.exp(eps) * norm.cdf(-eps / mu - mu / 2)
 
 
-def plot_tradeoff(mus, alpha_mark=0.05, out=None, show_pdf_panel=True):
+def compute_empirical_tradeoff(losses_in, losses_out):
+    """Compute empirical (alpha, beta) trade-off points and lower convex hull."""
+    scores_in = np.asarray(losses_in, dtype=float).ravel()
+    scores_out = np.asarray(losses_out, dtype=float).ravel()
+
+    thresholds = np.unique(np.concatenate([scores_in, scores_out]))
+    # Predict IN if score > threshold (canary score is -MSE, higher means IN)
+    alphas = np.mean(scores_out[:, None] > thresholds, axis=0)
+    betas = np.mean(scores_in[:, None] <= thresholds, axis=0)
+
+    alphas = np.concatenate([[0.0], alphas, [1.0]])
+    betas = np.concatenate([[1.0], betas, [0.0]])
+
+    # Monotone chain algorithm for lower convex hull
+    pts = sorted(set(zip(alphas, betas)))
+    hull = []
+    for p in pts:
+        while len(hull) >= 2:
+            o, a = hull[-2], hull[-1]
+            if (a[0] - o[0]) * (p[1] - o[1]) - (a[1] - o[1]) * (p[0] - o[0]) <= 0:
+                hull.pop()
+            else:
+                break
+        hull.append(p)
+
+    hull_a = np.array([p[0] for p in hull])
+    hull_b = np.array([p[1] for p in hull])
+    return alphas, betas, hull_a, hull_b
+
+
+def plot_tradeoff(mus, alpha_mark=0.05, out=None, show_pdf_panel=True, empirical=None):
     alphas = np.linspace(0.0, 1.0, 1001)
 
     ncols = 2 if show_pdf_panel else 1
@@ -48,6 +78,13 @@ def plot_tradeoff(mus, alpha_mark=0.05, out=None, show_pdf_panel=True):
 
     ax.plot([0, 1], [1, 0], "k--", lw=1, alpha=0.6,
             label=r"$\mu=0$ (perfect privacy, $\beta=1-\alpha$)")
+
+    if empirical is not None:
+        alphas_emp, betas_emp, hull_a, hull_b = empirical
+        ax.scatter(alphas_emp, betas_emp, s=15, color="dodgerblue", alpha=0.5,
+                   label="Empirical points", zorder=4)
+        ax.plot(hull_a, hull_b, color="crimson", lw=2,
+                label="Empirical lower bound", zorder=5)
     ax.set_xlabel(r"type I error  $\alpha$   (false positive rate)")
     ax.set_ylabel(r"type II error  $\beta$   (false negative rate)")
     ax.set_title("Gaussian DP trade-off function\n"
@@ -110,6 +147,8 @@ def main():
                    help="GDP mu (repeatable). Default: 0.5 1 2 4")
     p.add_argument("--alpha", type=float, default=0.05,
                    help="type I error to annotate (default 0.05)")
+    p.add_argument("--results_dir", type=str, default=None,
+                   help="Directory containing losses_in.npy and losses_out.npy")
     p.add_argument("--out", default="gdp_tradeoff.png", help="output image path")
     p.add_argument("--no-show", action="store_true", help="do not open a window")
     args = p.parse_args()
@@ -121,7 +160,17 @@ def main():
         print(f"mu={mu:>5g} | alpha={args.alpha:g} -> beta={b:.4f} "
               f"(power {1 - b:.4f}) | delta(eps=1)={float(gdp_delta(1.0, mu)):.4g}")
 
-    plot_tradeoff(mus, alpha_mark=args.alpha, out=args.out)
+    empirical = None
+    if args.results_dir:
+        import os
+        fin = os.path.join(args.results_dir, "losses_in.npy")
+        fout = os.path.join(args.results_dir, "losses_out.npy")
+        lin = np.load(fin, allow_pickle=True)
+        lout = np.load(fout, allow_pickle=True)
+        empirical = compute_empirical_tradeoff(lin, lout)
+        print(f"Loaded {len(lin)} IN and {len(lout)} OUT models from {args.results_dir}")
+
+    plot_tradeoff(mus, alpha_mark=args.alpha, out=args.out, empirical=empirical)
     if not args.no_show:
         plt.show()
 
