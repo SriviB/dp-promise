@@ -16,7 +16,7 @@ import dill
 
 from utils.audit import compute_eps_lower_from_mia, compute_eps_lower_from_mia_given_t
 
-from src.utils import get_unet_model, load_dataset_from_config
+from src.utils import get_unet_model, load_dataset_from_config, load_dataset
 from src.trainers import DPPromiseTrainer
 import torch.nn.functional as F
 
@@ -46,7 +46,8 @@ def save_checkpoint(
 
     if fit_world_only:
         w = fit_world_only
-        np.save(f'{out_folder}/outputs_{w}{suffix}.npy', outputs[w])
+        # outputs_* removed: for diffusion it only duplicated losses_* (the canary score)
+        # np.save(f'{out_folder}/outputs_{w}{suffix}.npy', outputs[w])
         np.save(f'{out_folder}/losses_{w}{suffix}.npy', losses[w])
         if all_losses is not None:
             np.save(f'{out_folder}/all_losses_{w}{suffix}.npy', all_losses[w])
@@ -54,8 +55,9 @@ def save_checkpoint(
             np.save(f'{out_folder}/train_set_accs{suffix}.npy', train_set_accs)
             np.save(f'{out_folder}/test_set_accs{suffix}.npy', test_set_accs)
     else:
-        np.save(f'{out_folder}/outputs_in{suffix}.npy', outputs['in'])
-        np.save(f'{out_folder}/outputs_out{suffix}.npy', outputs['out'])
+        # outputs_* removed: for diffusion it only duplicated losses_* (the canary score)
+        # np.save(f'{out_folder}/outputs_in{suffix}.npy', outputs['in'])
+        # np.save(f'{out_folder}/outputs_out{suffix}.npy', outputs['out'])
         np.save(f'{out_folder}/losses_in{suffix}.npy', losses['in'])
         np.save(f'{out_folder}/losses_out{suffix}.npy', losses['out'])
         np.save(f'{out_folder}/train_set_accs{suffix}.npy', train_set_accs)
@@ -202,6 +204,11 @@ def compute_per_sample_losses(model, trainer, X, y, config, device, batch_size=2
             batch_mse /= num_eval_samples
             losses.append(batch_mse.cpu().numpy())
     return np.concatenate(losses)
+
+
+def test_model(model, trainer, X, y, config, device):
+    """Return mean denoising loss on (X, y). Takes the place of classification accuracy."""
+    return float(np.mean(compute_per_sample_losses(model, trainer, X, y, config, device=device)))
 
 
 def train_model(model_name, X, y, X_target, y_target, epsilon, delta, max_grad_norm,
@@ -386,6 +393,15 @@ def main():
 
     # Define datasets
     X_in, y_in = torch.vstack((X_out[:-1], target_X)), torch.cat((y_out[:-1], target_y))
+    # load_dataset_from_config ignores its train argument, so load the test split directly
+    test_dataset = load_dataset(config.data.name, transform=transform, train=False)
+    test_imgs = []
+    test_labels = []
+    for imgs, labels in DataLoader(test_dataset, batch_size=1024, shuffle=False):
+        test_imgs.append(imgs)
+        test_labels.append(labels)
+    X_test = torch.cat(test_imgs, dim=0)
+    y_test = torch.cat(test_labels, dim=0)
 
     if rank == 0:
         print('Training models')
@@ -463,10 +479,8 @@ def main():
                     total_mse += F.mse_loss(noise, pred_noise).item()
                 
                 loss = -(total_mse / args.eval_noise_samples)
-                output = torch.tensor([loss])
-                
+
                 # Store locally - no gathering needed
-                outputs[world].append(output.cpu().numpy())
                 losses[world].append(loss)
                 print(f"  [Rank {rank}] World {world.upper()} | Rep {rep} Finished | Canary Score: {loss:.5f} (MSE: {-loss:.5f}) | Time: {time.time() - t0:.2f}s")
 
@@ -474,6 +488,15 @@ def main():
                 all_losses[world].append(compute_per_sample_losses(model, trainer, curr_X, curr_y, config, device=device))
 
             save_checkpoint(out_folder, outputs, losses, all_losses, train_set_accs, test_set_accs, args.fit_world_only, rank)
+
+            # Get test set denoising loss from first 5 reps
+            if rep < 5 and world == 'in':
+                if len(X_out) > 0:
+                    train_set_accs.append(test_model(model, trainer, X_in, y_in, config, device))
+                    print(f'[Rank {rank}] Train set denoising loss:', train_set_accs[-1])
+                test_set_accs.append(test_model(model, trainer, X_test, y_test, config, device))
+                print(f'[Rank {rank}] Test set denoising loss:', test_set_accs[-1])
+                save_checkpoint(out_folder, outputs, losses, all_losses, train_set_accs, test_set_accs, args.fit_world_only, rank)
 
             del model, trainer
             if torch.cuda.is_available():
@@ -504,31 +527,39 @@ def main():
             suffix = f'_rank{r}' if r > 0 else ''
             try:
                 if not args.fit_world_only:
-                    combined_outputs['in'].extend(np.load(f'{out_folder}/outputs_in{suffix}.npy'))
-                    combined_outputs['out'].extend(np.load(f'{out_folder}/outputs_out{suffix}.npy'))
+                    # combined_outputs['in'].extend(np.load(f'{out_folder}/outputs_in{suffix}.npy'))
+                    # combined_outputs['out'].extend(np.load(f'{out_folder}/outputs_out{suffix}.npy'))
                     combined_losses['in'].extend(np.load(f'{out_folder}/losses_in{suffix}.npy'))
                     combined_losses['out'].extend(np.load(f'{out_folder}/losses_out{suffix}.npy'))
                     if args.store_all_losses and os.path.exists(f'{out_folder}/all_losses_in{suffix}.npy'):
                         combined_all_losses['in'].extend(np.load(f'{out_folder}/all_losses_in{suffix}.npy', allow_pickle=True))
                     if args.store_all_losses and os.path.exists(f'{out_folder}/all_losses_out{suffix}.npy'):
                         combined_all_losses['out'].extend(np.load(f'{out_folder}/all_losses_out{suffix}.npy', allow_pickle=True))
+                    if os.path.exists(f'{out_folder}/train_set_accs{suffix}.npy'):
+                        combined_train_accs.extend(np.load(f'{out_folder}/train_set_accs{suffix}.npy'))
+                    if os.path.exists(f'{out_folder}/test_set_accs{suffix}.npy'):
+                        combined_test_accs.extend(np.load(f'{out_folder}/test_set_accs{suffix}.npy'))
                 else:
-                    combined_outputs[args.fit_world_only].extend(np.load(f'{out_folder}/outputs_{args.fit_world_only}{suffix}.npy'))
+                    # combined_outputs[args.fit_world_only].extend(np.load(f'{out_folder}/outputs_{args.fit_world_only}{suffix}.npy'))
                     combined_losses[args.fit_world_only].extend(np.load(f'{out_folder}/losses_{args.fit_world_only}{suffix}.npy'))
             except FileNotFoundError:
                 print(f"Warning: Could not find results for rank {r}")
         
         # Save combined results
         if not args.fit_world_only:
-            np.save(f'{out_folder}/outputs_in.npy', combined_outputs['in'])
-            np.save(f'{out_folder}/outputs_out.npy', combined_outputs['out'])
+            # np.save(f'{out_folder}/outputs_in.npy', combined_outputs['in'])
+            # np.save(f'{out_folder}/outputs_out.npy', combined_outputs['out'])
             np.save(f'{out_folder}/losses_in.npy', combined_losses['in'])
             np.save(f'{out_folder}/losses_out.npy', combined_losses['out'])
             if args.store_all_losses:
                 np.save(f'{out_folder}/all_losses_in.npy', np.array(combined_all_losses['in'], dtype=object))
                 np.save(f'{out_folder}/all_losses_out.npy', np.array(combined_all_losses['out'], dtype=object))
+            if combined_train_accs:
+                np.save(f'{out_folder}/train_set_accs.npy', combined_train_accs)
+            if combined_test_accs:
+                np.save(f'{out_folder}/test_set_accs.npy', combined_test_accs)
         else:
-            np.save(f'{out_folder}/outputs_{args.fit_world_only}.npy', combined_outputs[args.fit_world_only])
+            # np.save(f'{out_folder}/outputs_{args.fit_world_only}.npy', combined_outputs[args.fit_world_only])
             np.save(f'{out_folder}/losses_{args.fit_world_only}.npy', combined_losses[args.fit_world_only])
         
         if not args.fit_world_only:
