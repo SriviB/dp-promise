@@ -14,7 +14,7 @@ from models import Models
 from utils.data import load_data
 from utils.dpsgd import clip_and_accum_grads
 from utils.audit import compute_eps_lower_from_mia, compute_eps_lower_from_mia_given_t
-from utils.canaries import craft_gradient
+from utils.canaries import craft_clipbkd, craft_gradient, fgsm_attack, choose_worstcase_label
 from utils.training import (
     IndexedTensorDataset,
     xavier_init_model, init_wideresnet,
@@ -317,6 +317,22 @@ def main():
         if rank == 0:
             print(f"Loaded canary from {args.canary_pt}: X={tuple(target_X.shape)}, y={target_y.tolist()}")
     else:
+        # check for data_names + target_types that don't match
+        if args.data_name == 'mnist':
+            pass # compatible with all canaries
+
+        elif args.data_name == 'cifar10':
+            pass # compatible with all canaries
+        elif args.data_name == 'cifar100':
+            pass # compatible with all canaries
+        elif args.data_name == 'purchase':
+            pass # compatible with all canaries
+        elif args.data_name == 'tiny_shakespeare':
+            if args.target_type != 'empty_sequence':
+                raise Exception("For tiny_shakespeare, only target_type='empty_sequence' is supported.")
+        elif args.target_type == 'empty_sequence':
+            raise Exception("Target type 'empty_sequence' is only valid with data_name='tiny_shakespeare'.")
+
         # Craft target
         if args.target_type == 'gradient_space_canary':
             target_X = X_out[-1].unsqueeze(0)
@@ -327,6 +343,18 @@ def main():
                 target_y = y_out[-1].unsqueeze(0)
             if rank == 0:
                 print("Using gradient-space canary")
+        elif args.target_type == 'mislabeled':
+            # Find first sample with true label 0
+            class_0_indices = (y_out == 0).nonzero(as_tuple=True)[0]
+            if len(class_0_indices) == 0:
+                raise ValueError("No class 0 samples found in dataset for mislabeled canary")
+            # Use first class 0 sample deterministically
+            target_idx = class_0_indices[0].item()
+            target_X = X_out[target_idx].unsqueeze(0)
+            # Mislabel it as the specified target class
+            target_y = torch.tensor([args.mislabeled_target_class], dtype=torch.long)
+            if rank == 0:
+                print(f"Using mislabeled canary: true class 0 sample (index {target_idx}) relabeled as class {args.mislabeled_target_class}")
         elif args.target_type == 'blank':
             blank_img = torch.zeros_like(X_out[[0]])
             if args.blank_alpha > 0:
@@ -338,6 +366,114 @@ def main():
             else:
                 target_X = blank_img
             target_y = torch.from_numpy(np.array([9]))
+        elif args.target_type == 'badnets':
+            target_X = X_out[-1]
+            target_y = torch.tensor(args.badnets_label)
+            target_X[:, -4:, -4:] = torch.max(target_X)
+            target_X = target_X.unsqueeze(0)
+            target_y = target_y.unsqueeze(0)
+        elif args.target_type == 'sanity_check':
+            target_X = X_out[-1].unsqueeze(0)
+            target_y = y_out[-1].unsqueeze(0)
+        elif args.target_type == 'clipbkd':
+            target_X, target_y = craft_clipbkd(X_out, init_model)
+        elif args.target_type == 'fgsm':
+            print("Preparing FGSM attack by training a model on the available data...")
+            
+            # Create a new model for FGSM
+            fgsm_model = Models[args.model_name](X_out.shape, out_dim=out_dim).to(device)
+            if args.model_name == 'cnn':
+                xavier_init_model(fgsm_model)
+            else:
+                init_wideresnet(fgsm_model)
+            
+            # Train the model using the existing train_model function
+            print("Training FGSM model...")
+            
+            # Use train_model with DP disabled (delta=0, max_grad_norm=inf)
+            fgsm_model = train_model(
+                model_name=args.model_name,
+                X=X_out,
+                y=y_out,
+                X_target=None,
+                y_target=None,
+                epsilon=None,  # No DP
+                delta=None,    # No DP
+                max_grad_norm=None,  # No gradient clipping
+                n_epochs=args.n_epochs,
+                lr=args.lr,
+                block_size=args.block_size,
+                batch_size=args.batch_size,
+                init_model=fgsm_model,
+                out_dim=out_dim,
+                rank=rank,
+                world_size=world_size,
+                gradient_space_audit=False
+            )
+            print("FGSM model training completed")
+            
+            # Get the last sample and its true label
+            original_X = X_out[-1].unsqueeze(0).to(device)
+            original_y = y_out[-1].unsqueeze(0).to(device)
+            
+            # Choose a target class different from the original
+            num_classes = out_dim
+            target_class = (original_y + 1) % num_classes  # Simple way to pick a different class
+            
+            print(f"Performing FGSM attack on sample (original class: {original_y.item()}, target class: {target_class.item()})")
+            
+            # Perform iterative FGSM attack
+            print("Running iterative FGSM attack...")
+            target_X, iters_used, success = fgsm_attack(
+                fgsm_model, 
+                original_X, 
+                target_class, 
+                epsilon=0.1,  # Maximum perturbation
+                max_iter=20,  # Maximum iterations
+                alpha=0.01    # Step size
+            )
+            target_y = target_class
+            
+            # Validate attack results
+            with torch.no_grad():
+                fgsm_model.eval()
+                output = fgsm_model(target_X)
+                pred = output.argmax(dim=1)
+                perturbation = (target_X - original_X).abs().max().item()
+                
+                if success:
+                    print(f"FGSM attack succeeded in {iters_used} iterations")
+                else:
+                    print(f"FGSM attack failed after {iters_used} iterations (using best adversarial example found)")
+                
+                print(f"  Predicted class: {pred.item()}, Target class: {target_class.item()}")
+                print(f"  Perturbation L∞ norm: {perturbation:.6f} (epsilon={0.1})")
+                print(f"  Attack actually fooled model: {pred.item() == target_class.item()}")
+            
+            # Move back to CPU if needed
+            if not target_X.is_cpu:
+                target_X = target_X.cpu()
+            if not target_y.is_cpu:
+                target_y = target_y.cpu()
+                
+            # Clean up
+            del fgsm_model
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+                
+            print("FGSM attack completed")
+        elif args.target_type == 'empty_sequence':
+            # sequence length (same as existing chunks)
+            seq_len = X_out.shape[1]
+            target_X = torch.zeros((1, seq_len), dtype=torch.long)
+            target_y = torch.full((1, seq_len), 9, dtype=torch.long)
+        elif os.path.exists(args.target_type):
+            # pre-crafted target sample
+            target_X = torch.from_numpy(np.load(args.target_type))
+            if init_model is not None:
+                target_y =  choose_worstcase_label(init_model, target_X)
+            else:
+                target_y = torch.from_numpy(np.array([9]))
         else:
             raise Exception(f'Target {args.target_type} not found')
 

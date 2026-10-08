@@ -61,14 +61,21 @@ def build_parser() -> argparse.ArgumentParser:
     # Canary / target sample
     # ------------------------------------------------------------------
     parser.add_argument('--target_type', type=str, default='blank',
-                        help='Canary type: blank or gradient_space_canary')
+                        help='Canary type: blank, mislabeled, clipbkd, badnets, fgsm, '
+                             'gradient_space_canary, empty_sequence, or path to .npy file')
     parser.add_argument('--canary_pt', type=str, default=None,
                         help='Path to a .pt canary file; overrides --target_type')
     parser.add_argument('--gradient_space_canary_pt', type=str, default=None,
                         help='Path to a pre-crafted gradient-space canary dict '
                              '(used with --target_type gradient_space_canary)')
+    parser.add_argument('--mislabeled_target_class', type=int, default=1,
+                        help='Target class for mislabeled canary')
     parser.add_argument('--blank_alpha', type=float, default=0.0,
                         help='Blank canary interpolation: 0 = all-zeros, 1 = label-9 image')
+    parser.add_argument('--badnets_label', type=int, default=-1,
+                        help='Label assigned to badnets canary')
+    parser.add_argument('--target_class', type=int, default=0,
+                        help='Target class for gradient-space audit')
 
     # ------------------------------------------------------------------
     # Audit configuration
