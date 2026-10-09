@@ -9,15 +9,15 @@ import torch.distributed as dist
 import numpy as np
 import argparse
 from torch.utils.data import TensorDataset, DataLoader
+from torchvision import transforms
+from omegaconf import OmegaConf
 
-from models import Models
-from utils.data import load_data
+from src.utils import get_unet_model, load_dataset, load_dataset_from_config
 from utils.dpsgd import clip_and_accum_grads
 from utils.audit import compute_eps_lower_from_mia, compute_eps_lower_from_mia_given_t
 from utils.canaries import craft_clipbkd, craft_gradient, fgsm_attack, choose_worstcase_label
 from utils.training import (
     IndexedTensorDataset,
-    xavier_init_model, init_wideresnet,
     test_model, compute_per_sample_losses,
 )
 from utils.checkpoint import save_checkpoint, init_run_state
@@ -27,16 +27,9 @@ import torch.nn.functional as F
 
 os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'expandable_segments:True'
 
-try:
-    from opacus.grad_sample import GradSampleModule as _GradSampleModule
-    _OPACUS_AVAILABLE = True
-except ImportError:
-    _GradSampleModule = None
-    _OPACUS_AVAILABLE = False
 
-
-def train_model(model_name, X, y, X_target, y_target, epsilon, delta, max_grad_norm,
-               n_epochs, lr, block_size, batch_size, init_model=None, out_dim=10,
+def train_model(X, y, X_target, y_target, epsilon, delta, max_grad_norm,
+               n_epochs, lr, block_size, batch_size, init_model=None, config=None,
                gradient_space_audit=False, crafted_gradient=None, device='cuda:0',
                generator=None, dl_generator=None, rank=0, world_size=None,
                num_workers: int = 4, persistent_workers: bool = True,
@@ -51,25 +44,9 @@ def train_model(model_name, X, y, X_target, y_target, epsilon, delta, max_grad_n
         torch.cuda.set_device(device)
     
     if init_model is None:
-        if model_name == 'lstm':
-            vocab_size = out_dim
-            model = Models[model_name](vocab_size=vocab_size, out_dim=out_dim).to(device)
-        else:
-            model = Models[model_name](X.shape, out_dim=out_dim).to(device)
-            if model_name == 'cnn':
-                xavier_init_model(model)
-            elif model_name == 'wideresnet':
-                init_wideresnet(model)
-            else:
-                xavier_init_model(model)
+        model = get_unet_model(config).to(device)
     else:
         model = copy.deepcopy(init_model).to(device)
-
-    if model_name == "lstm":
-        if not _OPACUS_AVAILABLE:
-            raise RuntimeError("LSTM training requires opacus: pip install opacus")
-        if not isinstance(model, _GradSampleModule):
-            model = _GradSampleModule(model)
 
     model.train()
     criterion = nn.CrossEntropyLoss()
@@ -228,15 +205,35 @@ def main():
     if args.max_grad_norm == -1:
         args.max_grad_norm = None
 
-    out_folder = f'{args.out}/{args.data_name}_{args.model_name}_eps{args.epsilon}'
+    config = OmegaConf.load(args.config)
+
+    out_folder = f'{args.out}/{config.data.name}_eps{args.epsilon}'
     os.makedirs(out_folder, exist_ok=True)
 
     if rank == 0:
         print('Loading data')
-    if args.n_df == 1:
-        X_out, y_out, out_dim = load_data(args.data_name, 1)
-    else:
-        X_out, y_out, out_dim = load_data(args.data_name, args.n_df - 1)
+    # DP-PROMISE data loading: images scaled to [-1, 1]
+    transform = transforms.Compose([
+        transforms.ToTensor(),
+        lambda x: x * 2.0 - 1.0,
+    ])
+    def dataset_to_tensors(dataset):
+        all_imgs = []
+        all_labels = []
+        for imgs, labels in DataLoader(dataset, batch_size=1024, shuffle=False):
+            all_imgs.append(imgs)
+            all_labels.append(labels)
+        return torch.cat(all_imgs, dim=0), torch.cat(all_labels, dim=0)
+
+    base_dataset = load_dataset_from_config(config, transform, train=True)
+    X_out, y_out = dataset_to_tensors(base_dataset)
+    # load_dataset_from_config ignores its train argument, so call load_dataset directly
+    test_dataset = load_dataset(config.data.name, transform=transform, train=False)
+    X_test, y_test = dataset_to_tensors(test_dataset)
+    # n_df > 0: random subset of n_df - 1 samples (1 if n_df == 1), as in bb-audit's load_data
+    if args.n_df > 0:
+        idx = torch.randperm(len(X_out))[:max(args.n_df - 1, 1)]
+        X_out, y_out = X_out[idx], y_out[idx]
 
     # Initialize model with SAME seed across all GPUs for fixed_init
     if rank == 0:
@@ -246,18 +243,10 @@ def main():
         # Use same seed for all GPUs to ensure identical initialization
         torch.manual_seed(args.seed)
         np.random.seed(args.seed)
-        
-        init_model = Models[args.model_name](X_out.shape, out_dim=out_dim)
-        if args.fixed_init == '':
-            if args.model_name == 'cnn':
-                xavier_init_model(init_model)
-            elif args.model_name == 'wideresnet':
-                init_wideresnet(init_model)
-            else:
-                xavier_init_model(init_model)
-        else:
+
+        init_model = get_unet_model(config)
+        if args.fixed_init != '':
             init_model.load_state_dict(torch.load(args.fixed_init))
-            X_out, y_out = X_out[len(X_out) // 2:], y_out[len(y_out) // 2:]
     
     # NOW set per-rank seeds for everything else (after init_model is created)
     # This ensures data loading and other operations are still independent per GPU
@@ -356,7 +345,8 @@ def main():
             if rank == 0:
                 print(f"Using mislabeled canary: true class 0 sample (index {target_idx}) relabeled as class {args.mislabeled_target_class}")
         elif args.target_type == 'blank':
-            blank_img = torch.zeros_like(X_out[[0]])
+            # Black is -1 in DP-PROMISE's [-1, 1] scaling
+            blank_img = torch.full_like(X_out[[0]], -1.0)
             if args.blank_alpha > 0:
                 label_9_indices = (y_out == 9).nonzero(as_tuple=True)[0]
                 if len(label_9_indices) == 0:
@@ -479,7 +469,6 @@ def main():
 
     # Define datasets
     X_in, y_in = torch.vstack((X_out[:-1], target_X)), torch.cat((y_out[:-1], target_y))
-    X_test, y_test, _ = load_data(args.data_name, None, split='test')
 
     if rank == 0:
         print('Training models')
@@ -517,11 +506,7 @@ def main():
         elif args.canary_pt is None:
             if rank == 0:
                 print('Creating crafted gradient')
-            temp_model = Models[args.model_name](X_out.shape, out_dim=out_dim).to(device)
-            if args.model_name == 'cnn':
-                xavier_init_model(temp_model)
-            else:
-                init_wideresnet(temp_model)
+            temp_model = get_unet_model(config).to(device)
             crafted_grad = craft_gradient(model=temp_model, device=device)
             del temp_model
 
@@ -546,8 +531,7 @@ def main():
             dl_generator = torch.Generator().manual_seed(args.seed + rep * 2 + 1)
             
             model = train_model(
-                args.model_name, 
-                curr_X, 
+                curr_X,
                 curr_y, 
                 target_X, 
                 target_y, 
@@ -559,7 +543,7 @@ def main():
                 args.block_size, 
                 args.batch_size,
                 init_model=init_model,
-                out_dim=out_dim, 
+                config=config,
                 gradient_space_audit=(args.target_type == 'gradient_space_canary' and world == 'in'),
                 crafted_gradient=crafted_grad if (args.target_type == 'gradient_space_canary' and world == 'in') else None,
                 device=device,

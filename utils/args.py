@@ -6,7 +6,6 @@ audit script. Entry-points call `build_parser()` and may add their own
 script-specific arguments on top.
 """
 import argparse
-from models import Models
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -22,10 +21,9 @@ def build_parser() -> argparse.ArgumentParser:
     # ------------------------------------------------------------------
     # Data and model
     # ------------------------------------------------------------------
-    parser.add_argument('--data_name', type=str, default='mnist',
-                        help='Dataset: mnist, cifar10, cifar100, purchase, tiny_shakespeare')
-    parser.add_argument('--model_name', type=str, default='lr',
-                        choices=list(Models.keys()), help='Model architecture')
+    parser.add_argument('--config', type=str,
+                        default='configs/dp_promise/mnist_28/eps10.0/config.yaml',
+                        help='DP-PROMISE config (dataset, model and training settings)')
     parser.add_argument('--n_df', type=int, default=0,
                         help='Dataset size |D| (0 = full dataset)')
 
@@ -71,7 +69,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument('--mislabeled_target_class', type=int, default=1,
                         help='Target class for mislabeled canary')
     parser.add_argument('--blank_alpha', type=float, default=0.0,
-                        help='Blank canary interpolation: 0 = all-zeros, 1 = label-9 image')
+                        help='Blank canary interpolation: 0 = all black (-1), 1 = label-9 image')
     parser.add_argument('--badnets_label', type=int, default=-1,
                         help='Label assigned to badnets canary')
     parser.add_argument('--target_class', type=int, default=0,
