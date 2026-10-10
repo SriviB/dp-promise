@@ -9,10 +9,10 @@ import torch.distributed as dist
 import numpy as np
 import argparse
 from torch.utils.data import TensorDataset, DataLoader
-from torchvision import transforms
 from omegaconf import OmegaConf
 
-from src.utils import get_unet_model, load_dataset, load_dataset_from_config
+from src.utils import get_unet_model
+from utils.data import load_data
 from utils.dpsgd import clip_and_accum_grads
 from utils.audit import compute_eps_lower_from_mia, compute_eps_lower_from_mia_given_t
 from utils.canaries import craft_clipbkd, craft_gradient, fgsm_attack, choose_worstcase_label
@@ -212,28 +212,10 @@ def main():
 
     if rank == 0:
         print('Loading data')
-    # DP-PROMISE data loading: images scaled to [-1, 1]
-    transform = transforms.Compose([
-        transforms.ToTensor(),
-        lambda x: x * 2.0 - 1.0,
-    ])
-    def dataset_to_tensors(dataset):
-        all_imgs = []
-        all_labels = []
-        for imgs, labels in DataLoader(dataset, batch_size=1024, shuffle=False):
-            all_imgs.append(imgs)
-            all_labels.append(labels)
-        return torch.cat(all_imgs, dim=0), torch.cat(all_labels, dim=0)
-
-    base_dataset = load_dataset_from_config(config, transform, train=True)
-    X_out, y_out = dataset_to_tensors(base_dataset)
-    # load_dataset_from_config ignores its train argument, so call load_dataset directly
-    test_dataset = load_dataset(config.data.name, transform=transform, train=False)
-    X_test, y_test = dataset_to_tensors(test_dataset)
-    # n_df > 0: random subset of n_df - 1 samples (1 if n_df == 1), as in bb-audit's load_data
-    if args.n_df > 0:
-        idx = torch.randperm(len(X_out))[:max(args.n_df - 1, 1)]
-        X_out, y_out = X_out[idx], y_out[idx]
+    if args.n_df == 1:
+        X_out, y_out, out_dim = load_data(config, 1)
+    else:
+        X_out, y_out, out_dim = load_data(config, args.n_df - 1)
 
     # Initialize model with SAME seed across all GPUs for fixed_init
     if rank == 0:
@@ -469,6 +451,7 @@ def main():
 
     # Define datasets
     X_in, y_in = torch.vstack((X_out[:-1], target_X)), torch.cat((y_out[:-1], target_y))
+    X_test, y_test, _ = load_data(config, None, split='test')
 
     if rank == 0:
         print('Training models')
