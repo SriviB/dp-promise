@@ -286,16 +286,16 @@ def main():
             print(f"Loaded canary from {args.canary_pt}: X={tuple(target_X.shape)}, y={target_y.tolist()}")
     else:
         # check for data_names + target_types that don't match
-        if args.data_name == 'mnist':
+        if config.data.name == 'mnist':
             pass # compatible with all canaries
 
-        elif args.data_name == 'cifar10':
+        elif config.data.name == 'cifar10':
             pass # compatible with all canaries
-        elif args.data_name == 'cifar100':
+        elif config.data.name == 'cifar100':
             pass # compatible with all canaries
-        elif args.data_name == 'purchase':
+        elif config.data.name == 'purchase':
             pass # compatible with all canaries
-        elif args.data_name == 'tiny_shakespeare':
+        elif config.data.name == 'tiny_shakespeare':
             if args.target_type != 'empty_sequence':
                 raise Exception("For tiny_shakespeare, only target_type='empty_sequence' is supported.")
         elif args.target_type == 'empty_sequence':
