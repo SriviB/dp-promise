@@ -212,10 +212,7 @@ def main():
 
     if rank == 0:
         print('Loading data')
-    if args.n_df == 1:
-        X_out, y_out, out_dim = load_data(config, 1)
-    else:
-        X_out, y_out, out_dim = load_data(config, args.n_df - 1)
+    X_out, y_out, out_dim = load_data(config, args.n_df)
 
     # Initialize model with SAME seed across all GPUs for fixed_init
     if rank == 0:
