@@ -19,7 +19,7 @@ from utils.audit import compute_eps_lower_from_mia, compute_eps_lower_from_mia_g
 from utils.canaries import craft_clipbkd, craft_gradient, fgsm_attack, choose_worstcase_label
 from utils.training import (
     IndexedTensorDataset,
-    test_model,
+    test_model, compute_per_sample_losses,
 )
 from utils.checkpoint import save_checkpoint, init_run_state
 from utils.args import build_parser
@@ -565,23 +565,21 @@ def main():
                     # Not a per-sample loss-based audit; keep placeholder for alignment.
                     all_losses[world].append(np.array([], dtype=np.float32))
                 else:
-                    # TODO: compute_per_sample_losses needs a diffusion (denoising-loss) version
-                    # all_losses[world].append(
-                    #     compute_per_sample_losses(model, curr_X, curr_y, device=device)
-                    # )
-                    pass
+                    all_losses[world].append(
+                        compute_per_sample_losses(model, curr_X, curr_y, trainer, config, device=device)
+                    )
             
             # Each rank saves its own checkpoint
             # TODO: fix save_checkpoint to account for randomness
             save_checkpoint(out_folder, outputs, losses, all_losses, train_set_accs, test_set_accs, args.fit_world_only, rank)
             
-            # Get test set accuracy from first 5 reps
+            # Get train / test set denoising loss from first 5 reps
             if rep < 5 and world == 'in':
                 if len(X_out) > 0:
                     train_set_accs.append(test_model(model, X_in, y_in, trainer))
-                    print(f'[Rank {rank}] Train set acc:', train_set_accs[-1])
+                    print(f'[Rank {rank}] Train set denoising loss:', train_set_accs[-1])
                 test_set_accs.append(test_model(model, X_test, y_test, trainer))
-                print(f'[Rank {rank}] Test set acc:', test_set_accs[-1])
+                print(f'[Rank {rank}] Test set denoising loss:', test_set_accs[-1])
                 save_checkpoint(out_folder, outputs, losses, all_losses, train_set_accs, test_set_accs, args.fit_world_only, rank)
         
         # After all reps in this world
@@ -606,8 +604,9 @@ def main():
             suffix = f'_rank{r}' if r > 0 else ''
             try:
                 if not args.fit_world_only:
-                    combined_outputs['in'].extend(np.load(f'{out_folder}/outputs_in{suffix}.npy'))
-                    combined_outputs['out'].extend(np.load(f'{out_folder}/outputs_out{suffix}.npy'))
+                    # outputs_* not saved for diffusion (see utils/checkpoint.py)
+                    # combined_outputs['in'].extend(np.load(f'{out_folder}/outputs_in{suffix}.npy'))
+                    # combined_outputs['out'].extend(np.load(f'{out_folder}/outputs_out{suffix}.npy'))
                     combined_losses['in'].extend(np.load(f'{out_folder}/losses_in{suffix}.npy'))
                     combined_losses['out'].extend(np.load(f'{out_folder}/losses_out{suffix}.npy'))
                     if args.store_all_losses and os.path.exists(f'{out_folder}/all_losses_in{suffix}.npy'):
@@ -619,7 +618,7 @@ def main():
                     if os.path.exists(f'{out_folder}/test_set_accs{suffix}.npy'):
                         combined_test_accs.extend(np.load(f'{out_folder}/test_set_accs{suffix}.npy'))
                 else:
-                    combined_outputs[args.fit_world_only].extend(np.load(f'{out_folder}/outputs_{args.fit_world_only}{suffix}.npy'))
+                    # combined_outputs[args.fit_world_only].extend(np.load(f'{out_folder}/outputs_{args.fit_world_only}{suffix}.npy'))
                     combined_losses[args.fit_world_only].extend(np.load(f'{out_folder}/losses_{args.fit_world_only}{suffix}.npy'))
                     if args.store_all_losses and os.path.exists(f'{out_folder}/all_losses_{args.fit_world_only}{suffix}.npy'):
                         combined_all_losses[args.fit_world_only].extend(
@@ -630,8 +629,8 @@ def main():
         
         # Save combined results
         if not args.fit_world_only:
-            np.save(f'{out_folder}/outputs_in.npy', combined_outputs['in'])
-            np.save(f'{out_folder}/outputs_out.npy', combined_outputs['out'])
+            # np.save(f'{out_folder}/outputs_in.npy', combined_outputs['in'])
+            # np.save(f'{out_folder}/outputs_out.npy', combined_outputs['out'])
             np.save(f'{out_folder}/losses_in.npy', combined_losses['in'])
             np.save(f'{out_folder}/losses_out.npy', combined_losses['out'])
             if args.store_all_losses:
@@ -642,7 +641,7 @@ def main():
             if combined_test_accs:
                 np.save(f'{out_folder}/test_set_accs.npy', combined_test_accs)
         else:
-            np.save(f'{out_folder}/outputs_{args.fit_world_only}.npy', combined_outputs[args.fit_world_only])
+            # np.save(f'{out_folder}/outputs_{args.fit_world_only}.npy', combined_outputs[args.fit_world_only])
             np.save(f'{out_folder}/losses_{args.fit_world_only}.npy', combined_losses[args.fit_world_only])
             if args.store_all_losses:
                 np.save(
@@ -702,9 +701,9 @@ def main():
             print(f'Empirical eps: {emp_eps_loss}')
 
         if combined_train_accs:
-            print(f'Train set accuracy: {np.mean(combined_train_accs) * 100:.3f}%')
+            print(f'Train set denoising loss: {np.mean(combined_train_accs):.5f}')
         if combined_test_accs:
-            print(f'Test set accuracy: {np.mean(combined_test_accs) * 100:.3f}%')
+            print(f'Test set denoising loss: {np.mean(combined_test_accs):.5f}')
     
     print(f"[Rank {rank}] Finished!")
 
