@@ -32,12 +32,12 @@ def build_parser() -> argparse.ArgumentParser:
     # ------------------------------------------------------------------
     parser.add_argument('--n_reps', type=int, default=200,
                         help='Number of shadow models to train')
-    parser.add_argument('--n_epochs', type=int, default=100,
-                        help='Training epochs per model')
-    parser.add_argument('--lr', type=float, default=1e-4, help='Learning rate')
-    parser.add_argument('--batch_size', type=int, help='Training batch size')
-    parser.add_argument('--block_size', type=int,
-                        help='Process batch in sub-blocks to save GPU memory')
+    parser.add_argument('--n_epochs', type=int, default=None,
+                        help='Training epochs per model (default: config train.epochs1)')
+    parser.add_argument('--lr', type=float, default=None,
+                        help='Learning rate (default: config train.lr1)')
+    parser.add_argument('--batch_size', type=int, default=None,
+                        help='Training batch size (default: config train.batch_size1)')
     parser.add_argument('--sampling', type=str, default='poisson',
                         choices=['poisson', 'shuffle'],
                         help='Minibatch sampling strategy. '
@@ -52,8 +52,6 @@ def build_parser() -> argparse.ArgumentParser:
                         help='DP ε budget (None = non-private)')
     parser.add_argument('--delta', type=float, default=1e-5,
                         help='DP δ budget')
-    parser.add_argument('--max_grad_norm', type=float, default=1,
-                        help='Per-sample gradient clipping norm')
 
     # ------------------------------------------------------------------
     # Canary / target sample
@@ -85,6 +83,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument('--fit_world_only', type=str, default=None,
                         choices=['in', 'out'],
                         help='Train only "in" or only "out" models')
+    parser.add_argument('--eval_noise_samples', type=int, default=32,
+                        help='Noised copies of the canary averaged for its denoising-loss score')
     parser.add_argument('--alpha', type=float, default=0.05,
                         help='Significance level for empirical ε estimation')
     parser.add_argument('--holdout_audit', action='store_true',
