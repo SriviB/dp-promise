@@ -13,6 +13,7 @@ from omegaconf import OmegaConf
 
 from src.utils import get_unet_model
 from src.trainers import DPPromiseTrainer
+from src.ema import ExponentialMovingAverage
 from utils.data import load_data
 from utils.audit import compute_eps_lower_from_mia, compute_eps_lower_from_mia_given_t
 from utils.canaries import craft_clipbkd, craft_gradient, fgsm_attack, choose_worstcase_label
@@ -52,6 +53,10 @@ def train_model(X, y, X_target, y_target, epsilon, delta,
     # DP-PROMISE Phase 1 (src/runners.py, train_dp_promise)
     optimizer = optim.Adam(model.parameters(), lr=lr)
     trainer = DPPromiseTrainer(config).to(device)
+    ema = ExponentialMovingAverage(
+        model.parameters(),
+        decay=config.train.ema_rate,
+    )
 
     # Create dataset
     dataset = IndexedTensorDataset(X, y)
@@ -119,10 +124,14 @@ def train_model(X, y, X_target, y_target, epsilon, delta,
             optimizer.zero_grad(set_to_none=True)
             loss.backward()
             optimizer.step()
-        
+            ema.update(model.parameters())
+
         epoch_time = time.time() - epoch_start
         print(f" | Time: {epoch_time:.2f}s")
-        
+
+    # End of Phase 1: use the EMA weights, as DP-PROMISE does before Phase 2
+    ema.copy_to(model.parameters())
+
     return model
 
 
