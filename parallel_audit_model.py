@@ -12,13 +12,14 @@ from torch.utils.data import TensorDataset, DataLoader
 from omegaconf import OmegaConf
 
 from src.utils import get_unet_model
+from src.trainers import DPPromiseTrainer
+from src.ema import ExponentialMovingAverage
 from utils.data import load_data
-from utils.dpsgd import clip_and_accum_grads
 from utils.audit import compute_eps_lower_from_mia, compute_eps_lower_from_mia_given_t
 from utils.canaries import craft_clipbkd, craft_gradient, fgsm_attack, choose_worstcase_label
 from utils.training import (
     IndexedTensorDataset,
-    test_model, compute_per_sample_losses,
+    test_model,
 )
 from utils.checkpoint import save_checkpoint, init_run_state
 from utils.args import build_parser
@@ -28,8 +29,8 @@ import torch.nn.functional as F
 os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'expandable_segments:True'
 
 
-def train_model(X, y, X_target, y_target, epsilon, delta, max_grad_norm,
-               n_epochs, lr, block_size, batch_size, init_model=None, config=None,
+def train_model(X, y, X_target, y_target, epsilon, delta,
+               n_epochs, lr, batch_size, init_model=None, config=None,
                gradient_space_audit=False, crafted_gradient=None, device='cuda:0',
                generator=None, dl_generator=None, rank=0, world_size=None,
                num_workers: int = 4, persistent_workers: bool = True,
@@ -49,10 +50,13 @@ def train_model(X, y, X_target, y_target, epsilon, delta, max_grad_norm,
         model = copy.deepcopy(init_model).to(device)
 
     model.train()
-    criterion = nn.CrossEntropyLoss()
-    optimizer = optim.SGD(model.parameters(), lr=lr)
-
-    block_size = min(block_size, batch_size)
+    # DP-PROMISE Phase 1 (src/runners.py, train_dp_promise)
+    optimizer = optim.Adam(model.parameters(), lr=lr)
+    trainer = DPPromiseTrainer(config).to(device)
+    ema = ExponentialMovingAverage(
+        model.parameters(),
+        decay=config.train.ema_rate,
+    )
 
     # Create dataset
     dataset = IndexedTensorDataset(X, y)
@@ -110,47 +114,24 @@ def train_model(X, y, X_target, y_target, epsilon, delta, max_grad_norm,
             curr_X, curr_y = curr_X.to(device, non_blocking=True), curr_y.to(device, non_blocking=True)
             global_indices = global_indices.to(device, non_blocking=True)
 
-            # Clip & accumulate gradients (no world_size/rank needed)
-            curr_accumulated_gradients, _ = clip_and_accum_grads(
-                model,
-                curr_X, curr_y, optimizer, criterion,
-                max_grad_norm, 
-                block_size=block_size,
-                device=device,
-                global_indices=global_indices,
-                world_size=1,  # Single GPU
-                rank=0,        # Single GPU
-                batch_size=batch_size,
-                is_gradient_space_canary=gradient_space_audit,
-                global_idx_to_grad=global_idx_to_grad,
-                canary_indices=np.array([len(dataset) - 1]) if gradient_space_audit else None,
-            )
-            
-            # Apply the accumulated gradients
-            with torch.no_grad():
-                for name, param in model.named_parameters():
-                    
-                    if name not in curr_accumulated_gradients:
-                        print(f"Warning: Parameter {name} not found in accumulated gradients")
-                        continue
-                        
-                    grad = curr_accumulated_gradients[name].to(device)
-                    
-                    # Average the gradient sum by the nominal batch size so that the
-                    # effective LR is consistent across Poisson draws.
-                    grad.div_(float(batch_size))
-                    
-                    if param.grad is None:
-                        param.grad = grad.clone()
-                    else:
-                        param.grad.copy_(grad)
-            
+            # TODO (Phase 2): the gradient space canary is not inserted here. bb-audit's
+            # clip_and_accum_grads swapped in the crafted gradient (global_idx_to_grad);
+            # restore that when Phase 2 is added.
+
+            # DP-PROMISE Phase 1 step (src/runners.py, train_non_private)
+            curr_y = torch.zeros_like(curr_y, dtype=torch.long).to(device)
+            loss = trainer(model, curr_X, curr_y, phase="1")
+            optimizer.zero_grad(set_to_none=True)
+            loss.backward()
             optimizer.step()
-            optimizer.zero_grad()
-        
+            ema.update(model.parameters())
+
         epoch_time = time.time() - epoch_start
         print(f" | Time: {epoch_time:.2f}s")
-        
+
+    # End of Phase 1: use the EMA weights, as DP-PROMISE does before Phase 2
+    ema.copy_to(model.parameters())
+
     return model
 
 
@@ -202,10 +183,18 @@ def main():
     args = parser.parse_args()
     if args.epsilon == -1:
         args.epsilon = None
-    if args.max_grad_norm == -1:
-        args.max_grad_norm = None
 
     config = OmegaConf.load(args.config)
+    # Default to DP-PROMISE's Phase 1 hyperparameters unless overridden
+    if args.lr is None:
+        args.lr = config.train.lr1
+    if args.batch_size is None:
+        args.batch_size = config.train.batch_size1
+    if args.n_epochs is None:
+        args.n_epochs = config.train.epochs1
+
+    # DP-PROMISE noising (q_sample), used to score the canary
+    trainer = DPPromiseTrainer(config).to(device)
 
     out_folder = f'{args.out}/{config.data.name}_eps{args.epsilon}'
     os.makedirs(out_folder, exist_ok=True)
@@ -368,10 +357,8 @@ def main():
                 y_target=None,
                 epsilon=None,  # No DP
                 delta=None,    # No DP
-                max_grad_norm=None,  # No gradient clipping
                 n_epochs=args.n_epochs,
                 lr=args.lr,
-                block_size=args.block_size,
                 batch_size=args.batch_size,
                 init_model=fgsm_model,
                 out_dim=out_dim,
@@ -517,10 +504,8 @@ def main():
                 target_y, 
                 args.epsilon, 
                 args.delta,
-                args.max_grad_norm, 
-                args.n_epochs, 
-                args.lr, 
-                args.block_size, 
+                args.n_epochs,
+                args.lr,
                 args.batch_size,
                 init_model=init_model,
                 config=config,
@@ -537,10 +522,9 @@ def main():
             model.eval()
             with torch.no_grad():
                 target_X_device = target_X.to(device)
-                target_y_device = target_y.to(device)
-                
-                output = model(target_X_device)
-                
+                # Phase 1 trains with every label set to 0, so score with label 0 too
+                target_y_device = torch.zeros_like(target_y, dtype=torch.long).to(device)
+
                 if args.target_type == 'gradient_space_canary' and crafted_grad is not None:
                     # For gradient space canary, score by L∞ norm of parameter update
                     final_params = {n: p.detach().clone().to(device) for n, p in model.named_parameters()}
@@ -552,10 +536,28 @@ def main():
                     # Score by L∞ norm of parameter update
                     loss = flat_update.abs().max().item()
                 else:
-                    loss = -nn.CrossEntropyLoss()(output, target_y_device).cpu().item()
-                
+                    # Canary score: -(denoising MSE), averaged over eval_noise_samples noised
+                    # copies at Phase 1 timesteps [S, T), with a fixed seed shared by all models
+                    eval_gen = torch.Generator(device='cpu').manual_seed(0)
+                    total_mse = 0.0
+                    for _ in range(args.eval_noise_samples):
+                        t = torch.randint(
+                            config.dp.S,
+                            config.diffusion.timesteps,
+                            size=(1,),
+                            generator=eval_gen,
+                        ).to(device)
+                        noise = torch.randn(
+                            target_X_device.shape,
+                            generator=eval_gen,
+                        ).to(device)
+                        x_noisy = trainer.q_sample(target_X_device, t, noise)
+                        pred_noise = model(x_noisy, t, target_y_device)
+                        total_mse += F.mse_loss(noise, pred_noise).item()
+
+                    loss = -(total_mse / args.eval_noise_samples)
+
                 # Store locally - no gathering needed
-                outputs[world].append(output[0].cpu().numpy())
                 losses[world].append(loss)
 
             if args.store_all_losses:
@@ -563,9 +565,11 @@ def main():
                     # Not a per-sample loss-based audit; keep placeholder for alignment.
                     all_losses[world].append(np.array([], dtype=np.float32))
                 else:
-                    all_losses[world].append(
-                        compute_per_sample_losses(model, curr_X, curr_y, device=device)
-                    )
+                    # TODO: compute_per_sample_losses needs a diffusion (denoising-loss) version
+                    # all_losses[world].append(
+                    #     compute_per_sample_losses(model, curr_X, curr_y, device=device)
+                    # )
+                    pass
             
             # Each rank saves its own checkpoint
             # TODO: fix save_checkpoint to account for randomness
@@ -574,9 +578,9 @@ def main():
             # Get test set accuracy from first 5 reps
             if rep < 5 and world == 'in':
                 if len(X_out) > 0:
-                    train_set_accs.append(test_model(model, X_in, y_in))
+                    train_set_accs.append(test_model(model, X_in, y_in, trainer))
                     print(f'[Rank {rank}] Train set acc:', train_set_accs[-1])
-                test_set_accs.append(test_model(model, X_test, y_test))
+                test_set_accs.append(test_model(model, X_test, y_test, trainer))
                 print(f'[Rank {rank}] Test set acc:', test_set_accs[-1])
                 save_checkpoint(out_folder, outputs, losses, all_losses, train_set_accs, test_set_accs, args.fit_world_only, rank)
         
