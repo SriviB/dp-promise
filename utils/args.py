@@ -24,7 +24,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument('--config', type=str,
                         default='configs/dp_promise/mnist_28/eps10.0/config.yaml',
                         help='DP-PROMISE config (dataset, model and training settings)')
-    parser.add_argument('--n_df', type=int, default=0,
+    parser.add_argument('--dataset_size', type=int, default=0,
                         help='Dataset size |D| (0 = full dataset)')
 
     # ------------------------------------------------------------------

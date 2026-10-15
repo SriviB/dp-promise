@@ -7,7 +7,7 @@ import torchvision.transforms as transforms
 from src.utils import load_dataset, load_dataset_from_config
 
 
-def load_data(config, n_df, split='train'):
+def load_data(config, dataset_size=0, split='train'):
     # DP-PROMISE transform: images scaled to [-1, 1] (train.py)
     transform = transforms.Compose([
         transforms.ToTensor(),
@@ -23,9 +23,9 @@ def load_data(config, n_df, split='train'):
     out_dim = config.data.num_classes
 
     # load neighboring dataset D-
-    n_df = len(dataset) if n_df is None or n_df <= 0 else n_df # load full dataset if n_df is None or 0
-    shuffle = n_df != len(dataset) # only shuffle dataset if full dataset is not loaded
-    tmp_loader = torch.utils.data.DataLoader(dataset, batch_size=n_df, shuffle=shuffle)
+    dataset_size = len(dataset) if dataset_size is None or dataset_size <= 0 else dataset_size # load full dataset if dataset_size is None or 0
+    shuffle = dataset_size != len(dataset) # only shuffle dataset if full dataset is not loaded
+    tmp_loader = torch.utils.data.DataLoader(dataset, batch_size=dataset_size, shuffle=shuffle)
 
     X, y = next(iter(tmp_loader))
 
