@@ -21,8 +21,7 @@ def build_parser() -> argparse.ArgumentParser:
     # ------------------------------------------------------------------
     # Data and model
     # ------------------------------------------------------------------
-    parser.add_argument('--config', type=str,
-                        default='configs/dp_promise/mnist_28/eps10.0/config.yaml',
+    parser.add_argument('--config', type=str, required=True,
                         help='DP-PROMISE config (dataset, model and training settings)')
     parser.add_argument('--dataset_size', type=int, default=0,
                         help='Dataset size |D| (0 = full dataset)')
@@ -58,22 +57,22 @@ def build_parser() -> argparse.ArgumentParser:
     # ------------------------------------------------------------------
     # Canary / target sample
     # ------------------------------------------------------------------
+    # DP-PROMISE trains unconditionally, so canaries are defined purely in image
+    # (or gradient) space -- there is no label to mislabel or target.
     parser.add_argument('--target_type', type=str, default='blank',
-                        help='Canary type: blank, mislabeled, clipbkd, badnets, fgsm, '
-                             'gradient_space_canary, empty_sequence, or path to .npy file')
+                        choices=['blank', 'blank_interp', 'in_distribution', 'gradient'],
+                        help='Canary type. '
+                             '"blank": all-black image (-1 under DP-PROMISE scaling). '
+                             '"blank_interp": blank interpolated with a random dataset image '
+                             '(see --interp_alpha). '
+                             '"in_distribution": an unmodified image from the dataset. '
+                             '"gradient": gradient-space canary loaded from --canary_pt.')
+    parser.add_argument('--interp_alpha', type=float, default=0.5,
+                        help='Interpolation weight for --target_type blank_interp: '
+                             '0 = all black, 1 = the sampled dataset image')
     parser.add_argument('--canary_pt', type=str, default=None,
-                        help='Path to a .pt canary file; overrides --target_type')
-    parser.add_argument('--gradient_space_canary_pt', type=str, default=None,
-                        help='Path to a pre-crafted gradient-space canary dict '
-                             '(used with --target_type gradient_space_canary)')
-    parser.add_argument('--mislabeled_target_class', type=int, default=1,
-                        help='Target class for mislabeled canary')
-    parser.add_argument('--blank_alpha', type=float, default=0.0,
-                        help='Blank canary interpolation: 0 = all black (-1), 1 = label-9 image')
-    parser.add_argument('--badnets_label', type=int, default=-1,
-                        help='Label assigned to badnets canary')
-    parser.add_argument('--target_class', type=int, default=0,
-                        help='Target class for gradient-space audit')
+                        help='Path to a .pt gradient canary (required for --target_type gradient). '
+                             'Either a {name: tensor} gradient dict or {"gradient": {...}}')
 
     # ------------------------------------------------------------------
     # Audit configuration
