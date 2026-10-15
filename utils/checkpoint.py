@@ -32,7 +32,8 @@ def save_checkpoint(
 
     if fit_world_only:
         w = fit_world_only
-        np.save(f'{out_folder}/outputs_{w}{suffix}.npy', outputs[w])
+        # outputs_* not saved: for diffusion there is no model output to record (score is in losses_*)
+        # np.save(f'{out_folder}/outputs_{w}{suffix}.npy', outputs[w])
         np.save(f'{out_folder}/losses_{w}{suffix}.npy', losses[w])
         if all_losses is not None:
             np.save(f'{out_folder}/all_losses_{w}{suffix}.npy', all_losses[w])
@@ -40,8 +41,9 @@ def save_checkpoint(
             np.save(f'{out_folder}/train_set_accs{suffix}.npy', train_set_accs)
             np.save(f'{out_folder}/test_set_accs{suffix}.npy', test_set_accs)
     else:
-        np.save(f'{out_folder}/outputs_in{suffix}.npy', outputs['in'])
-        np.save(f'{out_folder}/outputs_out{suffix}.npy', outputs['out'])
+        # outputs_* not saved: for diffusion there is no model output to record (score is in losses_*)
+        # np.save(f'{out_folder}/outputs_in{suffix}.npy', outputs['in'])
+        # np.save(f'{out_folder}/outputs_out{suffix}.npy', outputs['out'])
         np.save(f'{out_folder}/losses_in{suffix}.npy', losses['in'])
         np.save(f'{out_folder}/losses_out{suffix}.npy', losses['out'])
         np.save(f'{out_folder}/train_set_accs{suffix}.npy', train_set_accs)
