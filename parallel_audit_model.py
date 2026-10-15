@@ -9,15 +9,14 @@ import torch.distributed as dist
 import numpy as np
 import argparse
 from torch.utils.data import TensorDataset, DataLoader
+from omegaconf import OmegaConf
 
-from models import Models
+from src.utils import get_unet_model
 from utils.data import load_data
 from utils.dpsgd import clip_and_accum_grads
 from utils.audit import compute_eps_lower_from_mia, compute_eps_lower_from_mia_given_t
-from utils.canaries import craft_clipbkd, craft_gradient, fgsm_attack, choose_worstcase_label
 from utils.training import (
     IndexedTensorDataset,
-    xavier_init_model, init_wideresnet,
     test_model, compute_per_sample_losses,
 )
 from utils.checkpoint import save_checkpoint, init_run_state
@@ -27,16 +26,9 @@ import torch.nn.functional as F
 
 os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'expandable_segments:True'
 
-try:
-    from opacus.grad_sample import GradSampleModule as _GradSampleModule
-    _OPACUS_AVAILABLE = True
-except ImportError:
-    _GradSampleModule = None
-    _OPACUS_AVAILABLE = False
 
-
-def train_model(model_name, X, y, X_target, y_target, epsilon, delta, max_grad_norm,
-               n_epochs, lr, block_size, batch_size, init_model=None, out_dim=10,
+def train_model(X, y, X_target, y_target, epsilon, delta, max_grad_norm,
+               n_epochs, lr, block_size, batch_size, init_model=None, config=None,
                gradient_space_audit=False, crafted_gradient=None, device='cuda:0',
                generator=None, dl_generator=None, rank=0, world_size=None,
                num_workers: int = 4, persistent_workers: bool = True,
@@ -51,25 +43,9 @@ def train_model(model_name, X, y, X_target, y_target, epsilon, delta, max_grad_n
         torch.cuda.set_device(device)
     
     if init_model is None:
-        if model_name == 'lstm':
-            vocab_size = out_dim
-            model = Models[model_name](vocab_size=vocab_size, out_dim=out_dim).to(device)
-        else:
-            model = Models[model_name](X.shape, out_dim=out_dim).to(device)
-            if model_name == 'cnn':
-                xavier_init_model(model)
-            elif model_name == 'wideresnet':
-                init_wideresnet(model)
-            else:
-                xavier_init_model(model)
+        model = get_unet_model(config).to(device)
     else:
         model = copy.deepcopy(init_model).to(device)
-
-    if model_name == "lstm":
-        if not _OPACUS_AVAILABLE:
-            raise RuntimeError("LSTM training requires opacus: pip install opacus")
-        if not isinstance(model, _GradSampleModule):
-            model = _GradSampleModule(model)
 
     model.train()
     criterion = nn.CrossEntropyLoss()
@@ -228,15 +204,14 @@ def main():
     if args.max_grad_norm == -1:
         args.max_grad_norm = None
 
-    out_folder = f'{args.out}/{args.data_name}_{args.model_name}_eps{args.epsilon}'
+    config = OmegaConf.load(args.config)
+
+    out_folder = f'{args.out}/{config.data.name}_eps{args.epsilon}'
     os.makedirs(out_folder, exist_ok=True)
 
     if rank == 0:
         print('Loading data')
-    if args.n_df == 1:
-        X_out, y_out, out_dim = load_data(args.data_name, 1)
-    else:
-        X_out, y_out, out_dim = load_data(args.data_name, args.n_df - 1)
+    X_out, y_out, out_dim = load_data(config, args.dataset_size)
 
     # Initialize model with SAME seed across all GPUs for fixed_init
     if rank == 0:
@@ -246,18 +221,10 @@ def main():
         # Use same seed for all GPUs to ensure identical initialization
         torch.manual_seed(args.seed)
         np.random.seed(args.seed)
-        
-        init_model = Models[args.model_name](X_out.shape, out_dim=out_dim)
-        if args.fixed_init == '':
-            if args.model_name == 'cnn':
-                xavier_init_model(init_model)
-            elif args.model_name == 'wideresnet':
-                init_wideresnet(init_model)
-            else:
-                xavier_init_model(init_model)
-        else:
+
+        init_model = get_unet_model(config)
+        if args.fixed_init != '':
             init_model.load_state_dict(torch.load(args.fixed_init))
-            X_out, y_out = X_out[len(X_out) // 2:], y_out[len(y_out) // 2:]
     
     # NOW set per-rank seeds for everything else (after init_model is created)
     # This ensures data loading and other operations are still independent per GPU
@@ -265,221 +232,48 @@ def main():
     torch.manual_seed(args.seed + rank)
     torch.cuda.manual_seed_all(args.seed + rank)
 
-    # Initialize gradient_space_canary_target_class early (will be set later if gradient space canary is loaded)
-    gradient_space_canary_target_class = None
-
     # Craft target
     if rank == 0:
         print('Crafting target data point')
 
-    if args.canary_pt is not None:
-        if not os.path.exists(args.canary_pt):
-            raise FileNotFoundError(f"--canary_pt not found: {args.canary_pt}")
-        payload = torch.load(args.canary_pt, map_location='cpu')
+    # DP-PROMISE trains unconditionally (the trainer zeroes y), so canaries are
+    # defined purely in image or gradient space. Labels are placeholders kept only
+    # so that (X, y) shapes stay aligned with the rest of the dataset.
+    target_y = torch.zeros(1, dtype=torch.long)
 
-        if isinstance(payload, dict):
-            if 'canary' not in payload:
-                raise KeyError(f"Canary .pt dict must contain key 'canary'. Found keys: {list(payload.keys())}")
-            target_X = payload['canary']
-            if 'target_label' in payload:
-                target_y_val = payload['target_label']
-            elif 'canary_label' in payload:
-                target_y_val = payload['canary_label']
-            elif 'label' in payload:
-                target_y_val = payload['label']
-            elif 'true_label' in payload:
-                target_y_val = payload['true_label']
-            elif 'audit_label' in payload:
-                target_y_val = payload['audit_label']
-            else:
-                target_y_val = 9
+    # Seeded so every rank selects the same canary
+    idx_gen = torch.Generator().manual_seed(args.seed)
 
-        elif torch.is_tensor(payload):
-            target_X = payload
-            target_y_val = 9
-        else:
-            raise TypeError(f"Unsupported canary_pt payload type: {type(payload)}")
-
-        if torch.is_tensor(target_y_val):
-            target_y = target_y_val.clone().detach().long().view(-1)
-        else:
-            target_y = torch.tensor([int(target_y_val)], dtype=torch.long)
-
-        if not torch.is_tensor(target_X):
-            target_X = torch.tensor(target_X)
-
-        target_X = target_X.clone().detach()
-        if target_X.ndim == X_out.ndim - 1:
-            target_X = target_X.unsqueeze(0)
-        if target_X.ndim != X_out.ndim:
-            raise ValueError(f"Loaded canary has shape {tuple(target_X.shape)} but expected {tuple(X_out[[0]].shape)}")
-
+    if args.target_type == 'blank':
+        # Black is -1 in DP-PROMISE's [-1, 1] scaling
+        target_X = torch.full_like(X_out[[0]], -1.0)
+    elif args.target_type == 'blank_interp':
+        if not 0.0 <= args.interp_alpha <= 1.0:
+            raise ValueError(f'--interp_alpha must be in [0, 1], got {args.interp_alpha}')
+        blank_img = torch.full_like(X_out[[0]], -1.0)
+        sampled_idx = int(torch.randint(len(X_out), size=(1,), generator=idx_gen).item())
+        sampled_img = X_out[sampled_idx].unsqueeze(0)
+        target_X = args.interp_alpha * sampled_img + (1 - args.interp_alpha) * blank_img
         if rank == 0:
-            print(f"Loaded canary from {args.canary_pt}: X={tuple(target_X.shape)}, y={target_y.tolist()}")
+            print(f'Blank canary interpolated with dataset image {sampled_idx} '
+                  f'at alpha={args.interp_alpha}')
+    elif args.target_type == 'in_distribution':
+        sampled_idx = int(torch.randint(len(X_out), size=(1,), generator=idx_gen).item())
+        target_X = X_out[sampled_idx].unsqueeze(0)
+        if rank == 0:
+            print(f'Using in-distribution canary: dataset image {sampled_idx}')
+    elif args.target_type == 'gradient':
+        # The canary lives in gradient space, so the dataset slot it occupies is
+        # irrelevant -- its per-sample gradient is substituted during training.
+        target_X = X_out[[-1]].clone()
+        if rank == 0:
+            print('Using gradient-space canary')
     else:
-        # check for data_names + target_types that don't match
-        if args.data_name == 'mnist':
-            pass # compatible with all canaries
-
-        elif args.data_name == 'cifar10':
-            pass # compatible with all canaries
-        elif args.data_name == 'cifar100':
-            pass # compatible with all canaries
-        elif args.data_name == 'purchase':
-            pass # compatible with all canaries
-        elif args.data_name == 'tiny_shakespeare':
-            if args.target_type != 'empty_sequence':
-                raise Exception("For tiny_shakespeare, only target_type='empty_sequence' is supported.")
-        elif args.target_type == 'empty_sequence':
-            raise Exception("Target type 'empty_sequence' is only valid with data_name='tiny_shakespeare'.")
-
-        # Craft target
-        if args.target_type == 'gradient_space_canary':
-            target_X = X_out[-1].unsqueeze(0)
-            # Use the target class from the canary file if available, otherwise use the last sample's label
-            if gradient_space_canary_target_class is not None:
-                target_y = torch.tensor([gradient_space_canary_target_class], dtype=torch.long)
-            else:
-                target_y = y_out[-1].unsqueeze(0)
-            if rank == 0:
-                print("Using gradient-space canary")
-        elif args.target_type == 'mislabeled':
-            # Find first sample with true label 0
-            class_0_indices = (y_out == 0).nonzero(as_tuple=True)[0]
-            if len(class_0_indices) == 0:
-                raise ValueError("No class 0 samples found in dataset for mislabeled canary")
-            # Use first class 0 sample deterministically
-            target_idx = class_0_indices[0].item()
-            target_X = X_out[target_idx].unsqueeze(0)
-            # Mislabel it as the specified target class
-            target_y = torch.tensor([args.mislabeled_target_class], dtype=torch.long)
-            if rank == 0:
-                print(f"Using mislabeled canary: true class 0 sample (index {target_idx}) relabeled as class {args.mislabeled_target_class}")
-        elif args.target_type == 'blank':
-            blank_img = torch.zeros_like(X_out[[0]])
-            if args.blank_alpha > 0:
-                label_9_indices = (y_out == 9).nonzero(as_tuple=True)[0]
-                if len(label_9_indices) == 0:
-                    raise ValueError("No label 9 samples found in dataset")
-                label_9_img = X_out[label_9_indices[0]].unsqueeze(0)
-                target_X = args.blank_alpha * label_9_img + (1 - args.blank_alpha) * blank_img
-            else:
-                target_X = blank_img
-            target_y = torch.from_numpy(np.array([9]))
-        elif args.target_type == 'badnets':
-            target_X = X_out[-1]
-            target_y = torch.tensor(args.badnets_label)
-            target_X[:, -4:, -4:] = torch.max(target_X)
-            target_X = target_X.unsqueeze(0)
-            target_y = target_y.unsqueeze(0)
-        elif args.target_type == 'sanity_check':
-            target_X = X_out[-1].unsqueeze(0)
-            target_y = y_out[-1].unsqueeze(0)
-        elif args.target_type == 'clipbkd':
-            target_X, target_y = craft_clipbkd(X_out, init_model)
-        elif args.target_type == 'fgsm':
-            print("Preparing FGSM attack by training a model on the available data...")
-            
-            # Create a new model for FGSM
-            fgsm_model = Models[args.model_name](X_out.shape, out_dim=out_dim).to(device)
-            if args.model_name == 'cnn':
-                xavier_init_model(fgsm_model)
-            else:
-                init_wideresnet(fgsm_model)
-            
-            # Train the model using the existing train_model function
-            print("Training FGSM model...")
-            
-            # Use train_model with DP disabled (delta=0, max_grad_norm=inf)
-            fgsm_model = train_model(
-                model_name=args.model_name,
-                X=X_out,
-                y=y_out,
-                X_target=None,
-                y_target=None,
-                epsilon=None,  # No DP
-                delta=None,    # No DP
-                max_grad_norm=None,  # No gradient clipping
-                n_epochs=args.n_epochs,
-                lr=args.lr,
-                block_size=args.block_size,
-                batch_size=args.batch_size,
-                init_model=fgsm_model,
-                out_dim=out_dim,
-                rank=rank,
-                world_size=world_size,
-                gradient_space_audit=False
-            )
-            print("FGSM model training completed")
-            
-            # Get the last sample and its true label
-            original_X = X_out[-1].unsqueeze(0).to(device)
-            original_y = y_out[-1].unsqueeze(0).to(device)
-            
-            # Choose a target class different from the original
-            num_classes = out_dim
-            target_class = (original_y + 1) % num_classes  # Simple way to pick a different class
-            
-            print(f"Performing FGSM attack on sample (original class: {original_y.item()}, target class: {target_class.item()})")
-            
-            # Perform iterative FGSM attack
-            print("Running iterative FGSM attack...")
-            target_X, iters_used, success = fgsm_attack(
-                fgsm_model, 
-                original_X, 
-                target_class, 
-                epsilon=0.1,  # Maximum perturbation
-                max_iter=20,  # Maximum iterations
-                alpha=0.01    # Step size
-            )
-            target_y = target_class
-            
-            # Validate attack results
-            with torch.no_grad():
-                fgsm_model.eval()
-                output = fgsm_model(target_X)
-                pred = output.argmax(dim=1)
-                perturbation = (target_X - original_X).abs().max().item()
-                
-                if success:
-                    print(f"FGSM attack succeeded in {iters_used} iterations")
-                else:
-                    print(f"FGSM attack failed after {iters_used} iterations (using best adversarial example found)")
-                
-                print(f"  Predicted class: {pred.item()}, Target class: {target_class.item()}")
-                print(f"  Perturbation L∞ norm: {perturbation:.6f} (epsilon={0.1})")
-                print(f"  Attack actually fooled model: {pred.item() == target_class.item()}")
-            
-            # Move back to CPU if needed
-            if not target_X.is_cpu:
-                target_X = target_X.cpu()
-            if not target_y.is_cpu:
-                target_y = target_y.cpu()
-                
-            # Clean up
-            del fgsm_model
-            if torch.cuda.is_available():
-                torch.cuda.empty_cache()
-                
-            print("FGSM attack completed")
-        elif args.target_type == 'empty_sequence':
-            # sequence length (same as existing chunks)
-            seq_len = X_out.shape[1]
-            target_X = torch.zeros((1, seq_len), dtype=torch.long)
-            target_y = torch.full((1, seq_len), 9, dtype=torch.long)
-        elif os.path.exists(args.target_type):
-            # pre-crafted target sample
-            target_X = torch.from_numpy(np.load(args.target_type))
-            if init_model is not None:
-                target_y =  choose_worstcase_label(init_model, target_X)
-            else:
-                target_y = torch.from_numpy(np.array([9]))
-        else:
-            raise Exception(f'Target {args.target_type} not found')
+        raise Exception(f'Target {args.target_type} not supported')
 
     # Define datasets
     X_in, y_in = torch.vstack((X_out[:-1], target_X)), torch.cat((y_out[:-1], target_y))
-    X_test, y_test, _ = load_data(args.data_name, None, split='test')
+    X_test, y_test, _ = load_data(config, None, split='test')
 
     if rank == 0:
         print('Training models')
@@ -490,40 +284,43 @@ def main():
     outputs, losses, all_losses, train_set_accs, test_set_accs = init_run_state(
         out_folder, args.fit_world_only, rank)
     
-    # Create or load crafted gradient if needed
+    # Load the gradient-space canary, if that is what we are auditing
     crafted_grad = None
-    if args.target_type == 'gradient_space_canary':
-        if args.gradient_space_canary_pt is not None:
-            if not os.path.exists(args.gradient_space_canary_pt):
-                raise FileNotFoundError(f"--gradient_space_canary_pt not found: {args.gradient_space_canary_pt}")
-            payload = torch.load(args.gradient_space_canary_pt, map_location='cpu')
-            if isinstance(payload, dict) and 'gradient' in payload:
-                crafted_grad = payload['gradient']
-                # Extract target class if available
-                if 'target_class' in payload:
-                    gradient_space_canary_target_class = payload['target_class']
-            else:
-                # Backward compatibility: direct gradient dictionary
-                crafted_grad = payload
-            
-            # Move crafted_grad to the correct device
-            if crafted_grad is not None:
-                crafted_grad = {name: g.to(device) for name, g in crafted_grad.items()}
-            
-            if rank == 0:
-                print(f"Loaded gradient space canary from {args.gradient_space_canary_pt}")
-                if gradient_space_canary_target_class is not None:
-                    print(f"  Target class: {gradient_space_canary_target_class}")
-        elif args.canary_pt is None:
-            if rank == 0:
-                print('Creating crafted gradient')
-            temp_model = Models[args.model_name](X_out.shape, out_dim=out_dim).to(device)
-            if args.model_name == 'cnn':
-                xavier_init_model(temp_model)
-            else:
-                init_wideresnet(temp_model)
-            crafted_grad = craft_gradient(model=temp_model, device=device)
-            del temp_model
+    if args.target_type == 'gradient':
+        if args.canary_pt is None:
+            raise ValueError('--target_type gradient requires --canary_pt')
+        if not os.path.exists(args.canary_pt):
+            raise FileNotFoundError(f'--canary_pt not found: {args.canary_pt}')
+
+        payload = torch.load(args.canary_pt, map_location='cpu')
+        if isinstance(payload, dict) and 'gradient' in payload:
+            crafted_grad = payload['gradient']
+        else:
+            crafted_grad = payload
+        if not isinstance(crafted_grad, dict):
+            raise TypeError(
+                f'Gradient canary must be a {{name: tensor}} dict, got {type(crafted_grad)}')
+
+        # The canary is substituted in place of a per-sample gradient, so it has to
+        # match the model's parameter shapes exactly.
+        shape_ref = init_model if init_model is not None else get_unet_model(config)
+        expected = {name: tuple(p.shape) for name, p in shape_ref.named_parameters()}
+        missing = sorted(set(expected) - set(crafted_grad))
+        unexpected = sorted(set(crafted_grad) - set(expected))
+        if missing or unexpected:
+            raise ValueError(
+                f'Gradient canary does not match the model parameters. '
+                f'Missing: {missing[:5]}, unexpected: {unexpected[:5]}')
+        mismatched = {
+            name: (tuple(crafted_grad[name].shape), expected[name])
+            for name in expected if tuple(crafted_grad[name].shape) != expected[name]
+        }
+        if mismatched:
+            raise ValueError(f'Gradient canary shape mismatch (got, expected): {mismatched}')
+
+        crafted_grad = {name: g.to(device) for name, g in crafted_grad.items()}
+        if rank == 0:
+            print(f'Loaded gradient canary from {args.canary_pt}')
 
     # Distribute repetitions across GPUs
     # TODO: fix distribute reps to account for reps completed
@@ -546,8 +343,7 @@ def main():
             dl_generator = torch.Generator().manual_seed(args.seed + rep * 2 + 1)
             
             model = train_model(
-                args.model_name, 
-                curr_X, 
+                curr_X,
                 curr_y, 
                 target_X, 
                 target_y, 
@@ -559,9 +355,9 @@ def main():
                 args.block_size, 
                 args.batch_size,
                 init_model=init_model,
-                out_dim=out_dim, 
-                gradient_space_audit=(args.target_type == 'gradient_space_canary' and world == 'in'),
-                crafted_gradient=crafted_grad if (args.target_type == 'gradient_space_canary' and world == 'in') else None,
+                config=config,
+                gradient_space_audit=(args.target_type == 'gradient' and world == 'in'),
+                crafted_gradient=crafted_grad if (args.target_type == 'gradient' and world == 'in') else None,
                 device=device,
                 generator=generator,
                 dl_generator=dl_generator,
@@ -577,7 +373,7 @@ def main():
                 
                 output = model(target_X_device)
                 
-                if args.target_type == 'gradient_space_canary' and crafted_grad is not None:
+                if args.target_type == 'gradient' and crafted_grad is not None:
                     # For gradient space canary, score by L∞ norm of parameter update
                     final_params = {n: p.detach().clone().to(device) for n, p in model.named_parameters()}
                     init_params = {n: p.detach().clone().to(device) for n, p in init_model.named_parameters()}
@@ -595,7 +391,7 @@ def main():
                 losses[world].append(loss)
 
             if args.store_all_losses:
-                if args.target_type == 'gradient_space_canary':
+                if args.target_type == 'gradient':
                     # Not a per-sample loss-based audit; keep placeholder for alignment.
                     all_losses[world].append(np.array([], dtype=np.float32))
                 else:
